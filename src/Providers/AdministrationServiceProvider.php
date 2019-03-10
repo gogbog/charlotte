@@ -2,10 +2,15 @@
 
 namespace Vector\Administration\Providers;
 
+
+
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
 
 use Illuminate\Support\ServiceProvider;
 use Vector\Administration\Commands\MigrateCommand;
+use Vector\Administration\Http\Models\Admin;
+
 
 class AdministrationServiceProvider extends ServiceProvider
 {
@@ -26,10 +31,24 @@ class AdministrationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //Fix schema migrations
+        //Fix utf8mb4 collation
         Schema::defaultStringLength(191);
 
-        //Commands
+
+        //Add configuration files
+        $this->mergeConfigFrom(
+            __DIR__.'/../Config/administration.php', 'administration'
+        );
+
+        //Setup Views
+        $this->loadViewsFrom(__DIR__.'/../Resources/Views/', config('administration.views_prefix'));
+
+        //Setup Migrations
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/migrations/');
+        $this->loadRoutesFrom(__DIR__.'/../Routes/routes.php');
+
+
+        //Setup Commands
         //TODO get all classes from commands folder and add them to array
         if ($this->app->runningInConsole()) {
             $this->commands([
@@ -37,12 +56,19 @@ class AdministrationServiceProvider extends ServiceProvider
             ]);
         }
 
-
-
-        //Migrations
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/migrations/');
-        $this->loadRoutesFrom(__DIR__.'/../Routes/administration.php');
-
+        //Setup Guard
+        Config::set([
+            'auth.guards.' . config('administration.guard') => [
+                'driver' => 'session',
+                'provider' => config('administration.guard'),
+            ],
+        ]);
+        Config::set([
+            'auth.providers.' . config('administration.guard') => [
+                'driver' => 'eloquent',
+                'model' => Admin::class,
+            ],
+        ]);
 
 
     }
