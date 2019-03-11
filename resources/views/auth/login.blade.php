@@ -7,16 +7,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{--<link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">--}}
     <title>Pixel Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap</title>
-    <link rel="stylesheet" href="{{ asset('vector/administration/css/add.css') }}">
-    <link rel="stylesheet" href="{{ asset('vector/administration/css/style-dark.css') }}">
-    {{--<link rel="stylesheet" href="{{ asset('css/style-light.css') }}">--}}
-    <link rel="stylesheet" href="{{ asset('vector/administration/css/default-dark.css') }}">
-{{--<link rel="stylesheet" href="{{ asset('css/default.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}">
+    {{--<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}">
+{{--<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default.css') }}">--}}
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="{{ asset('vector/administration/js/html5shiv.js') }}"></script>
-    <script src="{{ asset('vector/administration/js/respond.min.js') }}"></script>
+    <script src="{{ asset(config('administration.file_prefix') . 'js/html5shiv.js') }}"></script>
+    <script src="{{ asset(config('administration.file_prefix') . 'js/respond.min.js') }}"></script>
     <![endif]-->
 </head>
 <body>
@@ -26,30 +26,30 @@
 </div>
 <section id="wrapper" class="login-register">
     <div class="login-box">
-        <div class="white-box">
+        <div class="white-box" style="margin-bottom: 0;">
             <form class="form-horizontal form-material" id="loginform" method="post" action="{{ route('administration.login') }}">
                 {{ csrf_field() }}
-                <h3 class="box-title m-b-20">Sign In</h3>
+                <h3 class="box-title m-b-20 text-center">{{ trans('administration::admin.admin_panel') }}</h3>
                 <div class="form-group ">
                     <div class="col-xs-12">
-                        <input class="form-control" name="email" type="email" required="" placeholder="Email">
+                        <input class="form-control" name="email" type="email" required="" placeholder="{{ trans('administration::admin.email') }}">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <input class="form-control" name="password" type="password" required="" placeholder="Password">
+                        <input class="form-control" name="password" type="password" required="" placeholder="{{ trans('administration::admin.password') }}">
                     </div>
                 </div>
-                <div class="form-group text-center m-t-20">
+                <div class="form-group text-center m-t-20 m-b-5">
                     <div class="col-xs-12">
-                        <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
+                        <button class="btn log-btn btn-lg btn-block text-uppercase" type="submit">{{ trans('administration::admin.login') }}</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </section>
-<script src="{{ asset('vector/administration/js/jquery.min.js') }}"></script>
-<script src="{{ asset('vector/administration/js/app.js') }}"></script>
+<script src="{{ asset(config('administration.file_prefix') . 'js/jquery.min.js') }}"></script>
+<script src="{{ asset(config('administration.file_prefix') . 'js/app.js') }}"></script>
 </body>
 </html>

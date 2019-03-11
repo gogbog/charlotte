@@ -24,5 +24,7 @@ return [
      */
     'guard' => 'administrator',
 
+    'file_prefix' => 'vector/administration/'
+
 
 ];

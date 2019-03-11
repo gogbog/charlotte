@@ -5689,13 +5689,13 @@ table.focus-on tbody tr.focused td {
   background-position: center bottom, center calc(100% - 1px);
   background-repeat: no-repeat;
   background-size: 0 2px, 100% 1px;
-  padding: 0;
+  padding: 0 10px;
   transition: background 0s ease-out 0s;
 }
 .form-material .form-control,
 .form-material .form-control.focus,
 .form-material .form-control:focus {
-  background-image: linear-gradient(#2c5ca9, #2c5ca9), linear-gradient(rgba(120, 130, 140, 0.28), rgba(120, 130, 140, 0.28));
+  background-image: linear-gradient(#f75b36, #f75b36), linear-gradient(rgba(120, 130, 140, 0.28), rgba(120, 130, 140, 0.28));
   border: 0 none;
   border-radius: 0;
   box-shadow: none;
@@ -5853,7 +5853,7 @@ table.focus-on tbody tr.focused td {
 .error-box {
   height: 100%;
   position: fixed;
-  background: url(/images/error-bg.jpg?5df682a513bde14949643fbe6d0fbe18) no-repeat center center #fff !important;
+  background: url('../../public/img/error-bg.jpg') no-repeat center center #fff !important;
   width: 100%;
 }
 .error-box .footer {
@@ -5871,24 +5871,34 @@ table.focus-on tbody tr.focused td {
 }
 /* Login- register pages */
 .login-register {
-  background: url(/images/login-register.jpg?0c8d643cc70ae43c859da5b4e1b991b3) no-repeat center center / cover !important;
+  background: #6f7689;
+  background: radial-gradient(circle, #6f7689 0%, #353c48 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#6f7689", endColorstr="#353c48", GradientType=1);
   height: 100%;
   position: fixed;
 }
 .login-box {
   background: #ffffff;
   width: 400px;
-  margin: 0 auto;
-  margin-top: 10%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 .login-box .footer {
   width: 100%;
   left: 0px;
   right: 0px;
 }
-.login-box .social {
-  display: block;
-  margin-bottom: 30px;
+.log-btn {
+  transition: 0.2s ease-in-out;
+  background-color: #F75B36;
+  color: #ffffff;
+}
+.log-btn:hover {
+  transition: 0.2s ease-in-out;
+  background-color: #e64a25;
 }
 #recoverform {
   display: none;
@@ -7059,8 +7069,8 @@ ul.list-icons li i {
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url(/fonts/fontawesome-webfont.eot?32400f4e08932a94d8bfd2422702c446);
-  src: url(/fonts/fontawesome-webfont.eot?32400f4e08932a94d8bfd2422702c446?#iefix&v=4.5.0) format('embedded-opentype'), url(/fonts/fontawesome-webfont.woff2?db812d8a70a4e88e888744c1c9a27e89) format('woff2'), url(/fonts/fontawesome-webfont.woff?a35720c2fed2c7f043bc7e4ffb45e073) format('woff'), url(/fonts/fontawesome-webfont.ttf?a3de2170e4e9df77161ea5d3f31b2668) format('truetype'), url(/fonts/fontawesome-webfont.svg?f775f9cca88e21d45bebe185b27c0e5b#fontawesomeregular) format('svg');
+  src: url('../fonts/fontawesome-webfont.eot?v=4.5.0');
+  src: url('../fonts/fontawesome-webfont.eot?#iefix&v=4.5.0') format('embedded-opentype'), url('../fonts/fontawesome-webfont.woff2?v=4.5.0') format('woff2'), url('../fonts/fontawesome-webfont.woff?v=4.5.0') format('woff'), url('../fonts/fontawesome-webfont.ttf?v=4.5.0') format('truetype'), url('../fonts/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -9135,8 +9145,8 @@ ul.list-icons li i {
 }
 @font-face {
   font-family: 'themify';
-  src: url(/fonts/themify.eot?2c454669bdf3aebf32a1bd8ac1e0d2d6);
-  src: url(/fonts/themify.eot?2c454669bdf3aebf32a1bd8ac1e0d2d6?#iefix-fvbane) format('embedded-opentype'), url(/fonts/themify.woff?a1ecc3b826d01251edddf29c3e4e1e97) format('woff'), url(/fonts/themify.ttf?e23a7dcaefbde4e74e263247aa42ecd7) format('truetype'), url(/fonts/themify.svg?9c8e96ecc7fa01e6ebcd196495ed2db5#themify) format('svg');
+  src: url('../fonts/themify.eot?-fvbane');
+  src: url('../fonts/themify.eot?#iefix-fvbane') format('embedded-opentype'), url('../fonts/themify.woff?-fvbane') format('woff'), url('../fonts/themify.ttf?-fvbane') format('truetype'), url('../fonts/themify.svg?-fvbane#themify') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -10211,8 +10221,8 @@ ul.list-icons li i {
 }
 @font-face {
   font-family: 'simple-line-icons';
-  src: url(/fonts/Simple-Line-Icons.eot?dacd16c9a3d2cb61b472a35979015bf3);
-  src: url(/fonts/Simple-Line-Icons.eot?dacd16c9a3d2cb61b472a35979015bf3?#iefix-i3a2kk) format('embedded-opentype'), url(/fonts/Simple-Line-Icons.ttf?b2892aa62b0fb2c21c8d7700e2ef6e56) format('truetype'), url(/fonts/Simple-Line-Icons.woff2?6ac7320f709ffd2784b4a861e5b60395) format('woff2'), url(/fonts/Simple-Line-Icons.woff?0bbfc705e37a927ce2ae72b749b3154d) format('woff'), url(/fonts/Simple-Line-Icons.svg?00ce23caac2c875bcc6db8e4afe5c532#simple-line-icons) format('svg');
+  src: url('../fonts/Simple-Line-Icons.eot?-i3a2kk');
+  src: url('../fonts/Simple-Line-Icons.eot?#iefix-i3a2kk') format('embedded-opentype'), url('../fonts/Simple-Line-Icons.ttf?-i3a2kk') format('truetype'), url('../fonts/Simple-Line-Icons.woff2?-i3a2kk') format('woff2'), url('../fonts/Simple-Line-Icons.woff?-i3a2kk') format('woff'), url('../fonts/Simple-Line-Icons.svg?-i3a2kk#simple-line-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -10986,8 +10996,8 @@ ul.list-icons li i {
  */
 @font-face {
   font-family: 'weathericons';
-  src: url(/fonts/weathericons-regular-webfont.eot?4b658767da6bd92ce2addb3ce512784d);
-  src: url(/fonts/weathericons-regular-webfont.eot?4b658767da6bd92ce2addb3ce512784d?#iefix) format('embedded-opentype'), url(/fonts/weathericons-regular-webfont.woff2?1cd48d78f06d33973d9d761d426e69bf) format('woff2'), url(/fonts/weathericons-regular-webfont.woff?8cac70ebda3f23ce472110d9f21e8593) format('woff'), url(/fonts/weathericons-regular-webfont.ttf?4618f0de2a818e7ad3fe880e0b74d04a) format('truetype'), url(/fonts/weathericons-regular-webfont.svg?ecaf8b481729b18f6a8494d9f691cdae#weather_iconsregular) format('svg');
+  src: url('../font/weathericons-regular-webfont.eot');
+  src: url('../font/weathericons-regular-webfont.eot?#iefix') format('embedded-opentype'), url('../font/weathericons-regular-webfont.woff2') format('woff2'), url('../font/weathericons-regular-webfont.woff') format('woff'), url('../font/weathericons-regular-webfont.ttf') format('truetype'), url('../font/weathericons-regular-webfont.svg#weather_iconsregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -12783,8 +12793,8 @@ ul.list-icons li i {
 }
 @font-face {
   font-family: "linea-arrows-10";
-  src: url(/fonts/linea-arrows-10.eot?9b287297a8d930c35c32a62fed4eba68);
-  src: url(/fonts/linea-arrows-10.eot?9b287297a8d930c35c32a62fed4eba68?#iefix) format("embedded-opentype"), url(/fonts/linea-arrows-10.woff?e9c2f96041f9aa6fa05699a7e361d5cf) format("woff"), url(/fonts/linea-arrows-10.ttf?4e2921ae2aa6ab286dca55f6d6822395) format("truetype"), url(/fonts/linea-arrows-10.svg?839102e05032bae37b076c3c44c951b7#linea-arrows-10) format("svg");
+  src: url('../fonts/linea-arrows-10.eot');
+  src: url('../fonts/linea-arrows-10.eot?#iefix') format('embedded-opentype'), url('../fonts/linea-arrows-10.woff') format('woff'), url('../fonts/linea-arrows-10.ttf') format('truetype'), url('../fonts/linea-arrows-10.svg#linea-arrows-10') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -13223,8 +13233,8 @@ ul.list-icons li i {
 /*Basic icon*/
 @font-face {
   font-family: "linea-basic-10";
-  src: url(/fonts/linea-basic-10.eot?e4de528c00da0c081906c3caea289f0f);
-  src: url(/fonts/linea-basic-10.eot?e4de528c00da0c081906c3caea289f0f?#iefix) format("embedded-opentype"), url(/fonts/linea-basic-10.woff?61f3a8a387a64abfc0535cd0813cd71a) format("woff"), url(/fonts/linea-basic-10.ttf?e6763f008205c55db623cdf68bbd581f) format("truetype"), url(/fonts/linea-basic-10.svg?177764eadf43efc393ebb98329a774b2#linea-basic-10) format("svg");
+  src: url('../fonts/linea-basic-10.eot');
+  src: url('../fonts/linea-basic-10.eot?#iefix') format('embedded-opentype'), url('../fonts/linea-basic-10.woff') format('woff'), url('../fonts/linea-basic-10.ttf') format('truetype'), url('../fonts/linea-basic-10.svg#linea-basic-10') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -13660,8 +13670,8 @@ ul.list-icons li i {
 /*Basic elaboration*/
 @font-face {
   font-family: "linea-basic-elaboration-10";
-  src: url(/fonts/linea-basic-elaboration-10.eot?7193d8c51aea93b5f5751bdb676a7b31);
-  src: url(/fonts/linea-basic-elaboration-10.eot?7193d8c51aea93b5f5751bdb676a7b31?#iefix) format("embedded-opentype"), url(/fonts/linea-basic-elaboration-10.woff?0ce002fd728a1b688e7ce4d82cdb0369) format("woff"), url(/fonts/linea-basic-elaboration-10.ttf?3759629be32bb8b55b2119af8cf5122d) format("truetype"), url(/fonts/linea-basic-elaboration-10.svg?b1a9c3a92d7fe46449a6b048c1c82d40#linea-basic-elaboration-10) format("svg");
+  src: url('../fonts/linea-basic-elaboration-10.eot');
+  src: url('../fonts/linea-basic-elaboration-10.eot?#iefix') format('embedded-opentype'), url('../fonts/linea-basic-elaboration-10.woff') format('woff'), url('../fonts/linea-basic-elaboration-10.ttf') format('truetype'), url('../fonts/linea-basic-elaboration-10.svg#linea-basic-elaboration-10') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14127,8 +14137,8 @@ ul.list-icons li i {
 /*Ecommerce*/
 @font-face {
   font-family: "linea-ecommerce-10";
-  src: url(/fonts/linea-ecommerce-10.eot?ffd2088eabba9bda4af6b6e98787e789);
-  src: url(/fonts/linea-ecommerce-10.eot?ffd2088eabba9bda4af6b6e98787e789?#iefix) format("embedded-opentype"), url(/fonts/linea-ecommerce-10.woff?9341e6c26dba68b0226832f4623833be) format("woff"), url(/fonts/linea-ecommerce-10.ttf?e8892174d7f87530f38e6a0bd5358cac) format("truetype"), url(/fonts/linea-ecommerce-10.svg?86d8ba2ca6a7c6fe44422fe6a4ff5831#linea-ecommerce-10) format("svg");
+  src: url('../fonts/linea-ecommerce-10.eot');
+  src: url('../fonts/linea-ecommerce-10.eot?#iefix') format('embedded-opentype'), url('../fonts/linea-ecommerce-10.woff') format('woff'), url('../fonts/linea-ecommerce-10.ttf') format('truetype'), url('../fonts/linea-ecommerce-10.svg#linea-ecommerce-10') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14414,8 +14424,8 @@ ul.list-icons li i {
 /*Music */
 @font-face {
   font-family: "linea-music-10";
-  src: url(/fonts/linea-music-10.eot?a7dcedf1c8fb3ca799445dcfe7f5e875);
-  src: url(/fonts/linea-music-10.eot?a7dcedf1c8fb3ca799445dcfe7f5e875?#iefix) format("embedded-opentype"), url(/fonts/linea-music-10.woff?7fe2deb0e63326e5d93de9c6e36f2465) format("woff"), url(/fonts/linea-music-10.ttf?41575b6f5ffd293becbb140ff87328c8) format("truetype"), url(/fonts/linea-music-10.svg?83767d2d18790bbcd9398ac07d5414a5#linea-music-10) format("svg");
+  src: url('../fonts/linea-music-10.eot');
+  src: url('../fonts/linea-music-10.eot?#iefix') format('embedded-opentype'), url('../fonts/linea-music-10.woff') format('woff'), url('../fonts/linea-music-10.ttf') format('truetype'), url('../fonts/linea-music-10.svg#linea-music-10') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14536,8 +14546,8 @@ ul.list-icons li i {
 /*Software*/
 @font-face {
   font-family: "linea-software-10";
-  src: url(/fonts/linea-software-10.eot?b5b4a545328f3eee27895cc001cbadd3);
-  src: url(/fonts/linea-software-10.eot?b5b4a545328f3eee27895cc001cbadd3?#iefix) format("embedded-opentype"), url(/fonts/linea-software-10.woff?602d0d4d6fbd5993dbc867749d2e9a5e) format("woff"), url(/fonts/linea-software-10.ttf?8fe30102fca386ab297caed9dfa59314) format("truetype"), url(/fonts/linea-software-10.svg?6cfc5077a8ac9e581ef5073468740daa#linea-software-10) format("svg");
+  src: url('../fonts/linea-software-10.eot');
+  src: url('../fonts/linea-software-10.eot?#iefix') format('embedded-opentype'), url('../fonts/linea-software-10.woff') format('woff'), url('../fonts/linea-software-10.ttf') format('truetype'), url('../fonts/linea-software-10.svg#linea-software-10') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14868,8 +14878,8 @@ ul.list-icons li i {
 /*Weather*/
 @font-face {
   font-family: "linea-weather-10";
-  src: url(/fonts/linea-weather-10.eot?7129dca4faddeb4beaf9c0dbf91ebd2b);
-  src: url(/fonts/linea-weather-10.eot?7129dca4faddeb4beaf9c0dbf91ebd2b?#iefix) format("embedded-opentype"), url(/fonts/linea-weather-10.woff?03b5db0c4288ae4be02702441ab535cf) format("woff"), url(/fonts/linea-weather-10.ttf?eef9b7d7918436513becfdbd6107327e) format("truetype"), url(/fonts/linea-weather-10.svg?2a4ea9471689e35ecbb6275090f0a580#linea-weather-10) format("svg");
+  src: url('../fonts/linea-weather-10.eot');
+  src: url('../fonts/linea-weather-10.eot?#iefix') format('embedded-opentype'), url('../fonts/linea-weather-10.woff') format('woff'), url('../fonts/linea-weather-10.ttf') format('truetype'), url('../fonts/linea-weather-10.svg#linea-weather-10') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -16143,13 +16153,13 @@ a.mytooltip {
   margin: -7px 0 0 -15px;
   width: 30px;
   height: 20px;
-  background: url(/images/tooltip1.svg?7391b233445751ecb8371cd87cb02985) no-repeat center center;
+  background: url('../../public/img/tooltip/tooltip1.svg') no-repeat center center;
   background-size: 100%;
 }
 /***********Bloated Tooltip ***********/
 .tooltip-content3 {
   position: absolute;
-  background: url(/images/shape1.svg?b986fe6a0c6b736f3d7dbb877744b765) no-repeat center bottom;
+  background: url('../../public/img/tooltip/shape1.svg') no-repeat center bottom;
   background-size: 100% 100%;
   z-index: 9999;
   width: 200px;

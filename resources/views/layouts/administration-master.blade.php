@@ -6,16 +6,16 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="{{ asset('vector/administration/css/add.css') }}">
-    <link rel="stylesheet" href="{{ asset('vector/administration/css/style-dark.css') }}">
-    {{--<link rel="stylesheet" href="{{ asset('vector/administration/css/style-light.css') }}">--}}
-    <link rel="stylesheet" href="{{ asset('vector/administration/css/default-dark.css') }}">
-    {{--<link rel="stylesheet" href="{{ asset('vector/administration/css/default.css') }}">--}}
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
+    <link rel="stylesheet"  data-relative-urls="false" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}">
+    {{--<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}">
+{{--<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default.css') }}">--}}
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="{{ asset('vector/administration/js/html5shiv.js') }}"></script>
-    <script src="{{ asset('vector/administration/js/respond.min.js') }}"></script>
+    <script src="{{ asset(config('administration.file_prefix') . 'js/html5shiv.js') }}"></script>
+    <script src="{{ asset(config('administration.file_prefix') . 'js/respond.min.js') }}"></script>
     <![endif]-->
 </head>
 <body class="fix-header fix-sidebar">
@@ -33,15 +33,15 @@
             <div class="top-left-part">
                 <a class="logo" href="index.html"><b>
                         <!--This is dark logo icon-->
-                        <img src="{{ asset('vector/administration/img/pixeladmin-logo.png') }}" alt="home" class="dark-logo" />
+                        <img src="{{ asset(config('administration.file_prefix') . 'img/pixeladmin-logo.png') }}" alt="home" class="dark-logo" />
                         <!--This is light logo icon-->
-                        <img src="{{ asset('vector/administration/img/pixeladmin-logo-dark.png') }}" alt="home" class="light-logo" />
+                        <img src="{{ asset(config('administration.file_prefix') . 'img/pixeladmin-logo-dark.png') }}" alt="home" class="light-logo" />
                     </b>
                     <span class="hidden-xs">
                         <!--This is dark logo text-->
-                        <img src="{{ asset('vector/administration/img/pixeladmin-text.png') }}" alt="home" class="dark-logo" />
+                        <img src="{{ asset(config('administration.file_prefix') . 'img/pixeladmin-text.png') }}" alt="home" class="dark-logo" />
                         <!--This is light logo text-->
-                        <img src="{{ asset('vector/administration/img/pixeladmin-text-dark.png') }}" alt="home" class="light-logo" />
+                        <img src="{{ asset(config('administration.file_prefix') . 'img/pixeladmin-text-dark.png') }}" alt="home" class="light-logo" />
                     </span>
                 </a>
             </div>
@@ -63,7 +63,7 @@
                         <li>
                             <div class="message-center">
                                 <a href="#">
-                                    <div class="user-img"> <img src="{{ asset('vector/administration/img/users/pawandeep.jpg') }}" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
+                                    <div class="user-img"> <img src="{{ asset('img/users/pawandeep.jpg') }}" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
                                     <div class="mail-contnet">
                                         <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
                                 </a>
@@ -99,14 +99,14 @@
                 </li>
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset('vector/administration/img/users/varun.jpg') }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b> </a>
+                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset('img/users/varun.jpg') }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b> </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="ti-settings"></i> {{ trans('administration::admin.edit_profile') }}</a></li>
-                        <li><a href="{{ route('administration.logout') }}"><i class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a></li>
+                        <li><a href="#"><i class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a></li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
-                <li class="right-side-toggle"> <a class="waves-effect waves-light" href="javascript:void(0)"><i class="ti-settings"></i></a></li>
+                <li class="right-side-toggle"> <a class="waves-effect waves-light" href="#"><i class="ti-settings"></i></a></li>
                 <!-- /.dropdown -->
             </ul>
         </div>
@@ -122,7 +122,10 @@
             <ul class="nav" id="side-menu">
                 <li class="hidden-sm hidden-md hidden-lg" style="width: 100vw;"></li>
                 <li class="nav-small-cap m-t-10">{{ trans('administration::admin.menu') }}</li>
-                <li><a href="" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">Dashboard</span></a></li>
+                <li><a href="" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">Dashboard</span></a></li>
+                <li><a href="#" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">Other</span></a></li>
+                <li><a href="#" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">dasds</span></a></li>
+                <li><a href="#" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">asdasdasd</span></a></li>
             </ul>
         </div>
     </div>
@@ -142,9 +145,9 @@
                 <!-- /.col-lg-12 -->
             </div>
 
-            @yield('content')
+        @yield('content')
 
-            <!-- .right-sidebar -->
+        <!-- .right-sidebar -->
             <div class="right-sidebar">
                 <div class="slimscrollright">
                     <div class="rpanel-title"> Service Panel <span><i class="ti-close right-side-toggle"></i></span> </div>
@@ -152,66 +155,28 @@
                         <ul>
                             <li><b>Layout Options</b></li>
                             <li>
-                                <div class="checkbox checkbox-info">
+                                <div class="checkbox checkbox-danger">
                                     <input id="checkbox1" type="checkbox" class="fxhdr">
                                     <label for="checkbox1"> Fix Header </label>
                                 </div>
                             </li>
                             <li>
-                                <div class="checkbox checkbox-warning">
+                                <div class="checkbox checkbox-danger">
                                     <input id="checkbox2" type="checkbox" checked="" class="fxsdr">
                                     <label for="checkbox2"> Fix Sidebar </label>
                                 </div>
                             </li>
                             <li>
-                                <div class="checkbox checkbox-success">
+                                <div class="checkbox checkbox-danger">
                                     <input id="checkbox4" type="checkbox" class="open-close">
                                     <label for="checkbox4"> Toggle Sidebar </label>
                                 </div>
                             </li>
-                        </ul>
-                        <ul id="themecolors" class="m-t-20">
-                            <li><b>With Light sidebar</b></li>
-                            <li><a href="javascript:void(0)" theme="default" class="default-theme">1</a></li>
-                            <li><a href="javascript:void(0)" theme="green" class="green-theme">2</a></li>
-                            <li><a href="javascript:void(0)" theme="gray" class="yellow-theme">3</a></li>
-                            <li><a href="javascript:void(0)" theme="blue" class="blue-theme">4</a></li>
-                            <li><a href="javascript:void(0)" theme="purple" class="purple-theme">5</a></li>
-                            <li><a href="javascript:void(0)" theme="megna" class="megna-theme">6</a></li>
-                            <li><b>With Dark sidebar</b></li>
-                            <br/>
-                            <li><a href="javascript:void(0)" theme="default-dark" class="default-dark-theme working">7</a></li>
-                            <li><a href="javascript:void(0)" theme="green-dark" class="green-dark-theme">8</a></li>
-                            <li><a href="javascript:void(0)" theme="gray-dark" class="yellow-dark-theme">9</a></li>
-                            <li><a href="javascript:void(0)" theme="blue-dark" class="blue-dark-theme">10</a></li>
-                            <li><a href="javascript:void(0)" theme="purple-dark" class="purple-dark-theme">11</a></li>
-                            <li><a href="javascript:void(0)" theme="megna-dark" class="megna-dark-theme">12</a></li>
-                        </ul>
-                        <ul class="m-t-20 chatonline">
-                            <li><b>Chat option</b></li>
                             <li>
-                                <a href="javascript:void(0)"><img src="{{ asset('vector/administration/img/users/varun.jpg') }}" alt="user-img" class="img-circle"> <span>Varun Dhavan <small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="{{ asset('vector/administration/img/users/genu.jpg') }}" alt="user-img" class="img-circle"> <span>Genelia Deshmukh <small class="text-warning">Away</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="{{ asset('vector/administration/img/users/ritesh.jpg') }}" alt="user-img" class="img-circle"> <span>Ritesh Deshmukh <small class="text-danger">Busy</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="{{ asset('vector/administration/img/users/arijit.jpg') }}" alt="user-img" class="img-circle"> <span>Arijit Sinh <small class="text-muted">Offline</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="{{ asset('vector/administration/img/users/govinda.jpg') }}" alt="user-img" class="img-circle"> <span>Govinda Star <small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="{{ asset('vector/administration/img/users/hritik.jpg') }}" alt="user-img" class="img-circle"> <span>John Abraham<small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="{{ asset('vector/administration/img/users/john.jpg') }}" alt="user-img" class="img-circle"> <span>Hritik Roshan<small class="text-success">online</small></span></a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)"><img src="{{ asset('vector/administration/img/users/pawandeep.jpg') }}" alt="user-img" class="img-circle"> <span>Pwandeep rajan <small class="text-success">online</small></span></a>
+                                <div class="checkbox checkbox-danger">
+                                    <input id="checkbox6" type="checkbox">
+                                    <label for="checkbox6"> Light Mode </label>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -225,8 +190,8 @@
     <!-- /#page-wrapper -->
 </div>
 <!-- /#wrapper -->
-<script src="{{ asset('vector/administration/js/jquery.min.js') }}"></script>
-<script src="{{ asset('vector/administration/js/app.js') }}"></script>
+<script src="{{ asset(config('administration.file_prefix') . 'js/jquery.min.js') }}"></script>
+<script src="{{ asset(config('administration.file_prefix') . 'js/app.js') }}"></script>
 @yield('js')
 </body>
 </html>
