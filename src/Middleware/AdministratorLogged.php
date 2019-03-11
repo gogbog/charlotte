@@ -1,6 +1,6 @@
 <?php
 
-namespace Vector\Administration\Middleware;
+namespace Charlotte\Administration\Middleware;
 
 use Closure;
 

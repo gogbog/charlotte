@@ -1,6 +1,6 @@
 <?php
 
-namespace Vector\Administration\Http\Controllers;
+namespace Charlotte\Administration\Http\Controllers;
 
 
 use Illuminate\Foundation\Bus\DispatchesJobs;

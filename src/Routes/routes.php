@@ -1,35 +1,34 @@
 <?php
 
-/*
- * ProVision Administration, http://ProVision.bg
- * Author: Venelin Iliev, http://veneliniliev.com
- */
-/**
- * System status for remote checking
- */
 
+use Charlotte\Administration\Helpers\Administration;
+use Charlotte\Administration\Middleware\AdministratorLogged;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+use Charlotte\Administration\Helpers\AdministrationModuleHelper;
 
 
 Route::group([
     'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => \Vector\Administration\Helpers\Administration::getMiddlewares()
+    'middleware' => Administration::getMiddlewares()
 ], function () {
     Route::group([
-        'namespace' => 'Vector\Administration\Http\Controllers',
+        'namespace' => 'Charlotte\Administration\Http\Controllers',
         'prefix' => 'admin',
         'as' => 'administration.',
     ], function () {
 
         Route::group([
-            'middleware' => \Vector\Administration\Middleware\AdministratorLogged::class
+            'middleware' => AdministratorLogged::class
 
         ], function () {
             Route::get('/', [
                 'as' => 'index',
                 'uses' => 'AdministrationController@index',
             ]);
+
+            //Import all module classes
+            AdministrationModuleHelper::moduleRoutes();
         });
 
         // Authentication Routes...

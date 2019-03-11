@@ -1,6 +1,6 @@
 <?php
 
-namespace Vector\Administration\Commands;
+namespace Charlotte\Administration\Commands;
 
 use Illuminate\Console\Command;
 

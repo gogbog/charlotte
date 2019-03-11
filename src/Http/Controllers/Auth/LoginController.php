@@ -1,18 +1,15 @@
 <?php
 
-namespace Vector\Administration\Http\Controllers\Auth;
+namespace Charlotte\Administration\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Charlotte\Administration\Middleware\AdministratorLogged;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Route;
-use Vector\Administration\Middleware\AdministratorLogged;
-use Vector\Administration\Middleware\LoginMiddleware;
 
-class LoginController extends Controller
-{
+class LoginController extends Controller {
     /*
     |--------------------------------------------------------------------------
     | Login Controller
@@ -38,8 +35,7 @@ class LoginController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->redirectTo = route('administration.index');
 
         $this->middleware(AdministratorLogged::class, ['except' => ['logout']]);

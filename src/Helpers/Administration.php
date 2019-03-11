@@ -1,15 +1,9 @@
 <?php
 
-namespace Vector\Administration\Helpers;
-
-use Dimsav\Translatable\Exception\LocalesNotDefinedException;
-use File;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
-use LaravelLocalization;
-use ProVision\Administration\Library\CustomBladeCompiler;
+namespace Charlotte\Administration\Helpers;
 
 class Administration {
+
     public static function getMiddlewares($additional_middlewares = []) {
         $middlewares = [
             \App\Http\Middleware\EncryptCookies::class,
@@ -24,4 +18,6 @@ class Administration {
 
         return array_merge($middlewares, $additional_middlewares);
     }
+
+
 }

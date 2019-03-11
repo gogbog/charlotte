@@ -1,5 +1,5 @@
 {
-    "name": "vector/administration",
+    "name": "charlotte/administration",
     "type": "project",
     "authors": [
         {
@@ -10,18 +10,19 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Vector\\Administration\\": "src/"
+            "Charlotte\\Administration\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Vector\\Administration\\Providers\\AdministrationServiceProvider"
+                "Charlotte\\Administration\\Providers\\AdministrationServiceProvider"
             ]
         }
     },
     "require": {
         "mcamara/laravel-localization": "1.3.x",
-        "barryvdh/laravel-debugbar": "^3.2@dev"
+        "barryvdh/laravel-debugbar": "^3.2@dev",
+        "caffeinated/modules": "dev-master"
     }
 }
