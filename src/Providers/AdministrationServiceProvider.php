@@ -37,11 +37,11 @@ class AdministrationServiceProvider extends ServiceProvider
 
         //Add configuration files
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/administration.php', 'administration'
+            __DIR__.'/../../config/administration.php', 'administration'
         );
 
         //Setup Views
-        $this->loadViewsFrom(__DIR__.'/../Resources/Views/', config('administration.views_prefix'));
+        $this->loadViewsFrom(__DIR__.'/../../resources/views/', config('administration.views_prefix'));
 
         //Setup Migrations
         $this->loadMigrationsFrom(__DIR__ . '/../Database/migrations/');
@@ -69,6 +69,12 @@ class AdministrationServiceProvider extends ServiceProvider
                 'model' => Admin::class,
             ],
         ]);
+
+
+        //Publish package
+        $this->publishes([
+            __DIR__.'/../../resources/assets/' => public_path('vector/administration'),
+        ], 'public');
 
 
     }
