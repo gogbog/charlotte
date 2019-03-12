@@ -10,7 +10,7 @@
   top: 0px;
   position: fixed;
   z-index: 99999;
-  background: #fff;
+  background: #333 !important;
 }
 .preloader .cssload-speeding-wheel {
   position: absolute;
@@ -4090,9 +4090,11 @@ table.focus-on tbody tr.focused td {
   float: right;
   cursor: pointer;
   font-size: 11px;
+  padding: 15px;
+  margin: -14px;
 }
 .right-sidebar .rpanel-title span:hover {
-  color: #96a2b4;
+  color: #ffffff;
 }
 .right-sidebar .r-panel-body {
   padding: 20px;

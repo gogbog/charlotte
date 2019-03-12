@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
-    <link rel="stylesheet"  data-relative-urls="false" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}">
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}">
     {{--<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}">--}}
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}">
 {{--<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default.css') }}">--}}
@@ -18,7 +18,7 @@
     <script src="{{ asset(config('administration.file_prefix') . 'js/respond.min.js') }}"></script>
     <![endif]-->
 </head>
-<body class="fix-header fix-sidebar">
+<body class="fix-header fix-sidebar" onload="startTime()">
 <!-- Preloader -->
 <div class="preloader">
     <div class="cssload-speeding-wheel"></div>
@@ -31,7 +31,7 @@
                 <i class="ti-menu"></i>
             </a>
             <div class="top-left-part">
-                <a class="logo" href="index.html"><b>
+                <a class="logo" href=""><b>
                         <!--This is dark logo icon-->
                         <img src="{{ asset(config('administration.file_prefix') . 'img/pixeladmin-logo.png') }}" alt="home" class="dark-logo" />
                         <!--This is light logo icon-->
@@ -52,34 +52,15 @@
                     </a>
                 </li>
             </ul>
-            <ul class="nav navbar-top-links navbar-right pull-right">
-                <li class="dropdown"> <a class="dropdown-toggle waves-effect" data-toggle="dropdown" href="#"><i class="icon-envelope"></i>
-                        <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
+            <ul class="nav navbar-top-links navbar-right pull-right m-r-15">
+                <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="icon-bell"></i>
+                        <div class="notify">
+                            {{--<span class="heartbit"></span>--}}
+                            <span class="point"></span>
+                        </div>
                     </a>
-                    <ul class="dropdown-menu mailbox">
-                        <li>
-                            <div class="drop-title">You have 4 new messages</div>
-                        </li>
-                        <li>
-                            <div class="message-center">
-                                <a href="#">
-                                    <div class="user-img"> <img src="{{ asset('img/users/pawandeep.jpg') }}" alt="user" class="img-circle"> <span class="profile-status online pull-right"></span> </div>
-                                    <div class="mail-contnet">
-                                        <h5>Pavan kumar</h5> <span class="mail-desc">Just see the my admin!</span> <span class="time">9:30 AM</span> </div>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <a class="text-center"> <strong>See all notifications</strong> <i class="fa fa-angle-right"></i> </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-messages -->
-                </li>
-                <!-- /.dropdown -->
-                <li class="dropdown"> <a class="dropdown-toggle waves-effect" data-toggle="dropdown" href="#"><i class="icon-note"></i>
-                        <div class="notify"><span class="heartbit"></span><span class="point"></span></div>
-                    </a>
-                    <ul class="dropdown-menu dropdown-tasks">
+                    <ul class="dropdown-menu dropdown-tasks m-t-30">
                         <li>
                             <a href="#">
                                 <div>
@@ -99,14 +80,14 @@
                 </li>
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset('img/users/varun.jpg') }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b> </a>
+                    <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="{{ asset(config('administration.file_prefix') . 'img/users/varun.jpg') }}" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b> </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="ti-settings"></i> {{ trans('administration::admin.edit_profile') }}</a></li>
                         <li><a href="#"><i class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a></li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
-                <li class="right-side-toggle"> <a class="waves-effect waves-light" href="#"><i class="ti-settings"></i></a></li>
+                <li class="right-side-toggle"> <a><i class="ti-settings"></i></a></li>
                 <!-- /.dropdown -->
             </ul>
         </div>
@@ -118,14 +99,27 @@
     <!-- End Top Navigation -->
     <!-- Left navbar-header -->
     <div class="navbar-default sidebar" role="navigation">
-        <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+        <div class="sidebar-nav navbar-collapse slimscrollsidebar" style="overflow-y: auto; overflow-x: hidden">
             <ul class="nav" id="side-menu">
                 <li class="hidden-sm hidden-md hidden-lg" style="width: 100vw;"></li>
                 <li class="nav-small-cap m-t-10">{{ trans('administration::admin.menu') }}</li>
-                <li><a href="" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">Dashboard</span></a></li>
-                <li><a href="#" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">Other</span></a></li>
-                <li><a href="#" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">dasds</span></a></li>
-                <li><a href="#" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">asdasdasd</span></a></li>
+                <li><a href="{{ route('administration.index') }}" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">Dashboard</span></a></li>
+                <li> <a href="javascript:void(0)" class="waves-effect"><i data-icon="F" class="linea-icon linea-software fa-fw"></i> <span class="hide-menu">Multi-Level Dropdown<span class="fa arrow"></span></span></a>
+                    <ul class="nav nav-second-level">
+                        <li> <a href="javascript:void(0)">Second Level Item</a> </li>
+                        <li> <a href="javascript:void(0)">Second Level Item</a> </li>
+                        <li> <a href="javascript:void(0)" class="waves-effect">Third Level <span class="fa arrow"></span></a>
+                            <ul class="nav nav-third-level">
+                                <li> <a href="javascript:void(0)">Third Level Item</a> </li>
+                                <li> <a href="javascript:void(0)">Third Level Item</a> </li>
+                                <li> <a href="javascript:void(0)">Third Level Item</a> </li>
+                                <li> <a href="#">Third Level Item</a> </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-small-cap">--- Support</li>
+                <li><a href="#" class="waves-effect"><i class="fa fa-circle-o text-danger"></i> <span class="hide-menu">Documentation</span></a></li>
             </ul>
         </div>
     </div>
@@ -155,28 +149,31 @@
                         <ul>
                             <li><b>Layout Options</b></li>
                             <li>
-                                <div class="checkbox checkbox-danger">
-                                    <input id="checkbox1" type="checkbox" class="fxhdr">
-                                    <label for="checkbox1"> Fix Header </label>
+                                <div class="row">
+                                    <div class="col-xs-4 text-center">
+                                        <p class="m-b-0 m-t-15">Dark</p>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <label class="switch-light switch-ios" style="width: 60px; margin: 0" onclick="">
+                                            <input type="checkbox">
+                                            <span>
+                                  <a></a>
+                                </span>
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-4 text-center">
+                                        <p class="m-b-0 m-t-15">Light</p>
+                                    </div>
                                 </div>
                             </li>
-                            <li>
-                                <div class="checkbox checkbox-danger">
-                                    <input id="checkbox2" type="checkbox" checked="" class="fxsdr">
-                                    <label for="checkbox2"> Fix Sidebar </label>
-                                </div>
+                            <li class="text-center">
+                                <h1 id="curr-time"></h1>
                             </li>
-                            <li>
-                                <div class="checkbox checkbox-danger">
-                                    <input id="checkbox4" type="checkbox" class="open-close">
-                                    <label for="checkbox4"> Toggle Sidebar </label>
-                                </div>
+                            <li class="text-center">
+                                <div id="datepicker-inline"></div>
                             </li>
-                            <li>
-                                <div class="checkbox checkbox-danger">
-                                    <input id="checkbox6" type="checkbox">
-                                    <label for="checkbox6"> Light Mode </label>
-                                </div>
+                            <li class="text-center">
+                                <a href="#" class="">Calendar</a>
                             </li>
                         </ul>
                     </div>
@@ -185,13 +182,44 @@
             <!-- /.right-sidebar -->
         </div>
         <!-- /.container-fluid -->
-        <footer class="footer text-center"> 2017 &copy; Pixel Admin brought to you by wrappixel.com </footer>
+        <footer class="footer">
+            <div class="row">
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
+                    <span>2019 &copy; <a href="https://github.com/gogbog/administration" style="color:#f75b36;">Charlotte Administration</a></span>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right">
+                    <span>0.0.1</span>
+                </div>
+            </div>
+        </footer>
     </div>
     <!-- /#page-wrapper -->
 </div>
 <!-- /#wrapper -->
 <script src="{{ asset(config('administration.file_prefix') . 'js/jquery.min.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/app.js') }}"></script>
+<script src="{{ asset(config('administration.file_prefix') . 'js/charts.js') }}"></script>
+
+<script>
+    function startTime() {
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('curr-time').innerHTML =
+            h + ":" + m + ":" + s;
+        var t = setTimeout(startTime, 500);
+    }
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        return i;
+    }
+    $('#datepicker-inline').datepicker({
+        todayHighlight: true
+    });
+</script>
 @yield('js')
 </body>
 </html>
