@@ -4983,6 +4983,31 @@ ul.list-icons li i {
 .wiz-aco .pager {
   margin: 0px;
 }
+.lang-separator {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.lang-button {
+  display: inline;
+  padding: 15px 20px;
+  margin: 0;
+  color: #dce2ec;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.lang-button span {
+  margin: 0 8px 0 0;
+}
+.lang-separator li.active {
+  background-color: #353c48;
+}
+.lang-button:hover {
+  cursor: pointer;
+}
+.flag-icon {
+  margin-right: 5px;
+}
 .sidebar {
   overflow-y: auto;
 }
