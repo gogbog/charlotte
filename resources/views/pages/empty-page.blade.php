@@ -13,5 +13,6 @@
         </div>
     @endif
 
+    @include('administration::components.map')
 
 @endsection
