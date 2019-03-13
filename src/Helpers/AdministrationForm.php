@@ -46,7 +46,8 @@ class AdministrationForm {
 
         $url_method = [
             'url' => $this->route,
-            'method' => $this->method
+            'method' => $this->method,
+            'model' => $this->model
         ];
 
         $this->fields['administration_additional_data'] = $this->additionalData;

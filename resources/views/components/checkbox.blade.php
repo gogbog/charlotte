@@ -1,12 +1,7 @@
 <div class="form-group {{ @$options['class'] }}">
     <div class="col-sm-12 m-b-20">
         <div class="checkbox checkbox-danger">
-            <input id="checkbox6" type="checkbox"
-            @if (!empty($options['attributes']))
-                @foreach($options['attributes'] as $attribute)
-                    {{ $attribute }}
-                @endforeach
-            @endif>
+            {!!  Form::checkbox($name, $options['value'], $options['checked'], $options['attr']) !!}
             <label for="checkbox6">{{ $options['title'] }}</label>
         </div>
         <span class="help-block">

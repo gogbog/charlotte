@@ -12,15 +12,8 @@
                 <span class="fileinput-exists">
                     {{ trans('administration::admin.change') }}
                 </span>
-                <input type="file"
-                       id="inputFile"
-                       name="file"
-                       data-error="Bruh, that file is invalid"
-                        @if (!empty($options['attributes']))
-                            @foreach($options['attributes'] as $attribute)
-                                {{ $attribute }}
-                            @endforeach
-                        @endif>
+                {!!  Form::file('file', $options['value'], $options['attr'])  !!}
+
             </span>
             <a href="#"
                class="input-group-addon btn btn-default fileinput-exists"
