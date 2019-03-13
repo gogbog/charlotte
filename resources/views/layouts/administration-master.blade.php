@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -31,17 +31,12 @@
                 <i class="ti-menu"></i>
             </a>
             <div class="top-left-part">
-                <a class="logo" href=""><b>
-                        <!--This is dark logo icon-->
-                        <img src="{{ asset(config('administration.file_prefix') . 'img/pixeladmin-logo.png') }}" alt="home" class="dark-logo" />
-                        <!--This is light logo icon-->
-                        <img src="{{ asset(config('administration.file_prefix') . 'img/pixeladmin-logo-dark.png') }}" alt="home" class="light-logo" />
+                <a class="logo" href="">
+                    <b>
+                        AP
                     </b>
                     <span class="hidden-xs">
-                        <!--This is dark logo text-->
-                        <img src="{{ asset(config('administration.file_prefix') . 'img/pixeladmin-text.png') }}" alt="home" class="dark-logo" />
-                        <!--This is light logo text-->
-                        <img src="{{ asset(config('administration.file_prefix') . 'img/pixeladmin-text-dark.png') }}" alt="home" class="light-logo" />
+                        {{ config('app.name', 'Administration Panel') }}
                     </span>
                 </a>
             </div>
@@ -156,9 +151,9 @@
                             <li class="text-center">
                                 <div id="datepicker-inline"></div>
                             </li>
-                            <li class="text-center">
-                                <a href="#" class="">Calendar</a>
-                            </li>
+                            {{--<li class="text-center">--}}
+                            {{--<a href="{{ url('/schedule') }}" class="">Calendar</a>--}}
+                            {{--</li>--}}
                         </ul>
                     </div>
                 </div>
