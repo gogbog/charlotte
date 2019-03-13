@@ -14,4 +14,13 @@ class DateType extends FormField
         return 'date';
     }
 
+    protected function getDefaults()
+    {
+        return [
+            'attr' => [
+                'class' => 'form-control mydatepicker',
+            ],
+        ];
+    }
+
 }

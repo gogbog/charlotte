@@ -1,16 +1,10 @@
+@foreach($options['choices'] as $key => $choice)
+
 <div class="form-group {{ @$options['class'] }}">
     <div class="col-sm-12 m-b-20">
         <div class="radio radio-danger">
-            <input type="radio" name="radio6" id="radio16"
-                @if (!empty($options['attributes']))
-                    @foreach($options['attributes'] as $attribute)
-                        {{ $attribute }}
-                    @endforeach
-                @endif
-                @if (!empty($options['value']))
-                    value="{{ $options['value'] }}"
-                @endif>
-            <label for="radio16">{{ $options['title'] }}</label>
+            {!! Form::radio($name, $key, $options['value'], ['id' => $key]); !!}
+            <label for="{{ $key }}">{{ $choice }}</label>
         </div>
         <span class="help-block">
             <small>
@@ -21,3 +15,4 @@
         </span>
     </div>
 </div>
+@endforeach

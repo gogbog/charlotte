@@ -12,7 +12,7 @@
                 <span class="fileinput-exists">
                     {{ trans('administration::admin.change') }}
                 </span>
-                {!!  Form::file('file', $options['value'], $options['attr'])  !!}
+                {!!  Form::file($name, $options['value'], $options['attr'])  !!}
 
             </span>
             <a href="#"

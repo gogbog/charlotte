@@ -45,10 +45,11 @@ return [
         'email' => \Charlotte\Administration\Forms\Fields\EmailType::class,
         'password' => \Charlotte\Administration\Forms\Fields\PasswordType::class,
         'date' => \Charlotte\Administration\Forms\Fields\DateType::class,
-        'date-range' => \Charlotte\Administration\Forms\Fields\DateRangeType::class,
         'time' => \Charlotte\Administration\Forms\Fields\TimeType::class,
         'color' => \Charlotte\Administration\Forms\Fields\ColorType::class,
         'editor' => \Charlotte\Administration\Forms\Fields\EditorType::class,
+        'radio' => \Charlotte\Administration\Forms\Fields\RadioType::class,
+        'select' => \Charlotte\Administration\Forms\Fields\CustomSelectType::class
 
 
     ]

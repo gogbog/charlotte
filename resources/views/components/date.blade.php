@@ -2,15 +2,7 @@
     <label class="col-sm-12">{{ $options['title'] }}</label>
     <div class="col-sm-12 m-b-20">
         <div class="input-group">
-            <input type="text" class="form-control mydatepicker"
-                   @if (!empty($options['attributes']))
-                       @foreach($options['attributes'] as $attribute)
-                            {{ $attribute }}
-                       @endforeach
-                   @endif
-                   @if (!empty($options['placeholder']))
-                   placeholder="{{ $options['placeholder'] }}"
-                    @endif>
+            {!!  Form::text($name, $options['value'], $options['attr']) !!}
             <span class="input-group-addon">
                 <i class="icon-calender"></i>
             </span>
