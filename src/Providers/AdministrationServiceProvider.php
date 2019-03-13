@@ -35,6 +35,11 @@ class AdministrationServiceProvider extends ServiceProvider {
             __DIR__ . '/../../config/administration.php', 'administration'
         );
 
+        $this->publishes([
+            __DIR__ . '/../../config/administration.php' => config_path('administration.php'),
+            __DIR__ . '/../../config/laravel-form-builder.php' => config_path('laravel-form-builder.php')
+        ], 'charlotte/config');
+
         //Setup Views
         $this->loadViewsFrom(__DIR__ . '/../../resources/views', config('administration.views_prefix'));
 

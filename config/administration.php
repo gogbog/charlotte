@@ -18,6 +18,8 @@ return [
     * Views Prefix
     */
     'views_prefix' => 'administration',
+    'admin_prefix' => 'administration',
+
 
     /*
      * Administrator guard name

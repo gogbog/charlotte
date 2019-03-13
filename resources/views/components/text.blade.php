@@ -1,9 +1,14 @@
-<div class="form-group">
-    <label class="col-sm-12">Default Text</label>
+<div class="form-group {{ @$options['class'] }}">
+    <label class="col-sm-12">{{ $options['title'] }}</label>
     <div class="col-sm-12 m-b-20">
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" @if (!empty($options['value'])) value="{{ $options['value'] }} " @endif>
         <span class="help-block">
-            <small>A block of help text that breaks onto a new line and may extend beyond one line.</small>
+            <small>
+                @if (!empty($options['helper_box']))
+                    {{ $options['helper_box'] }}
+                @endif
+            </small>
         </span>
+
     </div>
 </div>
