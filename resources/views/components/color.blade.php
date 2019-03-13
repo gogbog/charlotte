@@ -1,15 +1,8 @@
-<div class="form-group {{ @$options['class'] }}">
+
+<div class="form-group col-md-12{{ @$options['class'] }}">
     <label class="col-sm-12">{{ $options['title'] }}</label>
     <div class="col-sm-12 m-b-20">
-        <input type="text" class="colorpicker form-control"
-               @if (!empty($options['attributes']))
-                   @foreach($options['attributes'] as $attribute)
-                        {{ $attribute }}
-                   @endforeach
-               @endif
-               @if (!empty($options['value']))
-                value="{{ $options['value'] }}"
-                @endif/>
+        {!!  Form::text($name, $options['value'], $options['attr']) !!}
         <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))

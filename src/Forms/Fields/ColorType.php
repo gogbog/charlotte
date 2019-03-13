@@ -14,4 +14,13 @@ class ColorType extends FormField
         return 'color';
     }
 
+    protected function getDefaults()
+    {
+        return [
+            'attr' => [
+                'class' => 'form-control colorpicker',
+            ],
+        ];
+    }
+
 }

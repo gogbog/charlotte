@@ -31,7 +31,8 @@ class AdminForm extends Form
                 'helper_box' => @$data['helper_box'],
                 'class' => @$data['class'],
                 'name' => $key,
-                'attr' => $attributes
+                'attr' => $attributes,
+                'selected' => @$data['selected ']
             ]);
         }
 

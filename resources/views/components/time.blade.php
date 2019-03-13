@@ -2,16 +2,7 @@
     <label class="col-sm-12">{{ $options['title'] }}</label>
     <div class="col-sm-12 m-b-20">
         <div class="input-group clockpicker">
-            <input type="text"
-                   class="form-control"
-                   @if (!empty($options['attributes']))
-                   @foreach($options['attributes'] as $attribute)
-                   {{ $attribute }}
-                   @endforeach
-                   @endif
-                   @if (!empty($options['value']))
-                   value="{{ $options['value'] }}"
-                    @endif>
+            {!!  Form::text($name, $options['value'], $options['attr']) !!}
             <span class="input-group-addon">
                 <span class="glyphicon glyphicon-time"></span>
             </span>

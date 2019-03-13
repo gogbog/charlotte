@@ -14,4 +14,15 @@ class MultipleType extends FormField
         return 'multiple';
     }
 
+    protected function getDefaults()
+    {
+        return [
+            'attr' => [
+                'class' => 'selectpicker',
+                'data-style' => "form-control",
+                'multiple'
+            ],
+        ];
+    }
+
 }

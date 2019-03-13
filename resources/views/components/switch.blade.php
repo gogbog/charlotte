@@ -2,15 +2,7 @@
     <label class="col-sm-12">{{ $options['title'] }}</label>
     <div class="col-sm-12 m-b-20">
         <label class="switch-light switch-ios" style="width: 60px" onclick="">
-            <input type="checkbox"
-                @if (!empty($options['attributes']))
-                    @foreach($options['attributes'] as $attribute)
-                        {{ $attribute }}
-                    @endforeach
-                @endif
-                @if (!empty($options['value']))
-                    value="{{ $options['value'] }}"
-                @endif>
+            {!!  Form::checkbox($name, $options['value'], @$options['checked'], $options['attr']) !!}
             <span>
               <a></a>
             </span>

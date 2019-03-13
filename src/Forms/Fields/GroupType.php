@@ -14,4 +14,14 @@ class GroupType extends FormField
         return 'group';
     }
 
+    protected function getDefaults()
+    {
+        return [
+            'attr' => [
+                'class' => 'selectpicker',
+                'data-style' => "form-control"
+            ],
+        ];
+    }
+
 }
