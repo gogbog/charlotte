@@ -13,36 +13,43 @@ Route::group([
     'middleware' => Administration::getMiddlewares()
 ], function () {
     Route::group([
-        'namespace' => 'Charlotte\Administration\Http\Controllers',
         'prefix' => 'admin',
         'as' => 'administration.',
     ], function () {
 
+        //Administration routes
         Route::group([
-            'middleware' => AdministratorLogged::class
-
+            'namespace' => 'Charlotte\Administration\Http\Controllers',
         ], function () {
-            Route::get('/', [
-                'as' => 'index',
-                'uses' => 'AdministrationController@index',
+            Route::group([
+                'middleware' => AdministratorLogged::class
+
+            ], function () {
+                Route::get('/', [
+                    'as' => 'index',
+                    'uses' => 'AdministrationController@index',
+                ]);
+            });
+
+            // Authentication Routes...
+            Route::get('login', [
+                'as' => 'login',
+                'uses' => 'Auth\LoginController@showLoginForm',
             ]);
 
-            //Import all module classes
-            AdministrationModuleHelper::moduleRoutes();
+            Route::post('login', [
+                'as' => 'login',
+                'uses' => 'Auth\LoginController@login',
+            ]);
+
+            Route::get('logout', 'Auth\LoginController@logout')->name('logout');
         });
 
-        // Authentication Routes...
-        Route::get('login', [
-            'as' => 'login',
-            'uses' => 'Auth\LoginController@showLoginForm',
-        ]);
 
-        Route::post('login', [
-            'as' => 'login',
-            'uses' => 'Auth\LoginController@login',
-        ]);
+        //Import all module classes
+        AdministrationModuleHelper::moduleRoutes();
 
-        Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
 
     });
 });

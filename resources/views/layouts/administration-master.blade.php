@@ -103,23 +103,7 @@
             <ul class="nav" id="side-menu">
                 <li class="hidden-sm hidden-md hidden-lg" style="width: 100vw;"></li>
                 <li class="nav-small-cap m-t-10">{{ trans('administration::admin.menu') }}</li>
-                <li><a href="{{ route('administration.index') }}" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">Dashboard</span></a></li>
-                <li> <a href="javascript:void(0)" class="waves-effect"><i data-icon="F" class="linea-icon linea-software fa-fw"></i> <span class="hide-menu">Multi-Level Dropdown<span class="fa arrow"></span></span></a>
-                    <ul class="nav nav-second-level">
-                        <li> <a href="javascript:void(0)">Second Level Item</a> </li>
-                        <li> <a href="javascript:void(0)">Second Level Item</a> </li>
-                        <li> <a href="javascript:void(0)" class="waves-effect">Third Level <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li> <a href="javascript:void(0)">Third Level Item</a> </li>
-                                <li> <a href="javascript:void(0)">Third Level Item</a> </li>
-                                <li> <a href="javascript:void(0)">Third Level Item</a> </li>
-                                <li> <a href="#">Third Level Item</a> </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-small-cap">--- Support</li>
-                <li><a href="#" class="waves-effect"><i class="fa fa-circle-o text-danger"></i> <span class="hide-menu">Documentation</span></a></li>
+                {!!  \Charlotte\Administration\Helpers\AdministrationModuleHelper::moduleMenu() !!}
             </ul>
         </div>
     </div>

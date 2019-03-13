@@ -19,6 +19,22 @@ class AdministrationModuleHelper {
         }
     }
 
+    public static function moduleMenu() {
+        $classes = self::moduleAdministrationClasses();
+        $menus = '';
+
+
+        foreach ($classes as $class_name) {
+            if (!class_exists($class_name)) {
+                continue;
+            }
+            $class = new $class_name();
+            $menus .= $class->menu();
+        }
+
+        return $menus;
+    }
+
     public static function moduleAdministrationClasses() {
         $modules_slugs = self::moduleSlugs();
         $administration_classes = [];

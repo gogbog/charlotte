@@ -36,7 +36,7 @@ class AdministrationServiceProvider extends ServiceProvider {
         );
 
         //Setup Views
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views/', config('administration.views_prefix'));
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', config('administration.views_prefix'));
 
         //Setup Migrations
         $this->loadMigrationsFrom(__DIR__ . '/../Database/migrations/');

@@ -2,6 +2,8 @@
 
 namespace Charlotte\Administration\Helpers;
 
+use Illuminate\Support\Facades\Auth;
+
 class Administration {
 
     public static function getMiddlewares($additional_middlewares = []) {
@@ -17,6 +19,10 @@ class Administration {
         ];
 
         return array_merge($middlewares, $additional_middlewares);
+    }
+
+    public static function getLoggedAdmin() {
+        return Auth::guard(config('administration.guard'))->user();
     }
 
 

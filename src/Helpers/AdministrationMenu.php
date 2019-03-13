@@ -3,48 +3,23 @@
 namespace Charlotte\Administration\Helpers;
 
 
-class AdminMenu {
+class AdministrationMenu {
 
-    //name
-    //route
-    //icon
 
-    public static function addModule($data= []) {
 
+    private $main_menu;
+    private $sub_menus = [];
+
+    public function addModule($menu) {
+        $this->main_menu = $menu;
     }
 
-    public static function addItem($data = []) {
-
+    public function addItem($menu) {
+        $this->sub_menus[] = $menu;
     }
 
-
-//\AdministrationMenu::addModule(trans('blogs::admin.module_name'), [
-//'icon' => 'newspaper-o'
-//], function ($menu) {
-//    $menu->addItem(trans('blogs::admin.list'), [
-//        'url' => \Administration::route('blogs.index'),
-//        'icon' => 'list'
-//    ]);
-//
-//    $menu->addItem(trans('blogs::admin.add'), [
-//        'url' => \Administration::route('blogs.create'),
-//        'icon' => 'plus'
-//    ]);
-//
-//    $menu->addItem(trans('blogs::admin.blog_categories'), [
-//        'icon' => 'arrow-right'
-//    ], function ($submenu)
-//    {
-//        $submenu->addItem(trans('blogs::admin.list'), [
-//            'url' => \Administration::route('blog_categories.index'),
-//            'icon' => 'list'
-//        ]);
-//
-//        $submenu->addItem(trans('blogs::admin.add'), [
-//            'url' => \Administration::route('blog_categories.create'),
-//            'icon' => 'plus'
-//        ]);
-//    });
-//});
+    public function generate() {
+        return view('administration::boxes.nav_links')->with(['main_menu' => $this->main_menu, 'sub_menus' => $this->sub_menus])->render();
+    }
 
 }
