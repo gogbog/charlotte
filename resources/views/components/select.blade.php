@@ -1,5 +1,5 @@
-<div class="form-group">
-    <label class="col-sm-12">Select box</label>
+<div class="form-group {{ @$options['class'] }}">
+    <label class="col-sm-12">{{ $options['title'] }}</label>
     <div class="col-sm-12 m-b-20">
         <select class="selectpicker" data-style="form-control">
             <option>Mustard</option>
@@ -8,7 +8,9 @@
         </select>
         <span class="help-block">
             <small>
-                A block of help text that breaks onto a new line and may extend beyond one line.
+                @if (!empty($options['helper_box']))
+                    {{ $options['helper_box'] }}
+                @endif
             </small>
         </span>
     </div>
