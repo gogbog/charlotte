@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@if(!empty($title)) {{ $title }} @endif</title>
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}">
-    {{--<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}">--}}
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}">
-{{--<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}" disabled>
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}" >
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}" disabled>
+<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}" >
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -77,19 +77,16 @@
             <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
-                        <img src="{{ asset(config('administration.file_prefix') . 'img/users/varun.jpg') }}"
-                             alt="user-img" width="36" class="img-circle">
+                        <img src="{{ asset(config('administration.file_prefix') . 'images/user.png') }}" alt="user-img" width="36" class="img-circle">
                         <b class="hidden-xs">{{ \Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->name }}</b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="ti-settings"></i> {{ trans('administration::admin.edit_profile') }}
-                            </a></li>
-                        <li><a href="#"><i class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a>
-                        </li>
+                        <li><a href="#"><i class="ti-settings"></i> {{ trans('administration::admin.edit_profile') }}</a></li>
+                        <li><a href="#"><i class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a></li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
-                <li class="right-side-toggle"><a><i class="ti-settings"></i></a></li>
+                <li class="right-side-toggle"> <a><i class="ti-settings"></i></a></li>
                 <!-- /.dropdown -->
             </ul>
         </div>
@@ -129,28 +126,23 @@
         <!-- .right-sidebar -->
             <div class="right-sidebar">
                 <div class="slimscrollright">
-                    <div class="rpanel-title"> {{ trans('administration::admin.right_panel') }} <span><i
-                                    class="ti-close right-side-toggle"></i></span></div>
+                    <div class="rpanel-title"> {{ trans('administration::admin.right_panel') }} <span><i class="ti-close right-side-toggle"></i></span> </div>
                     <div class="r-panel-body">
                         <ul>
                             <li><b>{{ trans('administration::admin.layout') }}</b></li>
                             <li>
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <p class="m-b-0 m-t-15">{{ trans('administration::admin.dark') }}</p>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <label class="switch-light switch-ios" style="width: 60px; margin: 0"
-                                               onclick="">
-                                            <input type="checkbox">
-                                            <span>
-                                  <a></a>
-                                </span>
-                                        </label>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <p class="m-b-0 m-t-15">{{ trans('administration::admin.light') }}</p>
-                                    </div>
+                                <div class="row p-b-10 p-t-20">
+
+                                    <center>
+                                        <div class="onoffswitch">
+                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                                            <label id="onoffswitch1" class="onoffswitch-label" for="myonoffswitch">
+                                                <span class="onoffswitch-inner"></span>
+                                                <span class="onoffswitch-switch"></span>
+                                            </label>
+                                        </div>
+                                    </center>
+
                                 </div>
                             </li>
                             <li class="text-center">
@@ -200,15 +192,10 @@
             h + ":" + m + ":" + s;
         var t = setTimeout(startTime, 500);
     }
-
     function checkTime(i) {
-        if (i < 10) {
-            i = "0" + i
-        }
-        ;  // add zero in front of numbers < 10
+        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
         return i;
     }
-
     $('#datepicker-inline').datepicker({
         todayHighlight: true
     });

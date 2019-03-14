@@ -19,8 +19,8 @@
         @endphp
         <div class="form-group language-{{$locale}} {{ @$options['class'] }}">
             <div class="col-sm-12 m-b-20">
-                <span class="flag-icon flag-icon-{{$locale}}"></span>
-                <div class="checkbox checkbox-danger">
+                <span class="visible-lg-inline-block visible-md-inline-block visible-sm-inline-block visible-xs-inline-block flag-icon flag-icon-{{$locale}}"></span>
+                <div class="visible-lg-inline-block visible-md-inline-block visible-sm-inline-block visible-xs-inline-block checkbox checkbox-danger">
                     {{Form::hidden($locale . '[' .$name . ']',0)}}
                     {!!  Form::checkbox($locale . '[' .$name . ']', 1, $checked, $options['attr']) !!}
                     <label for="{{ $id }}-{{$locale}}">{{ $options['title'] }}</label>
