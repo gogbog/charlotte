@@ -13,7 +13,7 @@ foreach ($sub_menus as $sub_menu) {
 @endphp
 <li>
     <a href="@if (!empty($main_menu['url'])) {{ $main_menu['url'] }} @else javascript:void(0) @endif" class="waves-effect @if (in_array(Request::url(), $routes)) active @endif">
-        <i class="fa  fa-spin  fa-cog p-r-10"></i>
+        <i class="fa @if (!empty($main_menu['icon'])) {{$main_menu['icon'] }} @endif p-r-10"></i>
         <span class="hide-menu">
             {{ $main_menu['title'] }}
             @if (!empty($sub_menus))
@@ -26,7 +26,7 @@ foreach ($sub_menus as $sub_menu) {
             @foreach($sub_menus as $sub_menu)
                 <li>
                     <a href="{{ $sub_menu['url'] }}">
-                        <i  class="ti-car p-r-10"></i>
+                        <i  class="fa @if (!empty($sub_menu['icon'])) {{$sub_menu['icon'] }} @endif  p-r-10"></i>
                         {{ $sub_menu['title'] }}
                     </a>
                 </li>
