@@ -14,4 +14,15 @@ class MapType extends FormField
         return 'map';
     }
 
+    public function getDefaults()
+    {
+        return [
+            'default_values' => [
+                'lng' => 23.319941,
+                'lat' => 42.698334,
+                'zoom' => 13,
+            ]
+        ];
+    }
+
 }

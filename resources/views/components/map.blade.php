@@ -1,17 +1,24 @@
+@php
+$id = uniqid();
+@endphp
 <div class="form-group col-sm-12">
-    <div class="m-b-20" id="map" style="width: 100%; height: 350px;"></div>
+    <div class="m-b-20" id="{{$id}}" style="width: 100%; height: 350px;"></div>
 </div>
 
-<input id="coordsLat" name="lat" type="hidden" value="">
-<input id="coordsLng" name="lng" type="hidden" value="">
+<input id="lat_{{$id}}" name="lat" type="hidden" value="{{ $options['default_values']['lat'] }}">
+<input id="lng_{{$id}}" name="lng" type="hidden" value="{{$options['default_values']['lng']}}">
 
 @section('js')
     <script>
+        let id = '{{$id}}';
+        let default_lat = parseFloat('{{$options['default_values']['lat']}}');
+        let default_lng = parseFloat('{{$options['default_values']['lng']}}');
+        let zoom = parseInt('{{$options['default_values']['zoom']}}');
 
         function initMap() {
             let options = {
-                zoom: 5,
-                center: {lat: 0, lng: 0},
+                zoom: zoom,
+                center: {lat: default_lat, lng: default_lng},
                 styles: [
                     {
                         "elementType": "geometry",
@@ -177,17 +184,17 @@
                     mapTypeIds: ['roadmap', 'styled_map']
                 },
             };
-            map = new google.maps.Map(document.getElementById('map'),options);
+            map = new google.maps.Map(document.getElementById(id),options);
             let marker = new google.maps.Marker({
-                position:{lat: 0 , lng: 0},
+                position:{lat: default_lat , lng: default_lng},
                 map: map,
                 draggable: true,
                 animation: google.maps.Animation.DROP
             });
 
             google.maps.event.addListener(marker, 'dragend', function (e) {
-                let gpsLat = document.querySelector('#coordsLat');
-                let gpsLng = document.querySelector('#coordsLng');
+                let gpsLat = document.querySelector('#lat_' + id);
+                let gpsLng = document.querySelector('#lng_' + id);
                 gpsLat.setAttribute('value', e.latLng.lat());
                 gpsLng.setAttribute('value', e.latLng.lng());
             });
