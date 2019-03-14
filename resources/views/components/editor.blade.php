@@ -1,44 +1,98 @@
 @php
-$id = uniqid();
-$area_id = uniqid();
+    $id = uniqid();
+    $value = $options['value'];
+
 @endphp
 
-<div class="form-group {{ @$options['class'] }}">
-    <label class="col-sm-12">{{ $options['title'] }}</label>
-    <div class="col-sm-12 m-b-20">
+@if(!empty($options['translate']) && $options['translate'])
+    @foreach(LaravelLocalization::getSupportedLocales() as $locale => $data)
+        @php
 
-        {!! Form::text($name, null, ['hidden', 'class' => 'description', 'id' => $id]) !!}
-        <div class="{{$id}}">
+            if (!empty($options['model'])) {
+                $translation = $options['model']->translate($locale);
+            }
+            if (!empty($translation)) {
+                $value = $translation->$name;
+            } else {
+                $value = null;
+            }
+        @endphp
+        <div class="form-group language-{{$locale}} {{ @$options['class'] }}">
+            <label class="col-sm-12"><span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}
+            </label>
+            <div class="col-sm-12 m-b-20">
 
-        </div>
-        <span class="help-block">
+                {!! Form::text($locale . '[' .$name . ']', $value, ['hidden', 'class' => 'description', 'id' => $id . '-' . $locale]) !!}
+                <div class="{{$id . '-' . $locale}}">{!! $value !!}</div>
+                <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
                 @endif
             </small>
         </span>
+            </div>
+        </div>
+    @endforeach
+@else
+    <div class="form-group without-language {{ @$options['class'] }}">
+        <label class="col-sm-12">{{ $options['title'] }}</label>
+        <div class="col-sm-12 m-b-20">
+
+            {!! Form::text($name, $value, ['hidden', 'class' => 'description', 'id' => $id]) !!}
+            <div class="{{$id}}">{!! $value !!}</div>
+            <span class="help-block">
+            <small>
+                @if (!empty($options['helper_box']))
+                    {{ $options['helper_box'] }}
+                @endif
+            </small>
+        </span>
+        </div>
     </div>
-</div>
+@endif
 
 @section('js')
+    @if(!empty($options['translate']) && $options['translate'])
+        @foreach(LaravelLocalization::getSupportedLocales() as $locale => $data)
+            <script>
+                $(document).ready(function () {
+                    let id = '{{$id}}-{{$locale}}';
+                    let desc = document.getElementById(id);
+                    // desc.innerHTML = null;
 
-    <script>
-        $(document).ready(function() {
-            let id = '{{$id}}';
-            let desc = document.getElementById(id);
-            // desc.innerHTML = null;
+                    $('.' + id).summernote({
+                        minHeight: 100,
+                        height: 250,
+                    });
 
-            $('.' + id).summernote({
-                height: 300
-            });
+                    $('.' + id).on('summernote.change', function (we, contents, $editable) {
 
-            $('.' + id).on('summernote.change', function(we, contents, $editable) {
+                        desc.setAttribute('value', contents);
+                    });
 
-                desc.setAttribute('value', contents);
-            });
+                })
+            </script>
+        @endforeach
+    @else
+        <script>
+            $(document).ready(function () {
+                let id = '{{$id}}';
+                let desc = document.getElementById(id);
+                // desc.innerHTML = null;
 
-        })
-    </script>
+                $('.' + id).summernote({
+                    minHeight: 100,
+                    height: 250,
+                });
+
+                $('.' + id).on('summernote.change', function (we, contents, $editable) {
+
+                    desc.setAttribute('value', contents);
+                });
+
+            })
+        </script>
+    @endif
 
 @append

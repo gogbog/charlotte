@@ -13,7 +13,6 @@
     </div>
 
 <!--
-
 TIPS:
 1.  #spaklinedash is the chart, displayed values from js.
 2.  If There is no JS box will still appear but without chart.

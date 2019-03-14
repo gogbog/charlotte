@@ -37,7 +37,9 @@ class AdministrationServiceProvider extends ServiceProvider {
 
         $this->publishes([
             __DIR__ . '/../../config/administration.php' => config_path('administration.php'),
-            __DIR__ . '/../../config/laravel-form-builder.php' => config_path('laravel-form-builder.php')
+            __DIR__ . '/../../config/laravel-form-builder.php' => config_path('laravel-form-builder.php'),
+            __DIR__ . '/../../config/laravellocalization.php' => config_path('laravellocalization.php'),
+            __DIR__ . '/../../config/translatable.php' => config_path('translatable.php'),
         ], 'charlotte/config');
 
         //Setup Views

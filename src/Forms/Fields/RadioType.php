@@ -20,6 +20,7 @@ class RadioType extends FormField
             'attr' => [
                 'class' => 'form-control wtf',
             ],
+            'value' => -1
         ];
     }
 

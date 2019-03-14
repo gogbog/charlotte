@@ -29,6 +29,7 @@
         "barryvdh/laravel-debugbar": "^3.2@dev",
         "caffeinated/modules": "dev-master",
         "kris/laravel-form-builder": "^1.16@dev",
-        "davejamesmiller/laravel-breadcrumbs": "5.x"
+        "davejamesmiller/laravel-breadcrumbs": "5.x",
+        "dimsav/laravel-translatable": "dev-master"
     }
 }

@@ -2,16 +2,31 @@
 @section('content')
 
     @if (!empty($form))
+
         <div class="row">
-            <div class="col-sm-12">
-                <div class="white-box">
-                    <div class="row">
-                        {!! form($form) !!}
-                    </div>
+
+            <ul class="lang-separator m-b-10">
+                @foreach(LaravelLocalization::getSupportedLocales() as $locale => $data)
+                    <li class="lang-button" data-filter="language-{{$locale}}">
+                        <span class="flag-icon flag-icon-{{$locale}}"></span>
+                        {{$locale}}
+                    </li>
+                @endforeach
+            </ul>
+
+
+            <div class="white-box">
+                <div class="row">
+                    {!! form($form) !!}
                 </div>
             </div>
+
+
         </div>
+
+
     @endif
+
 
 
 @endsection
@@ -27,7 +42,8 @@
                 $(this).addClass('active');
                 if (category === '') {
                     $('.form-group:hidden').show().removeClass('hidden');
-                } else {
+                }
+                else {
                     $('.form-group').each(function () {
                         if (!$(this).hasClass(category) && !$(this).hasClass('without-language')) {
                             $(this).hide().addClass('hidden');

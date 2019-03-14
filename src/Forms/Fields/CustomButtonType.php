@@ -18,6 +18,7 @@ class CustomButtonType extends FormField
     {
         return [
             'attr' => [
+                'class' => 'btn btn-danger',
                 'onClick' => '',
             ],
         ];

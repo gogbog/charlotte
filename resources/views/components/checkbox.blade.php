@@ -1,21 +1,55 @@
 @php
-$id = uniqid();
-$options['attr']['id'] = $id;
-$checked = ($options['value'] || $options['checked']) ? 'checked' : null;
+    $id = uniqid();
+    $options['attr']['id'] = $id;
+    $checked = ($options['checked']) ? 'checked' : null;
+
 @endphp
-<div class="form-group {{ @$options['class'] }}">
-    <div class="col-sm-12 m-b-20">
-        <div class="checkbox checkbox-danger">
-            {{Form::hidden($name,0)}}
-            {!!  Form::checkbox($name, 1, $checked, $options['attr']) !!}
-            <label for="{{ $id }}">{{ $options['title'] }}</label>
-        </div>
-        <span class="help-block">
+
+@if(!empty($options['translate']) && $options['translate'])
+    @foreach(LaravelLocalization::getSupportedLocales() as $locale => $data)
+        @php
+            if (!empty($options['model'])) {
+                $translation = $options['model']->translate($locale);
+            }
+            if (!empty($translation)) {
+                $checked = ($translation->$name) ? 'checked' : null;
+            }
+            $options['attr']['id'] = $id . '-' . $locale;
+
+        @endphp
+        <div class="form-group language-{{$locale}} {{ @$options['class'] }}">
+            <div class="col-sm-12 m-b-20">
+                <span class="flag-icon flag-icon-{{$locale}}"></span>
+                <div class="checkbox checkbox-danger">
+                    {{Form::hidden($locale . '[' .$name . ']',0)}}
+                    {!!  Form::checkbox($locale . '[' .$name . ']', 1, $checked, $options['attr']) !!}
+                    <label for="{{ $id }}-{{$locale}}">{{ $options['title'] }}</label>
+                </div>
+                <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
                 @endif
             </small>
         </span>
+            </div>
+        </div>
+    @endforeach
+@else
+    <div class="form-group without-language {{ @$options['class'] }}">
+        <div class="col-sm-12 m-b-20">
+            <div class="checkbox checkbox-danger">
+                {{Form::hidden($name,0)}}
+                {!!  Form::checkbox($name, 1, $checked, $options['attr']) !!}
+                <label for="{{ $id }}">{{ $options['title'] }}</label>
+            </div>
+            <span class="help-block">
+            <small>
+                @if (!empty($options['helper_box']))
+                    {{ $options['helper_box'] }}
+                @endif
+            </small>
+        </span>
+        </div>
     </div>
-</div>
+@endif
