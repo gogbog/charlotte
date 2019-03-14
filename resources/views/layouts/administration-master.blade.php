@@ -77,7 +77,7 @@
                 <li class="dropdown">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
                         <img src="{{ asset(config('administration.file_prefix') . 'img/users/varun.jpg') }}" alt="user-img" width="36" class="img-circle">
-                        <b class="hidden-xs">{{ Administration::getLoggedAdmin() }}</b>
+                        <b class="hidden-xs">{{ \Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->name }}</b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="ti-settings"></i> {{ trans('administration::admin.edit_profile') }}</a></li>

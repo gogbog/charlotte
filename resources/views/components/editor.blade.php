@@ -7,8 +7,10 @@ $area_id = uniqid();
     <label class="col-sm-12">{{ $options['title'] }}</label>
     <div class="col-sm-12 m-b-20">
 
-        {!! Form::textarea($name, null, ['hidden', 'class' => 'description', 'id' => $id]) !!}
-        <div class="summernote"></div>
+        {!! Form::text($name, null, ['hidden', 'class' => 'description', 'id' => $id]) !!}
+        <div class="{{$id}}">
+
+        </div>
         <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
@@ -25,17 +27,17 @@ $area_id = uniqid();
         $(document).ready(function() {
             let id = '{{$id}}';
             let desc = document.getElementById(id);
-            desc.innerHTML = null;
+            // desc.innerHTML = null;
 
-            $('#' + id).summernote({
-                height: 300, // set editor height
-                minHeight: null, // set minimum height of editor
-                maxHeight: null, // set maximum height of editor
-                focus: false // set focus to editable area after initializing summernote
+            $('.' + id).summernote({
+                height: 300
             });
-            $('#' + id).on('summernote.change', function(we, contents, $editable) {
-                desc.innerHTML = contents;
+
+            $('.' + id).on('summernote.change', function(we, contents, $editable) {
+
+                desc.setAttribute('value', contents);
             });
+
         })
     </script>
 
