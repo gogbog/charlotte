@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>@if(!empty($title)) {{ $title }} @endif</title>
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}" >
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}"disabled >
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}" >
-<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}" disabled>
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}" id="style-dark" disabled>
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}" id="style-light" >
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}" id="default-dark" disabled>
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}" id="default-light" >
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -135,7 +135,7 @@
 
                                     <center>
                                         <div class="onoffswitch">
-                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" data-url="{{ \Charlotte\Administration\Helpers\Administration::route('change_color') }}">
                                             <label id="onoffswitch1" class="onoffswitch-label" for="myonoffswitch">
                                                 <span class="onoffswitch-inner"></span>
                                                 <span class="onoffswitch-switch"></span>
@@ -179,8 +179,56 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/app.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/charts.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/editor.js') }}"></script>
-
 <script>
+
+    let mode = document.getElementById('myonoffswitch');
+
+    mode.addEventListener('click', function () {
+        let checked = mode.checked;
+        let url = mode.dataset.url;
+
+        //THEME CHANGE VARS
+        let styleDark = document.getElementById('style-dark');
+        let styleLight = document.getElementById('style-light');
+        let defaultDark = document.getElementById('default-dark');
+        let defaultLight = document.getElementById('default-light');
+
+
+        $.ajaxSetup({
+            cache: false,
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: url,
+            method: 'post',
+            data: {
+                theme: checked,
+            },
+            beforeSend: function() {
+                // $(".spinner").show();
+            },
+
+            success: function(result) {
+                if (result.errors.length != 0) {
+                    //ERROR
+                    // $(".error-box").show();
+                    //
+                    // $.each(result.errors, function (key, value) {
+                    //     $('.error').html(result.errors);
+                    // });
+
+                } else {
+                    //SUCCESS
+                    console.log(result);
+
+                }
+            }
+        });
+        console.log(checked);
+    });
+
     function startTime() {
         var today = new Date();
         var h = today.getHours();
