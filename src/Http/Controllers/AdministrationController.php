@@ -10,7 +10,7 @@ class AdministrationController extends BaseAdministrationController {
 
     public function changeColor(Request $request) {
         $admin = Administration::getLoggedAdmin();
-        $admin->dark_theme = $request->get('theme');
+        $admin->dark_theme = filter_var($request->get('theme'), FILTER_VALIDATE_BOOLEAN);
         $admin->save();
 
         return response()->json(['success' => true]);
