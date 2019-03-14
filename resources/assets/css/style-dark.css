@@ -4990,10 +4990,10 @@ ul.list-icons li i {
 }
 .lang-button {
   display: inline;
-  padding: 15px 20px;
+  padding: 12px 15px;
   margin: 0;
   color: #dce2ec;
-  font-size: 16px;
+  font-size: 14px;
   text-transform: uppercase;
 }
 .lang-button span {
@@ -5007,6 +5007,9 @@ ul.list-icons li i {
 }
 .flag-icon {
   margin-right: 5px;
+}
+.asColorPicker-wrap {
+  width: calc(100% - 37px);
 }
 .sidebar {
   overflow-y: auto;

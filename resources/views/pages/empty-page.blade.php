@@ -14,47 +14,35 @@
     @endif
 
 
-    {{--<div class="row">--}}
 
-    {{--<ul class="lang-separator m-b-10">--}}
-    {{--<li class="lang-button" data-filter="language-bg">--}}
-    {{--<span class="flag-icon flag-icon-bg"></span>--}}
-    {{--bg--}}
-    {{--</li>--}}
-    {{--<li class="lang-button" data-filter="language-en">--}}
-    {{--<span class="flag-icon flag-icon-gb"></span>--}}
-    {{--EN--}}
-    {{--</li>--}}
-    {{--<li class="lang-button" data-filter="language-fr">--}}
-    {{--<span class="flag-icon flag-icon-fr"></span>--}}
-    {{--FR--}}
-    {{--</li>--}}
-    {{--</ul>--}}
-
-    {{----}}
-    {{--<div class="form-group language-bg">--}}
-    {{--<h1>BG</h1>--}}
-    {{--</div>--}}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <div class="row">
+                    <div class="form-group">
+                        <label class="col-sm-12">Color Picker</label>
+                        <div class="col-sm-12 m-b-20">
+                            <input type="text" class="colorpicker form-control" value="#7ab2fa"/>
+                            <span class="help-block">
+                                <small>A block of help text that breaks onto a new line and may extend beyond one line.</small>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-    {{--<div class="form-group language-en">--}}
-    {{--<h1>EN</h1>--}}
-    {{--</div>--}}
 
-    {{--<div class="form-group language-fr">--}}
-    {{--<h1>FR</h1>--}}
-    {{--</div>--}}
-
-    {{--<div class="form-group without-language">--}}
-    {{--<h1>NOTHING</h1>--}}
-    {{--</div>--}}
-
-    {{--</div>--}}
 
 @endsection
 
 @section('js')
 
+    <script>
+        $(".colorpicker").asColorPicker();
+    </script>
     <script>
         $(document).ready(function () {
             $(".lang-separator li").click(function () {
