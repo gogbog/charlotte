@@ -13,7 +13,7 @@ foreach ($sub_menus as $sub_menu) {
 @endphp
 <li>
     <a href="@if (!empty($main_menu['url'])) {{ $main_menu['url'] }} @else javascript:void(0) @endif" class="waves-effect @if (in_array(Request::url(), $routes)) active @endif">
-        <i data-icon="F" class="linea-icon linea-software fa-fw"></i>
+        <i class="ti-dashboard p-r-10"></i>
         <span class="hide-menu">
             {{ $main_menu['title'] }}
             @if (!empty($sub_menus))
