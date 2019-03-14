@@ -26,29 +26,9 @@ class AdministrationServiceProvider extends ServiceProvider {
      * @return void
      */
     public function boot() {
+
         //Fix utf8mb4 collation
         Schema::defaultStringLength(191);
-
-
-        //Add configuration files
-        $this->mergeConfigFrom(
-            __DIR__ . '/../../config/administration.php', 'administration'
-        );
-
-        $this->publishes([
-            __DIR__ . '/../../config/administration.php' => config_path('administration.php'),
-            __DIR__ . '/../../config/laravel-form-builder.php' => config_path('laravel-form-builder.php'),
-            __DIR__ . '/../../config/laravellocalization.php' => config_path('laravellocalization.php'),
-            __DIR__ . '/../../config/translatable.php' => config_path('translatable.php'),
-            __DIR__ . '/../../config/breadcrumbs.php' => config_path('breadcrumbs.php'),
-        ], 'charlotte/config');
-
-        //Setup Views
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', config('administration.views_prefix'));
-
-        //Setup Migrations
-        $this->loadMigrationsFrom(__DIR__ . '/../Database/migrations/');
-        $this->loadRoutesFrom(__DIR__ . '/../Routes/routes.php');
 
 
         //Setup Commands
@@ -74,10 +54,42 @@ class AdministrationServiceProvider extends ServiceProvider {
         ]);
 
 
-        //Publish package
+        //Load Migrations
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/migrations/');
+
+        //Load Routes
+        $this->loadRoutesFrom(__DIR__ . '/../Routes/routes.php');
+
+        //Load Views
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'administration');
+
+        //Load Translations
+        $this->loadTranslationsFrom(resource_path('lang/charlotte'), 'administration');
+
+        //Load Configs
+        $this->mergeConfigFrom(
+            __DIR__ . '/../../config/administration.php', 'administration'
+        );
+
+
+        //Publish Lang
+        $this->publishes([
+            __DIR__ . '/../../resources/lang' => resource_path('lang/charlotte/administration'),
+        ], 'Charlotte/lang');
+
+        //Publish Configs
+        $this->publishes([
+            __DIR__ . '/../../config/administration.php' => config_path('administration.php'),
+            __DIR__ . '/../../config/laravel-form-builder.php' => config_path('laravel-form-builder.php'),
+            __DIR__ . '/../../config/laravellocalization.php' => config_path('laravellocalization.php'),
+            __DIR__ . '/../../config/translatable.php' => config_path('translatable.php'),
+            __DIR__ . '/../../config/breadcrumbs.php' => config_path('breadcrumbs.php'),
+        ], 'Charlotte/config');
+
+        //Publish Views
         $this->publishes([
             __DIR__ . '/../../resources/assets/' => public_path('charlotte/administration'),
-        ], 'charlotte/public');
+        ], 'Charlotte/public');
 
 
     }

@@ -29,6 +29,11 @@ Route::group([
                     'as' => 'index',
                     'uses' => 'DashboardController@index',
                 ]);
+                Route::post('/settings/change-color', [
+                    'as' => 'change_color',
+                    'uses' => 'AdministrationController@changeColor',
+                ]);
+
             });
 
             // Authentication Routes...

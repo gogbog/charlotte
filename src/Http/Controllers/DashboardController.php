@@ -10,4 +10,5 @@ class DashboardController extends BaseAdministrationController {
         $boxes = AdministrationModuleHelper::moduleDashboards();
         return view('administration::pages.empty-page', compact('boxes'));
     }
+
 }
