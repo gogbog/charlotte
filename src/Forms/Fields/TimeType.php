@@ -14,4 +14,14 @@ class TimeType extends FormField
         return 'time';
     }
 
+    public function getDefaults()
+    {
+        return [
+            'attr' => [
+                'autocomplete' => 'off'
+
+            ]
+        ];
+    }
+
 }

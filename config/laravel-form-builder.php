@@ -31,6 +31,7 @@ return [
     'select'        => 'select',
     'radio'        => 'radio',
     'checkbox'        => 'checkbox',
+    'button'        => 'button',
 
     // Remove the laravel-form-builder:: prefix above when using template_prefix
     'template_prefix'   => config('administration.admin_prefix') . '::components.',
@@ -49,8 +50,9 @@ return [
         'color' => \Charlotte\Administration\Forms\Fields\ColorType::class,
         'editor' => \Charlotte\Administration\Forms\Fields\EditorType::class,
         'radio' => \Charlotte\Administration\Forms\Fields\RadioType::class,
-        'select' => \Charlotte\Administration\Forms\Fields\CustomSelectType::class
-
+        'select' => \Charlotte\Administration\Forms\Fields\CustomSelectType::class,
+        'map' => \Charlotte\Administration\Forms\Fields\MapType::class,
+        'button' => \Charlotte\Administration\Forms\Fields\CustomButtonType::class,
 
     ]
 ];

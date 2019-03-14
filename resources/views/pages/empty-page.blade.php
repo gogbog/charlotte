@@ -13,66 +13,42 @@
         </div>
     @endif
 
-    <div class="container">
-        <div class="row">
+        {{--<div class="row">--}}
 
-            <ul class="lang-separator m-b-10">
-                <li class="lang-button" data-filter="language-bg">
-                    <span class="flag-icon flag-icon-bg"></span>
-                    bg
-                </li>
-                <li class="lang-button" data-filter="language-en">
-                    <span class="flag-icon flag-icon-gb"></span>
-                    EN
-                </li>
-                <li class="lang-button" data-filter="language-fr">
-                    <span class="flag-icon flag-icon-fr"></span>
-                    FR
-                </li>
-            </ul>
+            {{--<ul class="lang-separator m-b-10">--}}
+                {{--<li class="lang-button" data-filter="language-bg">--}}
+                    {{--<span class="flag-icon flag-icon-bg"></span>--}}
+                    {{--bg--}}
+                {{--</li>--}}
+                {{--<li class="lang-button" data-filter="language-en">--}}
+                    {{--<span class="flag-icon flag-icon-gb"></span>--}}
+                    {{--EN--}}
+                {{--</li>--}}
+                {{--<li class="lang-button" data-filter="language-fr">--}}
+                    {{--<span class="flag-icon flag-icon-fr"></span>--}}
+                    {{--FR--}}
+                {{--</li>--}}
+            {{--</ul>--}}
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="white-box">
-                        <div class="row">
-                            <div class="form-group language-bg">
-                                <label class="col-sm-12"><span class="flag-icon flag-icon-bg"></span> Text</label>
-                                <div class="col-sm-12 m-b-20">
-                                    <input type="text" class="form-control" placeholder="Helping text">
-
-                                    <span class="help-block">
-                                        <small>
-                                            E tva e to
-                                        </small>
-                                    </span>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+     {{----}}
+            {{--<div class="form-group language-bg">--}}
+                {{--<h1>BG</h1>--}}
+            {{--</div>--}}
 
 
-            <div class="form-group language-bg">
-                <h1>BG</h1>
-            </div>
+            {{--<div class="form-group language-en">--}}
+                {{--<h1>EN</h1>--}}
+            {{--</div>--}}
 
+            {{--<div class="form-group language-fr">--}}
+                {{--<h1>FR</h1>--}}
+            {{--</div>--}}
 
-            <div class="form-group language-en">
-                <h1>EN</h1>
-            </div>
+            {{--<div class="form-group without-language">--}}
+                {{--<h1>NOTHING</h1>--}}
+            {{--</div>--}}
 
-            <div class="form-group language-fr">
-                <h1>FR</h1>
-            </div>
-
-            <div class="form-group without-language">
-                <h1>NOTHING</h1>
-            </div>
-
-        </div>
-    </div>
+        {{--</div>--}}
 
 @endsection
 

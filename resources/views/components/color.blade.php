@@ -1,5 +1,4 @@
-
-<div class="form-group col-md-12{{ @$options['class'] }}">
+<div class="form-group {{ @$options['class'] }}">
     <label class="col-sm-12">{{ $options['title'] }}</label>
     <div class="col-sm-12 m-b-20">
         {!!  Form::text($name, $options['value'], $options['attr']) !!}

@@ -19,6 +19,7 @@ class DateType extends FormField
         return [
             'attr' => [
                 'class' => 'form-control mydatepicker',
+                'autocomplete' => 'off'
             ],
         ];
     }

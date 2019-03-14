@@ -14,12 +14,18 @@ class ColorType extends FormField
         return 'color';
     }
 
-    protected function getDefaults()
+    public function getDefaults()
     {
         return [
+            'choices' => [],
+            'empty_value' => null,
+            'selected' => null,
             'attr' => [
-                'class' => 'form-control colorpicker',
-            ],
+                'class' => 'form-control colorpicker col-sm-12',
+                'data-style' => "form-control",
+                'autocomplete' => 'off'
+
+            ]
         ];
     }
 

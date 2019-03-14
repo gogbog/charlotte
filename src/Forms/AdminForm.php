@@ -10,6 +10,11 @@ class AdminForm extends Form
     {
         $additional_data = null;
         $fields = $this->data;
+        $fields['submit'] = [
+            'title' => 'Submit',
+            'field' => 'button'
+        ];
+
         if (!empty($fields['administration_additional_data'])) {
             $additional_data = $fields['administration_additional_data'];
 
@@ -21,8 +26,8 @@ class AdminForm extends Form
                 'class' => 'form-control'
             ];
 
-            if (!empty($data['attributes'])) {
-                array_merge($attributes, $data['attributes']);
+            if (!empty($data['attr'])) {
+                array_merge($attributes, $data['attr']);
             }
 
             $this->add(@$key, $data['field'], [
@@ -32,7 +37,8 @@ class AdminForm extends Form
                 'class' => @$data['class'],
                 'name' => $key,
                 'attr' => $attributes,
-                'selected' => @$data['selected ']
+                'selected' => @$data['selected'],
+                'checked' => @$data['checked'],
             ]);
         }
 

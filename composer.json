@@ -28,6 +28,7 @@
         "mcamara/laravel-localization": "1.3.x",
         "barryvdh/laravel-debugbar": "^3.2@dev",
         "caffeinated/modules": "dev-master",
-        "kris/laravel-form-builder": "^1.16@dev"
+        "kris/laravel-form-builder": "^1.16@dev",
+        "davejamesmiller/laravel-breadcrumbs": "5.x"
     }
 }

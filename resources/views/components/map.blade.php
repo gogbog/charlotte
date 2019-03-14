@@ -1,5 +1,6 @@
-
-<div id="map" style="width: 100%; height: 350px;"></div>
+<div class="form-group col-sm-12">
+    <div class="m-b-20" id="map" style="width: 100%; height: 350px;"></div>
+</div>
 
 <input id="coordsLat" name="lat" type="hidden" value="">
 <input id="coordsLng" name="lng" type="hidden" value="">

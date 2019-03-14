@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>@if(!empty($title)) {{ $title }} @endif</title>
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}">
     {{--<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}">--}}
@@ -108,7 +108,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title">Starter Page</h4> </div>
+                    <h4 class="page-title">@if(!empty($title)) {{ $title }} @endif</h4> </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <ol class="breadcrumb">
                         <li><a href="#">Dashboard</a></li>
@@ -130,7 +130,7 @@
                             <li>
                                 <div class="row">
                                     <div class="col-xs-4 text-center">
-                                        <p class="m-b-0 m-t-15">Dark</p>
+                                        <p class="m-b-0 m-t-15">{{ trans('administration::admin.dark') }}</p>
                                     </div>
                                     <div class="col-xs-4">
                                         <label class="switch-light switch-ios" style="width: 60px; margin: 0" onclick="">
@@ -141,7 +141,7 @@
                                         </label>
                                     </div>
                                     <div class="col-xs-4 text-center">
-                                        <p class="m-b-0 m-t-15">Light</p>
+                                        <p class="m-b-0 m-t-15">{{ trans('administration::admin.light') }}</p>
                                     </div>
                                 </div>
                             </li>

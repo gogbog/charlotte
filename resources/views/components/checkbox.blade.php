@@ -1,11 +1,13 @@
 @php
-$id = rand(0,100);
+$id = uniqid();
 $options['attr']['id'] = $id;
+$checked = ($options['value'] || $options['checked']) ? 'checked' : null;
 @endphp
 <div class="form-group {{ @$options['class'] }}">
     <div class="col-sm-12 m-b-20">
         <div class="checkbox checkbox-danger">
-            {!!  Form::checkbox($name, $options['value'], @$options['checked'], $options['attr']) !!}
+            {{Form::hidden($name,0)}}
+            {!!  Form::checkbox($name, 1, $checked, $options['attr']) !!}
             <label for="{{ $id }}">{{ $options['title'] }}</label>
         </div>
         <span class="help-block">

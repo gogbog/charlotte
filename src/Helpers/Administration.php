@@ -3,6 +3,8 @@
 namespace Charlotte\Administration\Helpers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
+
 
 class Administration {
 
@@ -23,6 +25,18 @@ class Administration {
 
     public static function getLoggedAdmin() {
         return Auth::guard(config('administration.guard'))->user();
+    }
+
+    public static function route($route) {
+        return route(config('administration.admin_prefix') . '.' . $route);
+    }
+
+    public static function admin() {
+        return Auth::guard(config('administration.guard'))->user();
+    }
+
+    public static function setTitle($title) {
+        View::share('title', $title);
     }
 
 

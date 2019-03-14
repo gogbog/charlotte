@@ -1,13 +1,14 @@
+@php
+$id = uniqid();
+$area_id = uniqid();
+@endphp
+
 <div class="form-group {{ @$options['class'] }}">
     <label class="col-sm-12">{{ $options['title'] }}</label>
     <div class="col-sm-12 m-b-20">
-        <div class="summernote"
-        @if (!empty($options['attributes']))
-            @foreach($options['attributes'] as $attribute)
-                {{ $attribute }}
-            @endforeach
-        @endif>
-        </div>
+
+        {!! Form::textarea($name, null, ['hidden', 'class' => 'description', 'id' => $id]) !!}
+        <div class="summernote"></div>
         <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
@@ -21,14 +22,21 @@
 @section('js')
 
     <script>
-        $(document).ready(function () {
-            $('.summernote').summernote({
-                height: 350, // set editor height
+        $(document).ready(function() {
+            let id = '{{$id}}';
+            let desc = document.getElementById(id);
+            desc.innerHTML = null;
+
+            $('#' + id).summernote({
+                height: 300, // set editor height
                 minHeight: null, // set minimum height of editor
                 maxHeight: null, // set maximum height of editor
                 focus: false // set focus to editable area after initializing summernote
             });
-        });
+            $('#' + id).on('summernote.change', function(we, contents, $editable) {
+                desc.innerHTML = contents;
+            });
+        })
     </script>
 
 @append
