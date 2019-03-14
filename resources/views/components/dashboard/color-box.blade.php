@@ -1,9 +1,9 @@
 
 
-<div class=" col-lg-3 col-md-6 col-sm-12">
-    <div class="white-box text-center bg-danger">
-        <h1 class="text-white counter">165</h1>
-        <p class="text-white">New items</p>
+<div class="{{ $class }}">
+    <div class="white-box text-center {{$color}}">
+        <h1 class="text-white counter">{{$value}}</h1>
+        <p class="text-white">{{$title}}</p>
     </div>
 </div>
 

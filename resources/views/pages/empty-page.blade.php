@@ -1,10 +1,15 @@
 @extends('administration::layouts.administration-master')
 @section('content')
 
-    @if (!empty($form))
 
+    @if (!empty($boxes))
         <div class="row">
+            {!! $boxes !!}
+        </div>
+    @endif
 
+    @if (!empty($form))
+        <div class="row">
             <ul class="lang-separator m-b-10">
                 @foreach(LaravelLocalization::getSupportedLocales() as $locale => $data)
                     <li class="lang-button" data-filter="language-{{$locale}}">
@@ -13,18 +18,12 @@
                     </li>
                 @endforeach
             </ul>
-
-
             <div class="white-box">
                 <div class="row">
                     {!! form($form) !!}
                 </div>
             </div>
-
-
         </div>
-
-
     @endif
 
 

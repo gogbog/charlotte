@@ -7,6 +7,24 @@ use Caffeinated\Modules\Facades\Module;
 class AdministrationModuleHelper {
 
 
+    public static function moduleDashboards() {
+        $classes = self::moduleAdministrationClasses();
+        $boxes = '';
+
+        foreach ($classes as $class_name) {
+            if (!class_exists($class_name)) {
+                continue;
+            }
+            $class = new $class_name();
+
+            foreach ($class->dashboard() as $box) {
+                $boxes .= $box->render();
+            }
+        }
+
+        return $boxes;
+    }
+
     public static function moduleRoutes() {
         $classes = self::moduleAdministrationClasses();
 

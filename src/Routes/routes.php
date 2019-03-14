@@ -27,7 +27,7 @@ Route::group([
             ], function () {
                 Route::get('/', [
                     'as' => 'index',
-                    'uses' => 'AdministrationController@index',
+                    'uses' => 'DashboardController@index',
                 ]);
             });
 
