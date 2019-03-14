@@ -12,7 +12,9 @@
                 $value = null;
             }
         @endphp
-
+        <label class="col-sm-12 form-group language-{{$locale}}">
+            <span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}
+        </label>
         @foreach($options['choices'] as $key => $choice)
             @if ($key == $value)
                 @php
@@ -22,15 +24,12 @@
                 @php
                     $checked = 0;
                 @endphp
-
             @endif
-            <div class="form-group language-{{$locale}} {{ @$options['class'] }}">
+            <div class="form-group language-{{$locale}} @if (!empty($options['class'])) {{ @$options['class'] }} @else col-sm-2 @endif">
                 <div class="col-sm-12 m-b-20">
-
                     <div class="radio radio-danger">
                         {!! Form::radio($locale . '[' .$name . ']', $key , $checked, ['id' => $key . '-' . $locale]); !!}
-                        <label for="{{ $key . '-' .$locale }}"><span
-                                    class="flag-icon flag-icon-{{$locale}}"></span>{{ $choice }}</label>
+                        <label for="{{ $key . '-' .$locale }}">{{ $choice }}</label>
                     </div>
                     <span class="help-block">
             <small>
@@ -45,6 +44,9 @@
 
     @endforeach
 @else
+    <label class="col-sm-12 form-group without-language">
+        {{ $options['title'] }}
+    </label>
     @foreach($options['choices'] as $key => $choice)
         @if ($loop->first || $key == $options['value'])
             @php
@@ -57,7 +59,7 @@
 
         @endif
 
-        <div class="form-group without-language {{ @$options['class'] }}">
+        <div class="form-group without-language @if (!empty($options['class'])) {{ @$options['class'] }} @else col-sm-2 @endif">
             <div class="col-sm-12 m-b-20">
                 <div class="radio radio-danger">
                     {!! Form::radio($name, $key, $checked, ['id' => $key]); !!}

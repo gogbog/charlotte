@@ -26,7 +26,7 @@ foreach ($sub_menus as $sub_menu) {
             @foreach($sub_menus as $sub_menu)
                 <li>
                     <a href="{{ $sub_menu['url'] }}">
-                        <i data-icon="F" class="linea-icon linea-software fa-fw"></i>
+                        <i class="ti-dashboard p-r-10"></i>
                         {{ $sub_menu['title'] }}
                     </a>
                 </li>
