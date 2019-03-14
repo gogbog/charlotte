@@ -7,3 +7,9 @@
     <?php if ($options['wrapper'] !== false): ?>
 </div>
 <?php endif; ?>
+
+<div class="form-group">
+    <div class="m-b-20">
+        <button type="submit" class="btn btn-danger" value="Submit" onclick="">Submit</button>
+    </div>
+</div>
