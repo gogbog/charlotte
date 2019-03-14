@@ -27,7 +27,8 @@
     <!-- Top Navigation -->
     <nav class="navbar navbar-default navbar-static-top m-b-0">
         <div class="navbar-header">
-            <a class="navbar-toggle hidden-sm hidden-md hidden-lg" data-toggle="collapse" data-target=".navbar-collapse">
+            <a class="navbar-toggle hidden-sm hidden-md hidden-lg" data-toggle="collapse"
+               data-target=".navbar-collapse">
                 <i class="ti-menu"></i>
             </a>
             <div class="top-left-part">
@@ -48,44 +49,47 @@
                 </li>
             </ul>
             <ul class="nav navbar-top-links navbar-right pull-right m-r-15">
-                {{--<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">--}}
-                        {{--<i class="icon-bell"></i>--}}
-                        {{--<div class="notify">--}}
-                            {{--<span class="heartbit"></span>--}}
-                            {{--<span class="point"></span>--}}
-                        {{--</div>--}}
-                    {{--</a>--}}
-                    {{--<ul class="dropdown-menu dropdown-tasks m-t-30">--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<div>--}}
-                                    {{--<p> <strong>Task 1</strong> <span class="pull-right text-muted">40% Complete</span> </p>--}}
-                                    {{--<div class="progress progress-striped active">--}}
-                                        {{--<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="divider"></li>--}}
-                        {{--<li>--}}
-                            {{--<a class="text-center" href="#"> <strong>See All Tasks</strong> <i class="fa fa-angle-right"></i> </a>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
-                    {{--<!-- /.dropdown-tasks -->--}}
-                {{--</li>--}}
-                <!-- /.dropdown -->
+            {{--<li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="#">--}}
+            {{--<i class="icon-bell"></i>--}}
+            {{--<div class="notify">--}}
+            {{--<span class="heartbit"></span>--}}
+            {{--<span class="point"></span>--}}
+            {{--</div>--}}
+            {{--</a>--}}
+            {{--<ul class="dropdown-menu dropdown-tasks m-t-30">--}}
+            {{--<li>--}}
+            {{--<a href="#">--}}
+            {{--<div>--}}
+            {{--<p> <strong>Task 1</strong> <span class="pull-right text-muted">40% Complete</span> </p>--}}
+            {{--<div class="progress progress-striped active">--}}
+            {{--<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"> <span class="sr-only">40% Complete (success)</span> </div>--}}
+            {{--</div>--}}
+            {{--</div>--}}
+            {{--</a>--}}
+            {{--</li>--}}
+            {{--<li class="divider"></li>--}}
+            {{--<li>--}}
+            {{--<a class="text-center" href="#"> <strong>See All Tasks</strong> <i class="fa fa-angle-right"></i> </a>--}}
+            {{--</li>--}}
+            {{--</ul>--}}
+            {{--<!-- /.dropdown-tasks -->--}}
+            {{--</li>--}}
+            <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
-                        <img src="{{ asset(config('administration.file_prefix') . 'img/users/varun.jpg') }}" alt="user-img" width="36" class="img-circle">
+                        <img src="{{ asset(config('administration.file_prefix') . 'img/users/varun.jpg') }}"
+                             alt="user-img" width="36" class="img-circle">
                         <b class="hidden-xs">{{ \Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->name }}</b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="ti-settings"></i> {{ trans('administration::admin.edit_profile') }}</a></li>
-                        <li><a href="#"><i class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a></li>
+                        <li><a href="#"><i class="ti-settings"></i> {{ trans('administration::admin.edit_profile') }}
+                            </a></li>
+                        <li><a href="#"><i class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a>
+                        </li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
-                <li class="right-side-toggle"> <a><i class="ti-settings"></i></a></li>
+                <li class="right-side-toggle"><a><i class="ti-settings"></i></a></li>
                 <!-- /.dropdown -->
             </ul>
         </div>
@@ -111,9 +115,11 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title" style="font-weight: 300;">@if(!empty($title)) {{ $title }} @endif</h4> </div>
+                    <h4 class="page-title" style="font-weight: 300;">@if(!empty($title)) {{ $title }} @endif</h4></div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                    {{ Breadcrumbs::render('administration') }}
+                    @if (Breadcrumbs::exists('administration'))
+                        {{ Breadcrumbs::render('administration') }}
+                    @endif
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -123,7 +129,8 @@
         <!-- .right-sidebar -->
             <div class="right-sidebar">
                 <div class="slimscrollright">
-                    <div class="rpanel-title"> {{ trans('administration::admin.right_panel') }} <span><i class="ti-close right-side-toggle"></i></span> </div>
+                    <div class="rpanel-title"> {{ trans('administration::admin.right_panel') }} <span><i
+                                    class="ti-close right-side-toggle"></i></span></div>
                     <div class="r-panel-body">
                         <ul>
                             <li><b>{{ trans('administration::admin.layout') }}</b></li>
@@ -133,7 +140,8 @@
                                         <p class="m-b-0 m-t-15">{{ trans('administration::admin.dark') }}</p>
                                     </div>
                                     <div class="col-xs-4">
-                                        <label class="switch-light switch-ios" style="width: 60px; margin: 0" onclick="">
+                                        <label class="switch-light switch-ios" style="width: 60px; margin: 0"
+                                               onclick="">
                                             <input type="checkbox">
                                             <span>
                                   <a></a>
@@ -192,10 +200,15 @@
             h + ":" + m + ":" + s;
         var t = setTimeout(startTime, 500);
     }
+
     function checkTime(i) {
-        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        if (i < 10) {
+            i = "0" + i
+        }
+        ;  // add zero in front of numbers < 10
         return i;
     }
+
     $('#datepicker-inline').datepicker({
         todayHighlight: true
     });
