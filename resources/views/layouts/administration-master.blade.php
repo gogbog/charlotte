@@ -8,10 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@if(!empty($title)) {{ $title }} @endif</title>
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}" id="style-dark" disabled>
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}" id="style-light" >
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}" id="style-light">
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}" id="default-light">
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}" id="default-dark" disabled>
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}" id="default-light" >
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}" id="style-dark" disabled>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -184,7 +184,8 @@
 
     let mode = document.getElementById('myonoffswitch');
 
-    mode.addEventListener('click', function () {
+    mode.addEventListener('click',function () {
+
         let checked = mode.checked;
         let url = mode.dataset.url;
 
@@ -193,6 +194,7 @@
         let styleLight = document.getElementById('style-light');
         let defaultDark = document.getElementById('default-dark');
         let defaultLight = document.getElementById('default-light');
+
 
 
         $.ajaxSetup({
@@ -208,26 +210,26 @@
                 theme: checked,
             },
             beforeSend: function() {
-                // $(".spinner").show();
+                $(".preloader").show();
             },
 
             success: function(result) {
-                if (result.errors.length != 0) {
-                    //ERROR
-                    // $(".error-box").show();
-                    //
-                    // $.each(result.errors, function (key, value) {
-                    //     $('.error').html(result.errors);
-                    // });
-
+                location.reload();
+                $(".preloader").hide();
+                if (checked) {
+                    styleDark.disabled = true;
+                    defaultDark.disabled = true;
+                    defaultLight.disabled = false;
+                    styleLight.disabled = false;
                 } else {
-                    //SUCCESS
-                    console.log(result);
-
+                    styleDark.disabled = false;
+                    defaultDark.disabled = false;
+                    defaultLight.disabled = true;
+                    styleLight.disabled = true;
                 }
+
             }
         });
-        console.log(checked);
     });
 
     function startTime() {
