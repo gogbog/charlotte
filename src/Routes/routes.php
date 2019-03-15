@@ -50,9 +50,15 @@ Route::group([
             Route::get('logout', 'Auth\LoginController@logout')->name('logout');
         });
 
+        Route::group([
+            'middleware' => AdministratorLogged::class
 
-        //Import all module classes
-        AdministrationModuleHelper::moduleRoutes();
+        ], function () {
+            //Import all module routes
+            AdministrationModuleHelper::moduleRoutes();
+        });
+
+
 
 
 

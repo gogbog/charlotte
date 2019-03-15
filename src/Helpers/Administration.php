@@ -29,8 +29,8 @@ class Administration {
         return Auth::guard(config('administration.guard'))->user();
     }
 
-    public static function route($route) {
-        return route(config('administration.admin_prefix') . '.' . $route);
+    public static function route($route, $parameters = []) {
+        return route(config('administration.admin_prefix') . '.' . $route, $parameters);
     }
 
     public static function admin() {

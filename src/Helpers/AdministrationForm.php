@@ -41,6 +41,10 @@ class AdministrationForm {
         $this->route = $route;
     }
 
+    public function method($method) {
+        $this->method = $method;
+    }
+
     public function generate() {
         $formbuilder = \App::make('laravel-form-builder');
 

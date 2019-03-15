@@ -30,6 +30,8 @@
         "caffeinated/modules": "dev-master",
         "kris/laravel-form-builder": "^1.16@dev",
         "davejamesmiller/laravel-breadcrumbs": "5.x",
-        "dimsav/laravel-translatable": "dev-master"
+        "dimsav/laravel-translatable": "dev-master",
+        "yajra/laravel-datatables-oracle": "~9.0",
+        "yajra/laravel-datatables-html": "^4.0"
     }
 }

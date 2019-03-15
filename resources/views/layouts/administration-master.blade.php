@@ -83,7 +83,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="ti-settings"></i> {{ trans('administration::admin.edit_profile') }}</a></li>
-                        <li><a href="#"><i class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a></li>
+                        <li><a href="{{ \Charlotte\Administration\Helpers\Administration::route('logout') }}"><i class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a></li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>

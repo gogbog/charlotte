@@ -16,7 +16,7 @@ class BaseAdministrationController extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
     public function __construct() {
-        if (!App::runningInConsole() || !Breadcrumbs::exists('index_home')) {
+        if (!App::runningInConsole() || !Breadcrumbs::exists('base')) {
             Breadcrumbs::register('base', function ($breadcrumbs) {
                 $breadcrumbs->push(trans('administration::admin.dashboard'), Administration::route('index'));
             });
