@@ -8,10 +8,10 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@if(!empty($title)) {{ $title }} @endif</title>
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}" id="style-light">
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}" id="default-light">
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}" id="default-dark" disabled>
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}" id="style-dark" disabled>
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}" id="style-dark" @if(!\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}" id="default-dark" @if(!\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}" id="style-light" @if(\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}" id="default-light" @if(\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -136,7 +136,7 @@
 
                                     <center>
                                         <div class="onoffswitch">
-                                            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" data-url="{{ \Charlotte\Administration\Helpers\Administration::route('change_color') }}">
+                                            <input type="checkbox" name="onoffswitch" @if (\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) checked @endif class="onoffswitch-checkbox" id="myonoffswitch" data-url="{{ \Charlotte\Administration\Helpers\Administration::route('change_color') }}">
                                             <label id="onoffswitch1" class="onoffswitch-label" for="myonoffswitch">
                                                 <span class="onoffswitch-inner"></span>
                                                 <span class="onoffswitch-switch"></span>
@@ -165,7 +165,7 @@
         <footer class="footer">
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
-                    <span>2019 &copy; <a href="https://github.com/gogbog/administration" style="color:#f75b36;">Charlotte Administration</a></span>
+                    <span>{{  date("Y") }} &copy; <a href="https://github.com/gogbog/administration" style="color:#f75b36;">Charlotte Administration</a></span>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right">
                     <span>0.0.1</span>
@@ -189,14 +189,6 @@
         let checked = mode.checked;
         let url = mode.dataset.url;
 
-        //THEME CHANGE VARS
-        let styleDark = document.getElementById('style-dark');
-        let styleLight = document.getElementById('style-light');
-        let defaultDark = document.getElementById('default-dark');
-        let defaultLight = document.getElementById('default-light');
-
-
-
         $.ajaxSetup({
             cache: false,
             headers: {
@@ -209,24 +201,11 @@
             data: {
                 theme: checked,
             },
-            beforeSend: function() {
-                $(".preloader").show();
-            },
 
             success: function(result) {
-                location.reload();
-                $(".preloader").hide();
-                if (checked) {
-                    styleDark.disabled = true;
-                    defaultDark.disabled = true;
-                    defaultLight.disabled = false;
-                    styleLight.disabled = false;
-                } else {
-                    styleDark.disabled = false;
-                    defaultDark.disabled = false;
-                    defaultLight.disabled = true;
-                    styleLight.disabled = true;
-                }
+                setTimeout(function(){
+                    location.reload();
+                }, 200);
 
             }
         });
