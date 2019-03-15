@@ -15520,3 +15520,33 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
 .rpanel-title span i:hover {
   color: #fff;
 }
+.login-register {
+  background: unset;
+  background: #ffffff !important;
+  background: radial-gradient(circle, #ffffff 0%, #4f5467 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#4f5467", GradientType=1) !important;
+}
+.log-btn {
+  border-radius: 0;
+  background: #353c48;
+  background: radial-gradient(circle, #353c48 0%, #4f5467 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#353c48", endColorstr="#4f5467", GradientType=1);
+  color: #fff;
+}
+.log-btn:hover {
+  color: #fff;
+}
+.form-material .form-control,
+.form-material .form-control.focus,
+.form-material .form-control:focus {
+  background-image: linear-gradient(#4f5467, #4f5467), linear-gradient(rgba(120, 130, 140, 0.21), rgba(120, 130, 140, 0.21));
+}
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  margin: unset;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+}

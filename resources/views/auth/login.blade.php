@@ -8,10 +8,7 @@
     {{--<link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">--}}
     <title>Pixel Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap</title>
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}">
-    {{--<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}">--}}
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}">
-{{--<link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default.css') }}">--}}
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -32,12 +29,12 @@
                 <h3 class="box-title m-b-20 text-center">{{ trans('administration::admin.admin_panel') }}</h3>
                 <div class="form-group ">
                     <div class="col-xs-12">
-                        <input class="form-control" name="email" type="email" required="" placeholder="{{ trans('administration::admin.email') }}">
+                        <input class="form-control p-l-10 p-r-10" name="email" type="email" required="" placeholder="{{ trans('administration::admin.email') }}">
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12">
-                        <input class="form-control" name="password" type="password" required="" placeholder="{{ trans('administration::admin.password') }}">
+                        <input class="form-control p-l-10 p-r-10" name="password" type="password" required="" placeholder="{{ trans('administration::admin.password') }}">
                     </div>
                 </div>
                 <div class="form-group text-center m-t-20 m-b-5">
