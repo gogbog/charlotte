@@ -1,14 +1,12 @@
-
-
-    <div class="{{$class}}">
-        <div class="white-box">
-            <h3 class="box-title">{{ $title }}</h3>
-            <ul class="list-inline two-part">
-                <li><i class="{{ $icon }} text-info"></i></li>
-                <li class="text-right"><span class="counter">{{ $value }}</span></li>
-            </ul>
-        </div>
+<div class="{{$class}}">
+    <div class="white-box">
+        <h3 class="box-title">{{ $title }}</h3>
+        <ul class="list-inline two-part">
+            <li><i class="{{ $icon }} {{$color}}"></i></li>
+            <li class="text-right"><span class="counter">{{ $value }}</span></li>
+        </ul>
     </div>
+</div>
 
 
 <!--

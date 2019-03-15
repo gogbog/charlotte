@@ -74,7 +74,7 @@ class AdministrationServiceProvider extends ServiceProvider {
 
         //Publish Lang
         $this->publishes([
-            __DIR__ . '/../../resources/lang' => resource_path('lang/charlotte/administration'),
+            __DIR__ . '/../../resources/lang' => resource_path('lang/charlotte'),
         ], 'Charlotte/lang');
 
         //Publish Configs

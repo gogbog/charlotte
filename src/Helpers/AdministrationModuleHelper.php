@@ -17,7 +17,7 @@ class AdministrationModuleHelper {
             }
             $class = new $class_name();
 
-            if (!empty($class->dashboard)) {
+            if (!empty($class->dashboard())) {
                 foreach ($class->dashboard() as $box) {
                     $boxes .= $box->render();
                 }

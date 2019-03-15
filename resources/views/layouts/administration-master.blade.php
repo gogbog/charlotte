@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale('bg') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
