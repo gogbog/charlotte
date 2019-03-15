@@ -9,6 +9,7 @@
         @if (!empty($form))
             @include('administration::boxes.form_fields')
         @endif
+
         @if (!empty($table))
             @include('administration::boxes.data_table')
         @endif

@@ -15563,3 +15563,34 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
 .right-side-toggle:hover {
   cursor: pointer;
 }
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+  padding: 10px !important;
+  white-space: nowrap !important;
+}
+.table-bordered > tbody > tr > td,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > td,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > thead > tr > th {
+  border: none;
+  border-right: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  border: 1px solid #3E4D6B !important;
+  background-color: #3E4D6B !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  border: 1px solid #4F5467 !important;
+  background-color: #4F5467 !important;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled:hover {
+  color: #fff !important;
+}
