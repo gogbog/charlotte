@@ -12576,10 +12576,43 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
 
 /***/ }),
 
-/***/ "./resources/less/style-dark.less":
+/***/ "./resources/less/colors/default-dark.less":
+/*!*************************************************!*\
+  !*** ./resources/less/colors/default-dark.less ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/less/colors/default.less":
+/*!********************************************!*\
+  !*** ./resources/less/colors/default.less ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/less/dark/style.less":
 /*!****************************************!*\
-  !*** ./resources/less/style-dark.less ***!
+  !*** ./resources/less/dark/style.less ***!
   \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/less/light/style.less":
+/*!*****************************************!*\
+  !*** ./resources/less/light/style.less ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -18087,9 +18120,9 @@ https://github.com/imakewebthings/waypoints/blog/master/licenses.txt
 /***/ }),
 
 /***/ 0:
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** multi ./resources/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js ./resources/plugins/bower_components/waypoints/lib/jquery.waypoints.js ./resources/plugins/bower_components/counterup/jquery.counterup.min.js ./resources/plugins/bower_components/nestable/jquery.nestable.js ./resources/bootstrap/dist/js/bootstrap.min.js ./resources/js/jquery.slimscroll.js ./resources/js/waves.js ./resources/js/custom.js ./resources/js/jasny-bootstrap.js ./resources/js/validator.js ./resources/plugins/bower_components/toast-master/js/jquery.toast.js ./resources/plugins/bower_components/custom-select/custom-select.min.js ./resources/plugins/bower_components/bootstrap-select/bootstrap-select.min.js ./resources/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js ./resources/plugins/bower_components/multiselect/js/jquery.multi-select.js ./resources/plugins/bower_components/dropify/dist/js/dropify.min.js ./resources/plugins/bower_components/dropzone-master/dist/dropzone.js ./resources/plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.js ./resources/plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asColor.js ./resources/plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asGradient.js ./resources/plugins/bower_components/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js ./resources/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js ./resources/plugins/bower_components/timepicker/bootstrap-timepicker.min.js ./resources/less/style-dark.less ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** multi ./resources/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js ./resources/plugins/bower_components/waypoints/lib/jquery.waypoints.js ./resources/plugins/bower_components/counterup/jquery.counterup.min.js ./resources/plugins/bower_components/nestable/jquery.nestable.js ./resources/bootstrap/dist/js/bootstrap.min.js ./resources/js/jquery.slimscroll.js ./resources/js/waves.js ./resources/js/custom.js ./resources/js/jasny-bootstrap.js ./resources/js/validator.js ./resources/plugins/bower_components/toast-master/js/jquery.toast.js ./resources/plugins/bower_components/custom-select/custom-select.min.js ./resources/plugins/bower_components/bootstrap-select/bootstrap-select.min.js ./resources/plugins/bower_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.min.js ./resources/plugins/bower_components/multiselect/js/jquery.multi-select.js ./resources/plugins/bower_components/dropify/dist/js/dropify.min.js ./resources/plugins/bower_components/dropzone-master/dist/dropzone.js ./resources/plugins/bower_components/clockpicker/dist/jquery-clockpicker.min.js ./resources/plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asColor.js ./resources/plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asGradient.js ./resources/plugins/bower_components/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js ./resources/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js ./resources/plugins/bower_components/timepicker/bootstrap-timepicker.min.js ./resources/less/dark/style.less ./resources/less/colors/default-dark.less ./resources/less/colors/default.less ./resources/less/light/style.less ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -18116,7 +18149,10 @@ __webpack_require__(/*! C:\laragon\www\administration\resources\plugins\bower_co
 __webpack_require__(/*! C:\laragon\www\administration\resources\plugins\bower_components\jquery-asColorPicker-master\dist\jquery-asColorPicker.min.js */"./resources/plugins/bower_components/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js");
 __webpack_require__(/*! C:\laragon\www\administration\resources\plugins\bower_components\bootstrap-datepicker\bootstrap-datepicker.min.js */"./resources/plugins/bower_components/bootstrap-datepicker/bootstrap-datepicker.min.js");
 __webpack_require__(/*! C:\laragon\www\administration\resources\plugins\bower_components\timepicker\bootstrap-timepicker.min.js */"./resources/plugins/bower_components/timepicker/bootstrap-timepicker.min.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\administration\resources\less\style-dark.less */"./resources/less/style-dark.less");
+__webpack_require__(/*! C:\laragon\www\administration\resources\less\dark\style.less */"./resources/less/dark/style.less");
+__webpack_require__(/*! C:\laragon\www\administration\resources\less\colors\default-dark.less */"./resources/less/colors/default-dark.less");
+__webpack_require__(/*! C:\laragon\www\administration\resources\less\colors\default.less */"./resources/less/colors/default.less");
+module.exports = __webpack_require__(/*! C:\laragon\www\administration\resources\less\light\style.less */"./resources/less/light/style.less");
 
 
 /***/ })

@@ -26,7 +26,7 @@
         </div>
     @endif
 
-
+@include('administration::boxes.data_table')
 
 @endsection
 
@@ -54,6 +54,10 @@
                 return false
             });
             $(".lang-separator li:first").trigger("click").addClass('active');
+        });
+
+        $(document).ready(function() {
+            $('#myTable').DataTable();
         });
     </script>
 
