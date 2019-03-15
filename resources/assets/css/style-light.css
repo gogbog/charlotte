@@ -15422,7 +15422,7 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
   display: inline;
   padding: 12px 15px;
   margin: 0;
-  color: #dce2ec;
+  color: #353c48;
   font-size: 14px;
   text-transform: uppercase;
 }
@@ -15430,13 +15430,14 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
   margin: 0 8px 0 0;
 }
 .lang-separator li.active {
-  background-color: #353c48;
+  background-color: #fff;
 }
 .lang-button:hover {
   cursor: pointer;
 }
 .flag-icon {
   margin-right: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .onoffswitch {
   position: relative;
@@ -15513,6 +15514,12 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
 }
 .top-left-part .logo {
   color: #54667a !important;
+  text-transform: capitalize;
+  font-size: 17px;
+}
+.top-left-part .logo b {
+  font-size: 18px;
+  text-transform: uppercase;
 }
 .rpanel-title span i {
   padding: 15px 20px;
@@ -15549,4 +15556,10 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
           transform: translate(-50%, -50%);
   margin: unset;
   box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+}
+.open-close:hover {
+  cursor: pointer;
+}
+.right-side-toggle:hover {
+  cursor: pointer;
 }

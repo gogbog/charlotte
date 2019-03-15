@@ -15830,6 +15830,7 @@ h6 small,
 }
 .flag-icon {
   margin-right: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 .onoffswitch {
   position: relative;
@@ -15906,10 +15907,22 @@ h6 small,
 }
 .top-left-part .logo {
   color: #fff !important;
+  text-transform: capitalize;
+  font-size: 17px;
+}
+.top-left-part .logo b {
+  font-size: 18px;
+  text-transform: uppercase;
 }
 .rpanel-title span i {
   padding: 15px 20px;
 }
 .rpanel-title span i:hover {
   color: #fff;
+}
+.open-close:hover {
+  cursor: pointer;
+}
+.right-side-toggle:hover {
+  cursor: pointer;
 }

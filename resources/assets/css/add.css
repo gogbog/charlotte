@@ -2155,7 +2155,11 @@ ul.wysihtml5-toolbar .fa{
         height: 2em;
         background-color: #fff;
         border-radius: 100%;
+        border: 2px solid #F96262;
         transition: all .2s ease-out;
+    }
+    .switch-ios.switch-light a:hover{
+        cursor: pointer;
     }
     .switch-ios.switch-light > span {
         display: block;

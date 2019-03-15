@@ -102,7 +102,7 @@
         <div class="sidebar-nav navbar-collapse slimscrollsidebar" style="overflow-y: auto; overflow-x: hidden">
             <ul class="nav" id="side-menu">
                 <li class="hidden-sm hidden-md hidden-lg" style="width: 100vw;"></li>
-                <li class="nav-small-cap m-t-10">{{ trans('administration::admin.menu') }}</li>
+                <li class="nav-small-cap m-l-5">{{ trans('administration::admin.menu') }}</li>
                 {!!  \Charlotte\Administration\Helpers\AdministrationModuleHelper::moduleMenu() !!}
             </ul>
         </div>
