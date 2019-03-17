@@ -1,6 +1,6 @@
 <div class="col-sm-12">
     <div class="white-box">
-        <div class="table-responsive">
+        <div class="table-responsive p-10">
             {!! $table->table() !!}
         </div>
     </div>
