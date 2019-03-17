@@ -9,12 +9,12 @@ use Charlotte\Administration\Helpers\AdministrationModuleHelper;
 
 
 Route::group([
-    'prefix' => LaravelLocalization::setLocale(),
-    'middleware' => Administration::getMiddlewares()
+    'prefix' => LaravelLocalization::setLocale() . '/admin',
+    'middleware' => Administration::getMiddlewares(),
+    'as' => 'administration.',
 ], function () {
     Route::group([
-        'prefix' => 'admin',
-        'as' => 'administration.',
+
     ], function () {
 
         //Administration routes
