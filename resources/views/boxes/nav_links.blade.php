@@ -1,36 +1,31 @@
-@php
-$routes = [];
+@foreach($items as $item)
 
-if (!empty($main_menu['url'])) {
-    $routes[] = $main_menu['url'];
-}
-
-foreach ($sub_menus as $sub_menu) {
-    if (!empty($sub_menu['url'])) {
-        $routes[] = $sub_menu['url'];
-    }
-}
-@endphp
-<li>
-    <a href="@if (!empty($main_menu['url'])) {{ $main_menu['url'] }} @else javascript:void(0) @endif" class="waves-effect @if (in_array(Request::url(), $routes)) active @endif">
-        <i class="fa @if (!empty($main_menu['icon'])) {{$main_menu['icon'] }} @endif p-r-10"></i>
-        <span class="hide-menu">
-            {{ $main_menu['title'] }}
-            @if (!empty($sub_menus))
-                <span class="fa arrow"></span>
-            @endif
-        </span>
-    </a>
-    @if (!empty($sub_menus))
-        <ul class="nav nav-second-level">
-            @foreach($sub_menus as $sub_menu)
-                <li>
-                    <a href="{{ $sub_menu['url'] }}">
-                        <i  class="fa @if (!empty($sub_menu['icon'])) {{$sub_menu['icon'] }} @endif  p-r-10"></i>
-                        {{ $sub_menu['title'] }}
-                    </a>
-                </li>
-            @endforeach
-        </ul>
-    @endif
-</li>
+    @php
+        $active = false;
+        if ($item->hasChildren()) {
+            foreach ($item->children() as $child) {
+                if ($child->url() == Request::url()) {
+                    $active = true;
+                }
+            }
+        }
+    @endphp
+    <li class="@if(!empty($item->attr()['class'])) {{ $item->attr()['class'] }} @endif @if($item->hasChildren()) dropdown @endif  ">
+        @if(empty($item->attr()['global']))
+            <a href="@if (!empty($item->url())){!! $item->url() !!}@else javascript:void(0)  @endif" class="waves-effect @if ($active) active @endif">
+                <i class="fa linea-icon linea-basic @if (!empty($item->attr()['icon'])) {{ $item->attr()['icon'] }} @endif"></i>
+                <span class="hide-menu">
+                {!! $item->title !!}
+                    @if($item->hasChildren()) <span class="fa arrow"></span> @endif
+            </span>
+            </a>
+        @else
+            {!! $item->title !!}
+        @endif
+        @if($item->hasChildren())
+            <ul class="nav nav-second-level">
+                @include('administration::boxes.nav_links', ['items' => $item->children()])
+            </ul>
+        @endif
+    </li>
+@endforeach

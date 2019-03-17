@@ -10,6 +10,6 @@ interface Structure {
 
     public function routes();
 
-    public function menu();
+    public function menu($menu);
 
 }

@@ -8,11 +8,19 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@if(!empty($title)) {{ $title }} @endif</title>
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}" id="style-dark" @if(!\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}" id="default-dark" @if(!\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}" id="style-light" @if(\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}" id="default-light" @if(\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}"
+          id="style-dark"
+          @if(!\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}"
+          id="default-dark"
+          @if(!\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}"
+          id="style-light"
+          @if(\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}"
+          id="default-light"
+          @if(\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
     <script src="{{ asset(config('administration.file_prefix') . 'js/html5shiv.js') }}"></script>
@@ -78,16 +86,20 @@
             <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
-                        <img src="{{ asset(config('administration.file_prefix') . 'images/user.png') }}" alt="user-img" width="36" class="img-circle">
+                        <img src="{{ asset(config('administration.file_prefix') . 'images/user.png') }}" alt="user-img"
+                             width="36" class="img-circle">
                         <b class="hidden-xs">{{ \Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->name }}</b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="ti-settings"></i> {{ trans('administration::admin.edit_profile') }}</a></li>
-                        <li><a href="{{ \Charlotte\Administration\Helpers\Administration::route('logout') }}"><i class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a></li>
+                        <li><a href="#"><i class="ti-settings"></i> {{ trans('administration::admin.edit_profile') }}
+                            </a></li>
+                        <li><a href="{{ \Charlotte\Administration\Helpers\Administration::route('logout') }}"><i
+                                        class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a>
+                        </li>
                     </ul>
                     <!-- /.dropdown-user -->
                 </li>
-                <li class="right-side-toggle"> <a><i class="ti-settings"></i></a></li>
+                <li class="right-side-toggle"><a><i class="ti-settings"></i></a></li>
                 <!-- /.dropdown -->
             </ul>
         </div>
@@ -101,9 +113,7 @@
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse slimscrollsidebar" style="overflow-y: auto; overflow-x: hidden">
             <ul class="nav" id="side-menu">
-                <li class="hidden-sm hidden-md hidden-lg" style="width: 100vw;"></li>
-                <li class="nav-small-cap m-l-5 m-t-0">{{ trans('administration::admin.menu') }}</li>
-                {!!  \Charlotte\Administration\Helpers\AdministrationModuleHelper::moduleMenu() !!}
+                @include('administration::boxes.nav_links', ['items' => $menu->roots()])
             </ul>
         </div>
     </div>
@@ -127,7 +137,8 @@
         <!-- .right-sidebar -->
             <div class="right-sidebar">
                 <div class="slimscrollright">
-                    <div class="rpanel-title"> {{ trans('administration::admin.right_panel') }} <span><i class="ti-close right-side-toggle"></i></span> </div>
+                    <div class="rpanel-title"> {{ trans('administration::admin.right_panel') }} <span><i
+                                    class="ti-close right-side-toggle"></i></span></div>
                     <div class="r-panel-body">
                         <ul>
                             <li><b>{{ trans('administration::admin.layout') }}</b></li>
@@ -136,7 +147,10 @@
 
                                     <center>
                                         <div class="onoffswitch">
-                                            <input type="checkbox" name="onoffswitch" @if (\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) checked @endif class="onoffswitch-checkbox" id="myonoffswitch" data-url="{{ \Charlotte\Administration\Helpers\Administration::route('change_color') }}">
+                                            <input type="checkbox" name="onoffswitch"
+                                                   @if (\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) checked
+                                                   @endif class="onoffswitch-checkbox" id="myonoffswitch"
+                                                   data-url="{{ \Charlotte\Administration\Helpers\Administration::route('change_color') }}">
                                             <label id="onoffswitch1" class="onoffswitch-label" for="myonoffswitch">
                                                 <span class="onoffswitch-inner"></span>
                                                 <span class="onoffswitch-switch"></span>
@@ -165,7 +179,8 @@
         <footer class="footer">
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
-                    <span>{{  date("Y") }} &copy; <a href="https://github.com/gogbog/administration" style="color:#f75b36;">Charlotte Administration</a></span>
+                    <span>{{  date("Y") }} &copy; <a href="https://github.com/gogbog/administration"
+                                                     style="color:#f75b36;">Charlotte Administration</a></span>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right">
                     <span>0.0.1</span>
@@ -185,7 +200,7 @@
 
     let mode = document.getElementById('myonoffswitch');
 
-    mode.addEventListener('click',function () {
+    mode.addEventListener('click', function () {
 
         let checked = mode.checked;
         let url = mode.dataset.url;
@@ -203,8 +218,8 @@
                 theme: checked,
             },
 
-            success: function(result) {
-                setTimeout(function(){
+            success: function (result) {
+                setTimeout(function () {
                     location.reload();
                 }, 200);
 
@@ -223,10 +238,15 @@
             h + ":" + m + ":" + s;
         var t = setTimeout(startTime, 500);
     }
+
     function checkTime(i) {
-        if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+        if (i < 10) {
+            i = "0" + i
+        }
+        ;  // add zero in front of numbers < 10
         return i;
     }
+
     $('#datepicker-inline').datepicker({
         todayHighlight: true
     });

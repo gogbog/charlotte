@@ -39,9 +39,8 @@ class AdministrationModuleHelper {
         }
     }
 
-    public static function moduleMenu() {
+    public static function moduleMenu($menu) {
         $classes = self::moduleAdministrationClasses();
-        $menus = '';
 
 
         foreach ($classes as $class_name) {
@@ -49,10 +48,8 @@ class AdministrationModuleHelper {
                 continue;
             }
             $class = new $class_name();
-            $menus .= $class->menu();
+            $class->menu($menu);
         }
-
-        return $menus;
     }
 
     public static function moduleAdministrationClasses() {

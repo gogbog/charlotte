@@ -2,5 +2,6 @@
 
 return [
     'menu' => 'Menu',
-    'dashboard' => 'Dashboard'
+    'dashboard' => 'Dashboard',
+    'main_menu' => '--- Main menu',
 ];

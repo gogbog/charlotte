@@ -2,5 +2,6 @@
 
 return [
     'menu' => 'Меню',
-    'dashboard' => 'Начало'
+    'dashboard' => 'Начало',
+    'main_menu' => '--- Главно меню'
 ];

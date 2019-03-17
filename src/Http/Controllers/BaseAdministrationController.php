@@ -4,6 +4,7 @@ namespace Charlotte\Administration\Http\Controllers;
 
 
 use Charlotte\Administration\Helpers\Administration;
+use Charlotte\Administration\Helpers\AdministrationModuleHelper;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -21,5 +22,11 @@ class BaseAdministrationController extends BaseController
                 $breadcrumbs->push(trans('administration::admin.dashboard'), Administration::route('index'));
             });
         }
+
+        \Menu::make('menu', function ($menu) {
+            $menu->add(trans('administration::admin.main_menu'), ['class' => 'nav-small-cap m-t-10', 'global' => true]);
+            $menu->add(trans('administration::admin.dashboard'), Administration::route('index'));
+            AdministrationModuleHelper::moduleMenu($menu);
+        });
     }
 }
