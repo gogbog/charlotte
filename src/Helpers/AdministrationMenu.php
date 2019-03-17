@@ -12,10 +12,12 @@ class AdministrationMenu {
 
     public function addModule($menu) {
         $this->main_menu = $menu;
+        return $this;
     }
 
     public function addItem($menu) {
         $this->sub_menus[] = $menu;
+        return $this;
     }
 
     public function generate() {
