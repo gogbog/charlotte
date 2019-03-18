@@ -141,7 +141,25 @@
                                     class="ti-close right-side-toggle"></i></span></div>
                     <div class="r-panel-body">
                         <ul>
-                            <li><b>{{ trans('administration::admin.layout') }}</b></li>
+                            <li>
+                                <h5 class="m-b-10">Current Language : {{ App::getLocale() }}</h5>
+
+                                    <div class="dropdown lang-switch">
+                                        <a href="javascript:void (0)"
+                                           {{--class="dropdown-toggle dropdown"--}}
+                                           data-toggle="dropdown"
+                                           role="button"
+                                           {{--aria-haspopup="true"--}}
+                                           aria-expanded="false">
+                                            {{ trans('administration::admin.lang') }}
+                                            <span class="caret"></span></a>
+                                        <ul class="dropdown-menu dropdown-user">
+                                            <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}"><span class="flag-icon flag-icon-en"></span> {{ trans('administration::lang.en') }}</a></li>
+                                            <li><a href="{{ LaravelLocalization::getLocalizedURL('bg') }}"><span class="flag-icon flag-icon-bg"></span> {{ trans('administration::lang.bg') }}</a></li>
+                                        </ul>
+                                    </div>
+
+                            </li>
                             <li>
                                 <div class="row p-b-10 p-t-20">
 
