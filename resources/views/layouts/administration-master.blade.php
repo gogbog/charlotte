@@ -43,10 +43,14 @@
             <div class="top-left-part">
                 <a class="logo" href="{{ \Charlotte\Administration\Helpers\Administration::route('index') }}">
                     <b>
-                        AP
+                        {{ trans('administration::admin.ap') }}
                     </b>
                     <span class="hidden-xs">
-                        {{ config('app.name', 'Administration Panel') }}
+                        @if(config('app.name') == '')
+                            {{ trans('administration::admin.admin_panel') }}
+                        @else
+                            {{ config('app.name') }}
+                        @endif
                     </span>
                 </a>
             </div>
@@ -91,10 +95,17 @@
                         <b class="hidden-xs">{{ \Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->name }}</b>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="ti-settings"></i> {{ trans('administration::admin.edit_profile') }}
-                            </a></li>
-                        <li><a href="{{ \Charlotte\Administration\Helpers\Administration::route('logout') }}"><i
-                                        class="fa fa-power-off"></i> {{ trans('administration::admin.logout') }}</a>
+                        <li>
+                            <a href="#" class="p-10">
+                                <i class="ti-settings m-r-10"></i>
+                                {{ trans('administration::admin.edit_profile') }}
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ \Charlotte\Administration\Helpers\Administration::route('logout') }}" class="p-10">
+                                <i class="fa fa-power-off m-r-10"></i>
+                                {{ trans('administration::admin.logout') }}
+                            </a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -137,32 +148,34 @@
         <!-- .right-sidebar -->
             <div class="right-sidebar">
                 <div class="slimscrollright">
-                    <div class="rpanel-title"> {{ trans('administration::admin.right_panel') }} <span><i
-                                    class="ti-close right-side-toggle"></i></span></div>
+                    <div class="rpanel-title">
+                        {{ trans('administration::admin.right_panel') }}
+                        <span class="m-t-5">
+                            <i class="ti-close right-side-toggle"></i>
+                        </span>
+                    </div>
                     <div class="r-panel-body">
                         <ul>
                             <li>
-                                <h5 class="m-b-10">Current Language : {{ App::getLocale() }}</h5>
+                                <h5 class="m-b-20 font-normal text-muted">{{ trans('administration::admin.curr_lang') }} : <span class="flag-icon flag-icon-{{ App::getLocale() }}"></span> <span style="text-transform: uppercase;">{{ App::getLocale() }}</span></h5>
 
-                                    <div class="dropdown lang-switch">
-                                        <a href="javascript:void (0)"
-                                           {{--class="dropdown-toggle dropdown"--}}
-                                           data-toggle="dropdown"
-                                           role="button"
-                                           {{--aria-haspopup="true"--}}
-                                           aria-expanded="false">
-                                            {{ trans('administration::admin.lang') }}
-                                            <span class="caret"></span></a>
-                                        <ul class="dropdown-menu dropdown-user">
-                                            <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}"><span class="flag-icon flag-icon-en"></span> {{ trans('administration::lang.en') }}</a></li>
-                                            <li><a href="{{ LaravelLocalization::getLocalizedURL('bg') }}"><span class="flag-icon flag-icon-bg"></span> {{ trans('administration::lang.bg') }}</a></li>
-                                        </ul>
-                                    </div>
+                                <div class="dropdown lang-switch m-b-10">
+                                    <a href="javascript:void (0)"
+                                       data-toggle="dropdown"
+                                       role="button"
+                                       aria-expanded="false">
+                                        {{ trans('administration::admin.lang') }}
+                                        <span class="caret pull-right vertical-middle"></span></a>
+                                    <ul class="dropdown-menu dropdown-lang">
+                                        <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}"><span class="flag-icon flag-icon-en"></span> {{ trans('administration::lang.en') }}</a></li>
+                                        <li><a href="{{ LaravelLocalization::getLocalizedURL('bg') }}"><span class="flag-icon flag-icon-bg"></span> {{ trans('administration::lang.bg') }}</a></li>
+                                    </ul>
+                                </div>
 
                             </li>
                             <li>
-                                <div class="row p-b-10 p-t-20">
-
+                                <h5 class="m-b-20 font-normal text-muted">{{ trans('administration::admin.change_theme') }}</h5>
+                                <div class="row p-b-10">
                                     <center>
                                         <div class="onoffswitch">
                                             <input type="checkbox" name="onoffswitch"
@@ -175,7 +188,6 @@
                                             </label>
                                         </div>
                                     </center>
-
                                 </div>
                             </li>
                             <li class="text-center">
@@ -184,8 +196,11 @@
                             <li class="text-center">
                                 <div id="datepicker-inline"></div>
                             </li>
-                            {{--<li class="text-center">--}}
-                            {{--<a href="{{ url('/schedule') }}" class="">Calendar</a>--}}
+                            {{--<li>--}}
+                                {{--<a href="#" class="p-t-10 p-b-10 text-muted schedule">--}}
+                                    {{--<i class="ti-calendar m-l-10 m-r-10"></i>--}}
+                                    {{--{{ trans('administration::admin.schedule') }}--}}
+                                {{--</a>--}}
                             {{--</li>--}}
                         </ul>
                     </div>

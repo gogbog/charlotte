@@ -15664,3 +15664,27 @@ body.stop-scrolling {
 .sidebar .nav-second-level li a {
   padding-left: 0 !important;
 }
+.right-sidebar .rpanel-title {
+  padding: 18px;
+  text-transform: capitalize;
+  font-size: 17px;
+}
+.lang-switch {
+  padding: 10px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.lang-switch:hover {
+  background-color: #f9f9f9;
+}
+.lang-switch a {
+  font-weight: 500;
+  color: #686868;
+}
+.lang-switch .caret {
+  margin: 10px;
+  color: #686868;
+}
+.lang-switch .dropdown-lang {
+  width: 200px;
+}
