@@ -33,6 +33,8 @@
         "dimsav/laravel-translatable": "dev-master",
         "yajra/laravel-datatables-oracle": "~9.0",
         "yajra/laravel-datatables-html": "^4.0",
-        "lavary/laravel-menu": "dev-master"
+        "lavary/laravel-menu": "dev-master",
+        "rap2hpoutre/laravel-log-viewer": "dev-master",
+        "spatie/laravel-sluggable": "dev-master"
     }
 }

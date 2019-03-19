@@ -34,6 +34,7 @@ Route::group([
                     'uses' => 'AdministrationController@changeColor',
                 ]);
 
+                Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
             });
 
             // Authentication Routes...
