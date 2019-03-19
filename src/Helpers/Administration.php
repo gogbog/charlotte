@@ -18,8 +18,8 @@ class Administration {
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
             \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
-             \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
-            \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class
+//             \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
+//            \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class
         ];
 
         return array_merge($middlewares, $additional_middlewares);
