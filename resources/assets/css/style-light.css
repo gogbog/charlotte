@@ -15524,6 +15524,9 @@ body.stop-scrolling {
   font-size: 18px;
   text-transform: uppercase;
 }
+.content-wrapper .sidebar .nav-second-level li {
+  background-color: transparent !important;
+}
 .rpanel-title span i {
   padding: 15px 20px;
 }
@@ -15786,4 +15789,10 @@ body.stop-scrolling {
 }
 .link-box-cont:hover .link-box-t {
   margin-top: -173px;
+}
+@media (max-width: 767px) {
+  .fix-header .sidebar {
+    height: calc(100vh - 59px);
+    top: 59px;
+  }
 }

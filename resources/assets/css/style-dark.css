@@ -15917,6 +15917,9 @@ body.stop-scrolling {
   font-size: 18px;
   text-transform: uppercase;
 }
+.content-wrapper .sidebar .nav-second-level li {
+  background-color: transparent !important;
+}
 .right-side-toggle:hover {
   cursor: pointer;
 }
@@ -16151,4 +16154,10 @@ table.dataTable thead .sorting:after {
 }
 .link-box-cont:hover .link-box-t {
   margin-top: -173px;
+}
+@media (max-width: 767px) {
+  .fix-header .sidebar {
+    height: calc(100vh - 59px);
+    top: 59px;
+  }
 }

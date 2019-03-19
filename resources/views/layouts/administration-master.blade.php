@@ -124,6 +124,7 @@
     <div class="navbar-default sidebar" role="navigation">
         <div class="sidebar-nav navbar-collapse slimscrollsidebar" style="overflow-y: auto; overflow-x: hidden">
             <ul class="nav" id="side-menu">
+                <li class="hidden-sm hidden-md hidden-lg" style="width: 100vw;"></li>
                 @include('administration::boxes.nav_links', ['items' => $menu->roots()])
             </ul>
         </div>
@@ -282,6 +283,11 @@
 
     $('#datepicker-inline').datepicker({
         todayHighlight: true
+    });
+
+    $(".counter").counterUp({
+        delay: 100,
+        time: 1000
     });
 </script>
 @yield('js')
