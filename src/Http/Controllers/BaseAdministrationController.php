@@ -25,7 +25,7 @@ class BaseAdministrationController extends BaseController
 
         \Menu::make('menu', function ($menu) {
             $menu->add(trans('administration::admin.main_menu'), ['class' => 'nav-small-cap m-t-10', 'global' => true]);
-            $menu->add(trans('administration::admin.dashboard'), Administration::route('index'));
+            $menu->add(trans('administration::admin.dashboard'), ['url' => Administration::route('index'), 'icon' => 'fa-dashboard']);
             AdministrationModuleHelper::moduleMenu($menu);
         });
     }

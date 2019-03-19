@@ -216,7 +216,7 @@
                                                      style="color:#f75b36;">Charlotte Administration</a></span>
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right">
-                    <span>0.0.1</span>
+                    <span>{{ config('administration.package_version') }}</span>
                 </div>
             </div>
         </footer>

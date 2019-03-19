@@ -15917,17 +15917,29 @@ body.stop-scrolling {
   font-size: 18px;
   text-transform: uppercase;
 }
+.right-side-toggle:hover {
+  cursor: pointer;
+}
 .rpanel-title span i {
   padding: 15px 20px;
 }
 .rpanel-title span i:hover {
   color: #fff;
 }
+.right-sidebar .rpanel-title {
+  padding: 18px;
+  text-transform: capitalize;
+  font-size: 17px;
+}
 .open-close:hover {
   cursor: pointer;
 }
-.right-side-toggle:hover {
-  cursor: pointer;
+.table-responsive {
+  border: none !important;
+}
+.table {
+  min-width: 100% !important;
+  width: auto !important;
 }
 table.dataTable thead .sorting:after {
   color: #96A2B3 !important;
@@ -15967,6 +15979,9 @@ table.dataTable thead .sorting:after {
 .table > tbody > tr:hover > td,
 .table > tbody > tr:hover > th {
   background-color: rgba(0, 0, 0, 0.125);
+}
+.action-btn:hover {
+  cursor: pointer !important;
 }
 .media-modal {
   display: none;
@@ -16029,11 +16044,6 @@ table.dataTable thead .sorting:after {
 .sidebar .nav-second-level li a {
   padding-left: 0 !important;
 }
-.right-sidebar .rpanel-title {
-  padding: 18px;
-  text-transform: capitalize;
-  font-size: 17px;
-}
 .lang-switch {
   padding: 10px;
   background-color: transparent;
@@ -16052,4 +16062,93 @@ table.dataTable thead .sorting:after {
 }
 .lang-switch .dropdown-lang {
   width: 200px;
+}
+.table-switch.switch-ios.switch-light {
+  width: 50px;
+}
+.table-switch.switch-ios.switch-light a {
+  left: 0;
+  top: 0;
+  width: 1.45em;
+  height: 1.45em;
+  background-color: #fff;
+  border-radius: 100%;
+  border: 2px solid #F96262;
+  transition: all 0.2s ease-out;
+}
+.table-switch.switch-ios.switch-light a:hover {
+  cursor: pointer;
+}
+.table-switch.switch-ios.switch-light > span {
+  display: block;
+  width: 100%;
+  height: 1.45em;
+  background-color: #f96262;
+  border-radius: 1.75em;
+  margin: 0;
+  transition: all 0.4s ease-out;
+}
+.table-switch.switch-ios.switch-light input:checked ~ span a {
+  left: 100%;
+  border-color: #4BD865;
+  margin-left: -1.45em;
+}
+.table-switch.switch-ios.switch-light input:checked ~ span {
+  border-color: #4BD865;
+  box-shadow: inset 0 0 0 30px #4BD865;
+}
+.table-switch.switch-ios.switch-light input:checked ~ span span:first-of-type {
+  opacity: 0;
+}
+.table-switch.switch-ios.switch-light input:checked ~ span span:last-of-type {
+  opacity: 1;
+  color: #fff;
+}
+.table-switch.switch-ios.switch-toggle {
+  background-color: #D8D9DB;
+  border-radius: 30px;
+  box-shadow: inset rgba(0, 0, 0, 0.1) 0 1px 0;
+}
+.table-switch.switch-ios.switch-toggle a {
+  background-color: #4BD865;
+  border: 0.125em solid #D8D9DB;
+  border-radius: 1.75em;
+  transition: all 0.12s ease-out;
+}
+.table-switch.switch-ios.switch-toggle label {
+  height: 2.4em;
+  color: #888b92;
+  line-height: 2.4em;
+  vertical-align: middle;
+}
+.table-switch.switch-ios input:checked + label {
+  color: #3e4043;
+}
+.table-switch.switch-light > span {
+  min-height: unset !important;
+}
+.link-box-cont > div {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.link-box-link h1 {
+  text-align: center;
+  margin: 0;
+  line-height: 103px;
+}
+.link-box-cont,
+.link-box-t {
+  transition: 0.2s;
+}
+.link-box-cont {
+  height: 123px;
+  line-height: 123px;
+  overflow: hidden;
+}
+.link-box-t {
+  margin-top: 0px;
+}
+.link-box-cont:hover .link-box-t {
+  margin-top: -173px;
 }

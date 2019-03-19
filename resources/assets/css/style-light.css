@@ -15530,6 +15530,17 @@ body.stop-scrolling {
 .rpanel-title span i:hover {
   color: #fff;
 }
+.right-side-toggle:hover {
+  cursor: pointer;
+}
+.right-sidebar .rpanel-title {
+  padding: 18px;
+  text-transform: capitalize;
+  font-size: 17px;
+}
+.open-close:hover {
+  cursor: pointer;
+}
 .login-register {
   background: unset;
   background: #ffffff !important;
@@ -15560,11 +15571,12 @@ body.stop-scrolling {
   margin: unset;
   box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
 }
-.open-close:hover {
-  cursor: pointer;
+.table-responsive {
+  border: none !important;
 }
-.right-side-toggle:hover {
-  cursor: pointer;
+.table {
+  min-width: 100% !important;
+  width: auto !important;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -15601,6 +15613,9 @@ body.stop-scrolling {
 .table > tbody > tr:hover > td,
 .table > tbody > tr:hover > th {
   background-color: rgba(0, 0, 0, 0.025);
+}
+.action-btn:hover {
+  cursor: pointer !important;
 }
 .media-modal {
   display: none;
@@ -15664,11 +15679,6 @@ body.stop-scrolling {
 .sidebar .nav-second-level li a {
   padding-left: 0 !important;
 }
-.right-sidebar .rpanel-title {
-  padding: 18px;
-  text-transform: capitalize;
-  font-size: 17px;
-}
 .lang-switch {
   padding: 10px;
   background-color: transparent;
@@ -15687,4 +15697,93 @@ body.stop-scrolling {
 }
 .lang-switch .dropdown-lang {
   width: 200px;
+}
+.table-switch.switch-ios.switch-light {
+  width: 50px;
+}
+.table-switch.switch-ios.switch-light a {
+  left: 0;
+  top: 0;
+  width: 1.45em;
+  height: 1.45em;
+  background-color: #fff;
+  border-radius: 100%;
+  border: 2px solid #F96262;
+  transition: all 0.2s ease-out;
+}
+.table-switch.switch-ios.switch-light a:hover {
+  cursor: pointer;
+}
+.table-switch.switch-ios.switch-light > span {
+  display: block;
+  width: 100%;
+  height: 1.45em;
+  background-color: #f96262;
+  border-radius: 1.75em;
+  margin: 0;
+  transition: all 0.4s ease-out;
+}
+.table-switch.switch-ios.switch-light input:checked ~ span a {
+  left: 100%;
+  border-color: #4BD865;
+  margin-left: -1.45em;
+}
+.table-switch.switch-ios.switch-light input:checked ~ span {
+  border-color: #4BD865;
+  box-shadow: inset 0 0 0 30px #4BD865;
+}
+.table-switch.switch-ios.switch-light input:checked ~ span span:first-of-type {
+  opacity: 0;
+}
+.table-switch.switch-ios.switch-light input:checked ~ span span:last-of-type {
+  opacity: 1;
+  color: #fff;
+}
+.table-switch.switch-ios.switch-toggle {
+  background-color: #D8D9DB;
+  border-radius: 30px;
+  box-shadow: inset rgba(0, 0, 0, 0.1) 0 1px 0;
+}
+.table-switch.switch-ios.switch-toggle a {
+  background-color: #4BD865;
+  border: 0.125em solid #D8D9DB;
+  border-radius: 1.75em;
+  transition: all 0.12s ease-out;
+}
+.table-switch.switch-ios.switch-toggle label {
+  height: 2.4em;
+  color: #888b92;
+  line-height: 2.4em;
+  vertical-align: middle;
+}
+.table-switch.switch-ios input:checked + label {
+  color: #3e4043;
+}
+.table-switch.switch-light > span {
+  min-height: unset !important;
+}
+.link-box-cont > div {
+  text-decoration: none;
+  text-align: center;
+  display: block;
+}
+.link-box-link h1 {
+  text-align: center;
+  margin: 0;
+  line-height: 103px;
+}
+.link-box-cont,
+.link-box-t {
+  transition: 0.2s;
+}
+.link-box-cont {
+  height: 123px;
+  line-height: 123px;
+  overflow: hidden;
+}
+.link-box-t {
+  margin-top: 0px;
+}
+.link-box-cont:hover .link-box-t {
+  margin-top: -173px;
 }
