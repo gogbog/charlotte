@@ -39,22 +39,24 @@
 
 <script>
     const modal = document.querySelector('#media-modal');
-    const modalBtn = document.querySelector('#modal-btn');
-    const closeBtn = document.querySelector('.media-close');
+    const modalBtn = document.querySelectorAll('#modal-btn');
+    const closeBtn = document.querySelectorAll('.media-close');
 
-    modalBtn.addEventListener('click', openModal);
-    closeBtn.addEventListener('click', closeModal);
+    modalBtn.forEach(function (modalBtn) {
+        modalBtn.addEventListener('click', function () {
+            $(modal).show();
+            $('body').addClass('stop-scrolling');
+        });
+    });
+
+    closeBtn.forEach(function (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+            $(modal).hide();
+            $('body').removeClass('stop-scrolling');
+        });
+    });
+
     window.addEventListener('click', outsideClick);
-
-    function openModal() {
-        $(modal).show();
-        $('body').addClass('stop-scrolling');
-    }
-
-    function closeModal() {
-        $(modal).hide();
-        $('body').removeClass('stop-scrolling');
-    }
 
     function outsideClick(e) {
         if (e.target == modal) {
