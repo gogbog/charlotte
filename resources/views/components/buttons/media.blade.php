@@ -19,11 +19,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="white-box m-b-0">
-                                <form action="{{ \Charlotte\Administration\Helpers\Administration::route('blog.store') }}" class="dropzone">
+                                <form action="{{ \Charlotte\Administration\Helpers\Administration::route('blog.store') }}"
+                                      class="dropzone">
                                     {{ csrf_field() }}
-                                    <input name="blog_id" type="hidden" value="111"  />
+                                    <input name="blog_id" type="hidden" value="111"/>
                                     <div class="fallback">
-                                        <input name="file" type="file" multiple /> </div>
+                                        <input name="file" type="file" multiple/></div>
                                 </form>
                             </div>
                         </div>
@@ -35,33 +36,30 @@
     </div>
 </div>
 
-@section('js')
 
-    <script>
-        const modal = document.querySelector('#media-modal');
-        const modalBtn = document.querySelector('#modal-btn');
-        const closeBtn = document.querySelector('.media-close');
+<script>
+    const modal = document.querySelector('#media-modal');
+    const modalBtn = document.querySelector('#modal-btn');
+    const closeBtn = document.querySelector('.media-close');
 
-        modalBtn.addEventListener('click', openModal);
-        closeBtn.addEventListener('click', closeModal);
-        window.addEventListener('click', outsideClick);
+    modalBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    window.addEventListener('click', outsideClick);
 
-        function openModal() {
-            $(modal).show();
-            $('body').addClass('stop-scrolling');
-        }
+    function openModal() {
+        $(modal).show();
+        $('body').addClass('stop-scrolling');
+    }
 
-        function closeModal() {
+    function closeModal() {
+        $(modal).hide();
+        $('body').removeClass('stop-scrolling');
+    }
+
+    function outsideClick(e) {
+        if (e.target == modal) {
             $(modal).hide();
             $('body').removeClass('stop-scrolling');
         }
-
-        function outsideClick(e) {
-            if (e.target == modal) {
-                $(modal).hide();
-                $('body').removeClass('stop-scrolling');
-            }
-        }
-    </script>
-
-@append
+    }
+</script>

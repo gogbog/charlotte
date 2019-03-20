@@ -22,12 +22,13 @@ class AdministrationField {
         return view('administration::components.buttons.restore', compact('link', 'icon', 'color'))->render();
     }
 
+
     public static function nest() {
 
     }
 
-    public static function media() {
-
+    public static function media($model) {
+        return view('administration::components.buttons.media', compact($model))->render();
     }
 
 }
