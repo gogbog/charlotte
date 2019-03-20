@@ -10,7 +10,7 @@ class AdministrationSeo {
 
 
         if (empty($fields)) {
-            $fields = ['meta_title', 'meta_description', 'slug'];
+            $fields = ['slug', 'meta_title', 'meta_description', 'meta_keywords'];
         }
 
         foreach ($fields as $field) {
