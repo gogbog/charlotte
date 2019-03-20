@@ -25,10 +25,10 @@ class BaseAdministrationController extends BaseController
 
         \Menu::make('menu', function ($menu) {
             $menu->add(trans('administration::admin.main_menu'), ['class' => 'nav-small-cap m-t-10', 'global' => true]);
-            $menu->add(trans('administration::admin.dashboard'), ['url' => Administration::route('index'), 'icon' => 'fa-dashboard']);
+            $menu->add(trans('administration::admin.dashboard'), ['url' => Administration::route('index'), 'icon' => 'fa-dashboard fa-fw']);
             AdministrationModuleHelper::moduleMenu($menu);
             $menu->add(trans('administration::admin.settings'), ['class' => 'nav-small-cap m-t-10', 'global' => true]);
-            $menu->add(trans('administration::admin.logs'), ['url' => Administration::route('logs'), 'icon' => 'ti-info-alt']);
+            $menu->add(trans('administration::admin.logs'), ['url' => Administration::route('logs'), 'icon' => 'fa-bug fa-fw']);
 
 
         });

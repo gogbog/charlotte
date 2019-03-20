@@ -2,6 +2,9 @@
 @section('content')
 
     <div class="row">
+        @if(Route::currentRouteName() == 'administration.index')
+            @include('administration::components.dashboard.log-box')
+        @endif
         @if (!empty($boxes))
             {!! $boxes !!}
         @endif

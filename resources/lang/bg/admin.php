@@ -14,6 +14,7 @@ return [
     'dashboard' => 'Начало',
     'main_menu' => '--- Главно меню',
     'settings' => '--- Настройки',
+    'logs' => 'Логове',
     'right_panel' => 'Опции',
     'curr_lang' => 'Текущ език ',
     'lang' => 'Смени Език',
@@ -22,10 +23,25 @@ return [
     'logout' => 'Изход',
     'schedule' => 'График',
 
+    //DASHBOARD
+    'monthly_log' => 'Месечен Лог',
+    'see_details' => 'Виж Повече',
+
+    //EXAMPLE MODULES
+    'add' => 'Добави',
+    'view_all' => 'Виж всички',
+    'create' => 'Създай',
+    'edit' => 'Редактирай',
+    'blog' => 'Блог',
+
     //FORMS
     'title' => 'Заглавие',
     'description' => 'Описание',
     'active' => 'Активно',
+    'meta_title' => 'Мета Заглавие',
+    'meta_description' => 'Мета Описание',
+    'meta_keywords' => 'Мета Ключови думи',
+    'slug' => 'Слъг',
     'submit' => 'Запази',
 
     //DATATABLE
@@ -38,4 +54,5 @@ return [
     'restore' => 'Възстановяване?',
     'yes_restore' => 'Възстанови',
     'restored' => 'Възстановено!',
+
 ];

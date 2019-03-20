@@ -15413,6 +15413,15 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
 body.stop-scrolling {
   overflow: hidden !important;
 }
+@media (max-width: 767px) {
+  .container-fluid {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+  .bg-title {
+    padding: 15px 25px 10px !important;
+  }
+}
 .asColorPicker-wrap {
   width: calc(100% - 37px);
 }

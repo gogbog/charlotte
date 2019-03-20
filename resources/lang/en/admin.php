@@ -14,6 +14,7 @@ return [
     'dashboard' => 'Dashboard',
     'main_menu' => '--- Main Menu',
     'settings' => '--- Settings',
+    'logs' => 'Logs',
     'right_panel' => 'Options',
     'curr_lang' => 'Current Language ',
     'lang' => 'Change Language',
@@ -22,10 +23,25 @@ return [
     'logout' => 'Logout',
     'schedule' => 'Schedule',
 
+    //DASHBOARD
+    'monthly_log' => 'Monthly Log',
+    'see_details' => 'See Details',
+
+    //EXAMPLE MODULES
+    'add' => 'Add',
+    'view_all' => 'View All',
+    'create' => 'Create',
+    'edit' => 'Edit',
+    'blog' => 'Blog',
+
     //FORMS
     'title' => 'Title',
     'description' => 'Description',
     'active' => 'Active',
+    'meta_title' => 'Meta Title',
+    'meta_description' => 'Meta Description',
+    'meta_keywords' => 'Meta Keywords',
+    'slug' => 'Slug',
     'submit' => 'Save',
 
     //DATATABLE
