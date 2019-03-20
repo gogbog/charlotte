@@ -28,7 +28,12 @@ class AdministrationField {
     }
 
     public static function media($model) {
-        return view('administration::components.buttons.media', compact($model))->render();
+        return view('administration::components.buttons.media', compact('model'))->render();
+    }
+
+    public static function switch($field, $model) {
+        return view('administration::components.buttons.switch', compact('field','model'))->render();
+
     }
 
 }

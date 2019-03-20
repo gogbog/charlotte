@@ -39,6 +39,11 @@ Route::group([
                     'uses' => '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index',
                 ]);
 
+                Route::post('/quick_switch', [
+                    'as' => 'quick_switch',
+                    'uses' => 'AjaxController@saveQuickSwitch',
+                ]);
+
             });
 
             // Authentication Routes...
