@@ -1,5 +1,5 @@
 <ul class="lang-separator m-b-10">
-    @foreach(LaravelLocalization::getSupportedLocales() as $locale => $data)
+    @foreach(LaravelLocalization::getLocalesOrder() as $locale => $data)
         <li class="lang-button" data-filter="language-{{$locale}}">
             <span class="flag-icon flag-icon-{{$locale}}"></span>
             {{$locale}}

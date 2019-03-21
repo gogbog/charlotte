@@ -5,6 +5,7 @@ namespace Charlotte\Administration\Http\Controllers;
 
 use Charlotte\Administration\Helpers\Administration;
 use Charlotte\Administration\Helpers\AdministrationModuleHelper;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 class DashboardController extends BaseAdministrationController {
     public function index() {

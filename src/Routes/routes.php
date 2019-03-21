@@ -44,6 +44,11 @@ Route::group([
                     'uses' => 'AjaxController@saveQuickSwitch',
                 ]);
 
+                Route::post('/quick_file', [
+                    'as' => 'quick_file',
+                    'uses' => 'AjaxController@quickUploadFile',
+                ]);
+
             });
 
             // Authentication Routes...

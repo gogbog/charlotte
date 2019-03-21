@@ -25,6 +25,7 @@
     <!--[if lt IE 9]>
     <script src="{{ asset(config('administration.file_prefix') . 'js/html5shiv.js') }}"></script>
     <script src="{{ asset(config('administration.file_prefix') . 'js/respond.min.js') }}"></script>
+
     <![endif]-->
 </head>
 <body class="fix-header fix-sidebar">
@@ -230,6 +231,7 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/editor.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/data-table.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/charlotte.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>
 @yield('js')
 </body>
 </html>
