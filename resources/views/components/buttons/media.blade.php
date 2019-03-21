@@ -1,67 +1,62 @@
-<a class="m-l-10 m-r-10 action-btn media-btn" href="#" id="modal-btn">
+<?php
+$elId = uniqid();
+?>
+
+<a class="m-l-10 m-r-10 action-btn media-btn" data-toggle="modal" data-target="#myModal-{{ $elId }}">
     <i class="ti-image text-success"></i>
 </a>
 
-<div id="media-modal" class="media-modal">
-    <div class="media-modal-content">
-        <div class="media-modal-header">
-            <span class="media-close">&times;</span>
-            <ul class="nav nav-tabs">
 
-                <li class="active"><a data-toggle="tab" href="#menu1">Menu 1</a></li>
+<div class="modal fade" id="myModal-{{ $elId }}" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <ul class="nav nav-tabs">
 
-            </ul>
-        </div>
-        <div class="media-modal-body">
-            <div class="tab-content m-t-0">
+                    <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
+                    <li><a data-toggle="tab" href="#home1">Home1</a></li>
 
-                <div id="menu1" class="tab-pane fade in active">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="white-box m-b-0">
-                                <form action="{{ \Charlotte\Administration\Helpers\Administration::route('blog.store') }}"
-                                      class="dropzone">
-                                    {{ csrf_field() }}
-                                    <input name="blog_id" type="hidden" value="111"/>
-                                    <div class="fallback">
-                                        <input name="file" type="file" multiple/></div>
-                                </form>
-                            </div>
+                </ul>
+            </div>
+            <div class="modal-body">
+                <div class="tab-content">
+                    <div id="home" class="tab-pane fade in active">
+
+                        <div class="dropzone" id="file-{{ $elId }}">
                         </div>
+
+                    </div>
+                    <div id="home1" class="tab-pane fade">
+
+                        <div class="dropzone" id="file-{{ $elId }}">
+                        </div>
+
                     </div>
                 </div>
-
             </div>
+            {{--<div class="modal-footer">--}}
+            {{--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>--}}
+            {{--</div>--}}
         </div>
     </div>
 </div>
 
 
-<script>
-    const modal = document.querySelector('#media-modal');
-    const modalBtn = document.querySelectorAll('#modal-btn');
-    const closeBtn = document.querySelectorAll('.media-close');
+    <script src="{{ asset(config('administration.file_prefix') . 'js/drop.js') }}"></script>
+    <script>
 
-    modalBtn.forEach(function (modalBtn) {
-        modalBtn.addEventListener('click', function () {
-            $(modal).show();
-            $('body').addClass('stop-scrolling');
+        $(".dropzone").dropzone({
+            autoDiscover: false,
+            paramName: "file",
+            method: 'POST',
+            url: "{{ \Charlotte\Administration\Helpers\Administration::route('blog.store') }}",
+            addRemoveLinks : true,
+            maxFilesize: 5,
+            dictResponseError: 'Error uploading file!',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
         });
-    });
 
-    closeBtn.forEach(function (closeBtn) {
-        closeBtn.addEventListener('click', function () {
-            $(modal).hide();
-            $('body').removeClass('stop-scrolling');
-        });
-    });
-
-    window.addEventListener('click', outsideClick);
-
-    function outsideClick(e) {
-        if (e.target == modal) {
-            $(modal).hide();
-            $('body').removeClass('stop-scrolling');
-        }
-    }
-</script>
+    </script>

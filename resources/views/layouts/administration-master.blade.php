@@ -161,12 +161,11 @@
                                 <h5 class="m-b-20 font-normal text-muted">{{ trans('administration::admin.curr_lang') }} : <span class="flag-icon flag-icon-{{ App::getLocale() }}"></span> <span style="text-transform: uppercase;">{{ App::getLocale() }}</span></h5>
 
                                 <div class="dropdown lang-switch m-b-10">
-                                    <a href="javascript:void (0)"
-                                       data-toggle="dropdown"
+                                    <button data-toggle="dropdown"
                                        role="button"
                                        aria-expanded="false">
                                         {{ trans('administration::admin.lang') }}
-                                        <span class="caret pull-right vertical-middle"></span></a>
+                                        <span class="caret pull-right vertical-middle"></span></button>
                                     <ul class="dropdown-menu dropdown-lang">
                                         <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}"><span class="flag-icon flag-icon-en"></span> {{ trans('administration::lang.en') }}</a></li>
                                         <li><a href="{{ LaravelLocalization::getLocalizedURL('bg') }}"><span class="flag-icon flag-icon-bg"></span> {{ trans('administration::lang.bg') }}</a></li>
