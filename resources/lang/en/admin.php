@@ -55,4 +55,8 @@ return [
     'yes_restore' => 'Restore',
     'restored' => 'Restored!',
 
+    //MEDIA MANAGER
+    'media_default' => 'Drag your files here or click and choose',
+    'media_error' => 'Error uploading file!',
+
 ];
