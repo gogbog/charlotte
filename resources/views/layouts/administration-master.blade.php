@@ -244,6 +244,7 @@
 </div>
 <!-- /#wrapper -->
 <script src="{{ asset(config('administration.file_prefix') . 'js/jquery.min.js') }}"></script>
+<script src="{{ asset(config('administration.file_prefix') . 'js/jquery-ui.min.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/app.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/charts.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/editor.js') }}"></script>

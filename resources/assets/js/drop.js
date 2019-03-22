@@ -3669,7 +3669,7 @@ function __guardMethod__(obj, methodName, transform) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laragon\www\Admin\resources\plugins\bower_components\dropzone-master\dist\dropzone.js */"./resources/plugins/bower_components/dropzone-master/dist/dropzone.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\administration\resources\plugins\bower_components\dropzone-master\dist\dropzone.js */"./resources/plugins/bower_components/dropzone-master/dist/dropzone.js");
 
 
 /***/ })

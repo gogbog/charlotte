@@ -16171,7 +16171,9 @@ table.dataTable thead .sorting:after {
 .dropzone {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
+  padding: 10px;
+  min-height: 250px;
 }
 .dropzone .dz-preview.dz-image-preview {
   background: transparent;
@@ -16183,6 +16185,12 @@ table.dataTable thead .sorting:after {
   border-radius: 0;
   width: 100px;
   height: 100px;
+}
+.dropzone .dz-preview .dz-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .dropzone .dz-preview .dz-remove {
   position: absolute;

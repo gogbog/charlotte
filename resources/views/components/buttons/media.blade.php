@@ -42,9 +42,8 @@ $id = uniqid();
     let model = '{{str_ireplace('\\','\\\\',get_class($model))}}';
     let collection = '{{ $collection }}';
 
-
-
     $("#{{$id}}_{{$collection}}").dropzone({
+        // autoProcessQueue: true,
         autoDiscover: false,
         paramName: "file",
         method: 'POST',
@@ -75,6 +74,25 @@ $id = uniqid();
             });
         }
     });
+
+    $( function() {
+        $("#{{$id}}_{{$collection}}").sortable({
+            items:'.dz-preview',
+            cursor: 'move',
+            opacity: 0.5,
+            containment: "#{{$id}}_{{$collection}}",
+            distance: 20,
+            tolerance: 'pointer',
+            update: function(e, ui){
+                console.log(ui);
+                //This is called when elements have been rearranged
+            }
+        },"toArray");
+
+        $("#{{$id}}_{{$collection}}").disableSelection();
+    } );
+
+
 
 </script>
 @endforeach

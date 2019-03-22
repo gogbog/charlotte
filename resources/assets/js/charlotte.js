@@ -156,7 +156,7 @@ $(".counter").counterUp({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\laragon\www\Admin\resources\js\charlotte.js */"./resources/js/charlotte.js");
+module.exports = __webpack_require__(/*! C:\laragon\www\administration\resources\js\charlotte.js */"./resources/js/charlotte.js");
 
 
 /***/ })
