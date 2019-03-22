@@ -22,6 +22,7 @@ return [
     'edit_profile' => 'Profile Settings',
     'logout' => 'Logout',
     'schedule' => 'Schedule',
+    'error' => 'Error',
 
     //DASHBOARD
     'monthly_log' => 'Monthly Log',

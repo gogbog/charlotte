@@ -48,10 +48,10 @@ $id = uniqid();
         autoDiscover: false,
         paramName: "file",
         method: 'POST',
-
         url: "{{ \Charlotte\Administration\Helpers\Administration::route('quick_file') }}",
         addRemoveLinks: true,
         dictRemoveFile : "&#10005;",
+        dictCancelUpload: "&#10005;",
         dictDefaultMessage: "{{ trans('administration::admin.media_default') }}",
         maxFilesize: 99999,
         dictResponseError: "{{ trans('administration::admin.media_error') }}",

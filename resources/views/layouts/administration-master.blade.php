@@ -103,7 +103,8 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ \Charlotte\Administration\Helpers\Administration::route('logout') }}" class="p-10">
+                            <a href="{{ \Charlotte\Administration\Helpers\Administration::route('logout') }}"
+                               class="p-10">
                                 <i class="fa fa-power-off m-r-10"></i>
                                 {{ trans('administration::admin.logout') }}
                             </a>
@@ -159,17 +160,34 @@
                     <div class="r-panel-body">
                         <ul>
                             <li>
-                                <h5 class="m-b-20 font-normal text-muted">{{ trans('administration::admin.curr_lang') }} : <span class="flag-icon flag-icon-{{ App::getLocale() }}"></span> <span style="text-transform: uppercase;">{{ App::getLocale() }}</span></h5>
-
+                                <h5 class="m-b-20 font-normal text-muted">
+                                    {{ trans('administration::admin.curr_lang') }} :
+                                    <span class="flag-icon flag-icon-{{ App::getLocale() }}"></span>
+                                    <span style="text-transform: uppercase;">
+                                        {{ App::getLocale() }}
+                                    </span>
+                                </h5>
                                 <div class="dropdown lang-switch m-b-10">
                                     <button data-toggle="dropdown"
-                                       role="button"
-                                       aria-expanded="false">
+                                            role="button"
+                                            aria-expanded="false"
+                                            style="text-align: left">
                                         {{ trans('administration::admin.lang') }}
-                                        <span class="caret pull-right vertical-middle"></span></button>
+                                        <span class="caret pull-right vertical-middle"></span>
+                                    </button>
                                     <ul class="dropdown-menu dropdown-lang">
-                                        <li><a href="{{ LaravelLocalization::getLocalizedURL('en') }}"><span class="flag-icon flag-icon-en"></span> {{ trans('administration::lang.en') }}</a></li>
-                                        <li><a href="{{ LaravelLocalization::getLocalizedURL('bg') }}"><span class="flag-icon flag-icon-bg"></span> {{ trans('administration::lang.bg') }}</a></li>
+                                        <li>
+                                            <a href="{{ LaravelLocalization::getLocalizedURL('en') }}">
+                                                <span class="flag-icon flag-icon-en"></span>
+                                                {{ trans('administration::lang.en') }}
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ LaravelLocalization::getLocalizedURL('bg') }}">
+                                                <span class="flag-icon flag-icon-bg"></span>
+                                                {{ trans('administration::lang.bg') }}
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
 
@@ -198,10 +216,10 @@
                                 <div id="datepicker-inline"></div>
                             </li>
                             {{--<li>--}}
-                                {{--<a href="#" class="p-t-10 p-b-10 text-muted schedule">--}}
-                                    {{--<i class="ti-calendar m-l-10 m-r-10"></i>--}}
-                                    {{--{{ trans('administration::admin.schedule') }}--}}
-                                {{--</a>--}}
+                            {{--<a href="#" class="p-t-10 p-b-10 text-muted schedule">--}}
+                            {{--<i class="ti-calendar m-l-10 m-r-10"></i>--}}
+                            {{--{{ trans('administration::admin.schedule') }}--}}
+                            {{--</a>--}}
                             {{--</li>--}}
                         </ul>
                     </div>
@@ -230,9 +248,38 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/charts.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/editor.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/data-table.js') }}"></script>
-<script src="{{ asset(config('administration.file_prefix') . 'js/charlotte.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/drop.js') }}"></script>
-{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/dropzone.js"></script>--}}
+<script src="{{ asset(config('administration.file_prefix') . 'js/charlotte.js') }}"></script>
+@if (!empty($errors) && count($errors) > 0)
+    <script>
+        @foreach ($errors as $error)
+            $.toast({
+                heading: '{{ trans('administration::admin.error') }}',
+                text: '{{ $error }}',
+                position: 'top-right',
+                loaderBg: 'rgba(255,255,255,0.5)',
+                icon: 'error',
+                hideAfter: 5000,
+                stack: 3
+            });
+        @endforeach
+    </script>
+@endif
+@if (!empty($success) && count($success) > 0)
+    <script>
+        @foreach ($success as $ok)
+            $.toast({
+                heading: '{{ trans('administration::admin.success') }}',
+                text: '{{ $ok }}',
+                position: 'top-right',
+                loaderBg: 'rgba(255,255,255,0.5)',
+                icon: 'success',
+                hideAfter: 5000,
+                stack: 1
+            });
+        @endforeach
+    </script>
+@endif
 @yield('js')
 </body>
 </html>

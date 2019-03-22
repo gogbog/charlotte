@@ -22,6 +22,7 @@ return [
     'edit_profile' => 'Настройки на профила',
     'logout' => 'Изход',
     'schedule' => 'График',
+    'error' => 'Грешка',
 
     //DASHBOARD
     'monthly_log' => 'Месечен Лог',
