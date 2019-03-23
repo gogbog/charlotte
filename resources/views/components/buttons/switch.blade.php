@@ -42,7 +42,6 @@ $id = uniqid();
                 state: checked
             },
             success: function (result) {
-                console.log(result);
                 if (typeof result.errors !== 'undefined' && result.errors.length != 0) {
                     $.each(result.errors, function (index, value) {
                         $.toast({

@@ -36,6 +36,7 @@
         "lavary/laravel-menu": "dev-master",
         "rap2hpoutre/laravel-log-viewer": "dev-master",
         "spatie/laravel-sluggable": "dev-master",
-        "spatie/laravel-medialibrary": "^7.0.0"
+        "spatie/laravel-medialibrary": "^7.0.0",
+        "kalnoy/nestedset": "^4.2@dev"
     }
 }

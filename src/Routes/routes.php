@@ -49,6 +49,16 @@ Route::group([
                     'uses' => 'AjaxController@quickUploadFile',
                 ]);
 
+                Route::post('/quick_reorder', [
+                    'as' => 'quick_reorder',
+                    'uses' => 'AjaxController@quickReorder',
+                ]);
+
+                Route::post('/quick_media_reorder', [
+                    'as' => 'quick_media_reorder',
+                    'uses' => 'AjaxController@quickMediaSort',
+                ]);
+
             });
 
             // Authentication Routes...

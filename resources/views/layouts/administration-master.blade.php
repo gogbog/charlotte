@@ -216,10 +216,10 @@
                                 <div id="datepicker-inline"></div>
                             </li>
                             {{--<li>--}}
-                            {{--<a href="#" class="p-t-10 p-b-10 text-muted schedule">--}}
-                            {{--<i class="ti-calendar m-l-10 m-r-10"></i>--}}
-                            {{--{{ trans('administration::admin.schedule') }}--}}
-                            {{--</a>--}}
+                                {{--<a href="#" class="p-t-10 p-b-10 text-muted schedule">--}}
+                                    {{--<i class="ti-calendar m-l-10 m-r-10"></i>--}}
+                                    {{--{{ trans('administration::admin.schedule') }}--}}
+                                {{--</a>--}}
                             {{--</li>--}}
                         </ul>
                     </div>
@@ -251,6 +251,7 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/data-table.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/drop.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/charlotte.js') }}"></script>
+<script src="//cdn.datatables.net/rowreorder/1.2.4/js/dataTables.rowReorder.min.js"></script>
 @if (!empty($errors) && count($errors) > 0)
     <script>
         @foreach ($errors as $error)
@@ -261,7 +262,7 @@
                 loaderBg: 'rgba(255,255,255,0.5)',
                 icon: 'error',
                 hideAfter: 5000,
-                stack: 3
+                stack: 6
             });
         @endforeach
     </script>
@@ -276,7 +277,7 @@
                 loaderBg: 'rgba(255,255,255,0.5)',
                 icon: 'success',
                 hideAfter: 5000,
-                stack: 1
+                stack: 2
             });
         @endforeach
     </script>
