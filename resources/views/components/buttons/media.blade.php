@@ -64,6 +64,7 @@ $id = uniqid();
                 this.options.addedfile.call(this, mockFile);
                 this.options.thumbnail.call(this, mockFile, "{{ $media->getFullUrl('thumb') }}", );
                 // mockFile.previewElement.classList.add('dz-success');
+                mockFile.previewElement.setAttribute('data-id', '{{ $media->id }}');
                 mockFile.previewElement.classList.add('dz-complete');
             @endforeach
 
@@ -71,6 +72,10 @@ $id = uniqid();
                 formData.append("id", {{ $model->id }});
                 formData.append("class", model);
                 formData.append("collection", collection);
+            });
+
+            this.on("success", function(file, response) {
+                file.previewElement.setAttribute('data-id', JSON.stringify(response.id));
             });
         }
     });
@@ -83,11 +88,29 @@ $id = uniqid();
             containment: "#{{$id}}_{{$collection}}",
             distance: 20,
             tolerance: 'pointer',
-            update: function(e, ui){
-                console.log(ui);
-                //This is called when elements have been rearranged
+            stop: function(e, ui) {
+                let sorted_ids = [];
+                $.map($(this).find('.dz-preview'), function(el) {
+                    sorted_ids.push($(el).data('id'));
+                });
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    url: '{{ \Charlotte\Administration\Helpers\Administration::route('quick_media_reorder') }}',
+                    type: 'POST',
+                    data: {
+                        ids: sorted_ids
+                    },
+                    success: function (result) {
+                        // console.log(result);
+                    }
+                });
             }
-        },"toArray");
+        });
 
         $("#{{$id}}_{{$collection}}").disableSelection();
     } );
