@@ -251,7 +251,7 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/data-table.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/drop.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/charlotte.js') }}"></script>
-<script src="//cdn.datatables.net/rowreorder/1.2.4/js/dataTables.rowReorder.min.js"></script>
+<script src="{{ asset(config('administration.file_prefix') . 'js/datatable_reorder.js') }}"></script>
 @if (!empty($errors) && count($errors) > 0)
     <script>
         @foreach ($errors as $error)

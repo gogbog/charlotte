@@ -16142,12 +16142,10 @@ table.dataTable thead .sorting:after {
   border-radius: 0;
 }
 .modal-content {
-  background-color: transparent !important;
   box-shadow: none;
   border: none;
 }
 .modal-header {
-  padding: 0;
   border-bottom: none;
 }
 .close {
@@ -16173,7 +16171,6 @@ table.dataTable thead .sorting:after {
   flex-wrap: wrap;
   justify-content: flex-start;
   padding: 10px;
-  min-height: 250px;
 }
 .dropzone .dz-preview.dz-image-preview {
   background: transparent;
@@ -16209,6 +16206,18 @@ table.dataTable thead .sorting:after {
   text-decoration: none;
 }
 .dropzone .dz-message {
-  width: 100%;
-  margin: 20px 5px;
+  display: none;
+}
+.dt-rowReorder-float {
+  display: none !important;
+}
+.dt-rowReorder-moving {
+  background: #F75B36 !important;
+  opacity: 0.8;
+  color: #ffffff;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+body.dt-rowReorder-noOverflow {
+  overflow-x: hidden;
 }
