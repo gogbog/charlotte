@@ -20,6 +20,30 @@
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}"
           id="default-light"
           @if(\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
+    <script>
+        let defaultLight = document.getElementById('default-light');
+        let styleLight = document.getElementById('style-light');
+        let defaultDark = document.getElementById('default-dark');
+        let styleDark = document.getElementById('style-dark');
+
+        @if(\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme)
+
+        defaultLight.disabled = true;
+        styleLight.disabled = true;
+        defaultDark.disabled = false;
+        styleDark.disabled = false;
+
+        @endif
+
+        @if(!\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme)
+
+        defaultLight.disabled = false;
+        styleLight.disabled = false;
+        defaultDark.disabled = true;
+        styleDark.disabled = true;
+
+        @endif
+    </script>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -195,18 +219,26 @@
                             <li>
                                 <h5 class="m-b-20 font-normal text-muted">{{ trans('administration::admin.change_theme') }}</h5>
                                 <div class="row p-b-10">
-                                    <center>
-                                        <div class="onoffswitch">
-                                            <input type="checkbox" name="onoffswitch"
-                                                   @if (\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) checked
-                                                   @endif class="onoffswitch-checkbox" id="myonoffswitch"
-                                                   data-url="{{ \Charlotte\Administration\Helpers\Administration::route('change_color') }}">
-                                            <label id="onoffswitch1" class="onoffswitch-label" for="myonoffswitch">
-                                                <span class="onoffswitch-inner"></span>
-                                                <span class="onoffswitch-switch"></span>
-                                            </label>
-                                        </div>
-                                    </center>
+                                    <div class="col-sm-3 text-center p-t-10">
+                                        {{ trans('administration::admin.light') }}
+                                    </div>
+                                    <div class="col-sm-6 text-left">
+                                        <center>
+                                            <div class="onoffswitch">
+                                                <input type="checkbox" name="onoffswitch"
+                                                       @if (\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) checked
+                                                       @endif class="onoffswitch-checkbox" id="myonoffswitch"
+                                                       data-url="{{ \Charlotte\Administration\Helpers\Administration::route('change_color') }}">
+                                                <label id="onoffswitch1" class="onoffswitch-label" for="myonoffswitch">
+                                                    <span class="onoffswitch-inner"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </div>
+                                        </center>
+                                    </div>
+                                    <div class="col-sm-3 text-center p-t-10">
+                                        {{ trans('administration::admin.dark') }}
+                                    </div>
                                 </div>
                             </li>
                             <li class="text-center">
@@ -216,10 +248,10 @@
                                 <div id="datepicker-inline"></div>
                             </li>
                             {{--<li>--}}
-                                {{--<a href="#" class="p-t-10 p-b-10 text-muted schedule">--}}
-                                    {{--<i class="ti-calendar m-l-10 m-r-10"></i>--}}
-                                    {{--{{ trans('administration::admin.schedule') }}--}}
-                                {{--</a>--}}
+                            {{--<a href="#" class="p-t-10 p-b-10 text-muted schedule">--}}
+                            {{--<i class="ti-calendar m-l-10 m-r-10"></i>--}}
+                            {{--{{ trans('administration::admin.schedule') }}--}}
+                            {{--</a>--}}
                             {{--</li>--}}
                         </ul>
                     </div>
@@ -255,30 +287,30 @@
 @if (!empty($errors) && count($errors) > 0)
     <script>
         @foreach ($errors as $error)
-            $.toast({
-                heading: '{{ trans('administration::admin.error') }}',
-                text: '{{ $error }}',
-                position: 'top-right',
-                loaderBg: 'rgba(255,255,255,0.5)',
-                icon: 'error',
-                hideAfter: 5000,
-                stack: 6
-            });
+        $.toast({
+            heading: '{{ trans('administration::admin.error') }}',
+            text: '{{ $error }}',
+            position: 'top-right',
+            loaderBg: 'rgba(255,255,255,0.5)',
+            icon: 'error',
+            hideAfter: 5000,
+            stack: 6
+        });
         @endforeach
     </script>
 @endif
 @if (!empty($success) && count($success) > 0)
     <script>
         @foreach ($success as $ok)
-            $.toast({
-                heading: '{{ trans('administration::admin.success') }}',
-                text: '{{ $ok }}',
-                position: 'top-right',
-                loaderBg: 'rgba(255,255,255,0.5)',
-                icon: 'success',
-                hideAfter: 5000,
-                stack: 2
-            });
+        $.toast({
+            heading: '{{ trans('administration::admin.success') }}',
+            text: '{{ $ok }}',
+            position: 'top-right',
+            loaderBg: 'rgba(255,255,255,0.5)',
+            icon: 'success',
+            hideAfter: 5000,
+            stack: 2
+        });
         @endforeach
     </script>
 @endif

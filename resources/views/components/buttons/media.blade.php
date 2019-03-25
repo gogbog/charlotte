@@ -60,19 +60,19 @@ $id = uniqid();
             init: function () {
 
                         @foreach ($model->getMedia($collection) as $media)
-                var mockFile = {name: "{{$media->file_name}}", size: "{{$media->size}}", type: '{{$media->mime_type}}'};
-                this.options.addedfile.call(this, mockFile);
-                this.options.thumbnail.call(this, mockFile, "{{ $media->getFullUrl('thumb') }}",);
-                // mockFile.previewElement.classList.add('dz-success');
-                mockFile.previewElement.setAttribute('data-id', '{{ $media->id }}');
-                mockFile.previewElement.classList.add('dz-complete');
-                @endforeach
+                            var mockFile = {name: "{{$media->file_name}}", size: "{{$media->size}}", type: '{{$media->mime_type}}'};
+                            this.options.addedfile.call(this, mockFile);
+                            this.options.thumbnail.call(this, mockFile, "{{ $media->getFullUrl('thumb') }}");
+                            // mockFile.previewElement.classList.add('dz-success');
+                            mockFile.previewElement.setAttribute('data-id', '{{ $media->id }}');
+                            mockFile.previewElement.classList.add('dz-complete');
+                        @endforeach
 
                     this.on("sending", function (file, xhr, formData) {
-                    formData.append("id", {{ $model->id }});
-                    formData.append("class", model);
-                    formData.append("collection", collection);
-                });
+                        formData.append("id", {{ $model->id }});
+                        formData.append("class", model);
+                        formData.append("collection", collection);
+                    });
 
                 this.on("success", function (file, response) {
                     file.previewElement.setAttribute('data-id', JSON.stringify(response.id));

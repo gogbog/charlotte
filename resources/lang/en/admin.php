@@ -19,6 +19,8 @@ return [
     'curr_lang' => 'Current Language ',
     'lang' => 'Change Language',
     'change_theme' => 'Switch Theme',
+    'light' => 'Light',
+    'dark' => 'Dark',
     'edit_profile' => 'Profile Settings',
     'logout' => 'Logout',
     'schedule' => 'Schedule',

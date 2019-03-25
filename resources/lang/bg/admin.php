@@ -19,6 +19,8 @@ return [
     'curr_lang' => 'Текущ език ',
     'lang' => 'Смени Език',
     'change_theme' => 'Смяна на тема',
+    'light' => 'Светла',
+    'dark' => 'Тъмна',
     'edit_profile' => 'Настройки на профила',
     'logout' => 'Изход',
     'schedule' => 'График',

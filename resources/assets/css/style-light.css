@@ -15581,6 +15581,7 @@ body.stop-scrolling {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   margin: unset;
+  margin-top: 0 !important;
   box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
 }
 .table-responsive {
@@ -15821,7 +15822,7 @@ body.stop-scrolling {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .dropzone .dz-preview .dz-remove {
   position: absolute;
@@ -15854,4 +15855,19 @@ body.stop-scrolling {
 }
 body.dt-rowReorder-noOverflow {
   overflow-x: hidden;
+}
+@media (min-width: 768px) {
+  .content-wrapper .sidebar .nav-second-level {
+    padding-bottom: 0;
+  }
+}
+@media only screen and (min-width: 992px) {
+  .table-responsive {
+    overflow-x: hidden;
+  }
+}
+@media only screen {
+  .switch-light > span {
+    min-height: 0 !important;
+  }
 }
