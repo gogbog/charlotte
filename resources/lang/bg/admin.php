@@ -3,6 +3,7 @@
 return [
 
     //LOGIN
+    'name' => 'Име',
     'email' => 'И-мейл',
     'password' => 'Парола',
     'login' => 'Вход',
@@ -29,6 +30,7 @@ return [
     //DASHBOARD
     'monthly_log' => 'Месечен Лог',
     'see_details' => 'Виж Повече',
+    'administrators' => 'Администратори',
 
     //EXAMPLE MODULES
     'add' => 'Добави',
@@ -61,5 +63,9 @@ return [
     //MEDIA MANAGER
     'media_default' => 'Пренесете файловете си тук или кликнете и изберете',
     'media_error' => 'Грешка при качване на файл!',
+
+    //VALIDATION
+    'success_create_admin' => 'Успешно създадохте администратор',
+    'success_update_admin' => 'Успешно променихте администратор'
 
 ];

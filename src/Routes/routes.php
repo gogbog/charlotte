@@ -29,14 +29,19 @@ Route::group([
                     'as' => 'index',
                     'uses' => 'DashboardController@index',
                 ]);
-                Route::post('/settings/change-color', [
-                    'as' => 'change_color',
-                    'uses' => 'AdministrationController@changeColor',
-                ]);
 
                 Route::get('/logs', [
                     'as' => 'logs',
                     'uses' => '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index',
+                ]);
+
+                Route::resource('admins', 'AdministratorsController');
+
+
+                //ajax
+                Route::post('/settings/change-color', [
+                    'as' => 'change_color',
+                    'uses' => 'AjaxController@changeColor',
                 ]);
 
                 Route::post('/quick_switch', [

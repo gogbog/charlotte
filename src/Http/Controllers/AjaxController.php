@@ -3,14 +3,24 @@
 namespace Charlotte\Administration\Http\Controllers;
 
 
+use Charlotte\Administration\Helpers\Administration;
 use Charlotte\Administration\Http\Requests\AjaxQuickMediaSort;
 use Charlotte\Administration\Http\Requests\AjaxQuickReorder;
 use Charlotte\Administration\Http\Requests\AjaxQuickSwitchRequest;
 use Charlotte\Administration\Http\Requests\AjaxQuickUploadFile;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Http\Request;
 use Spatie\MediaLibrary\Models\Media;
 
 class AjaxController {
+
+    public function changeColor(Request $request) {
+        $admin = Administration::getLoggedAdmin();
+        $admin->dark_theme = filter_var($request->get('theme'), FILTER_VALIDATE_BOOLEAN);
+        $admin->save();
+
+        return response()->json(['success' => true]);
+    }
 
     public function saveQuickSwitch(AjaxQuickSwitchRequest $request) {
         $object = new $request->class;

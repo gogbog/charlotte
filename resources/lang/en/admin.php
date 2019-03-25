@@ -3,6 +3,7 @@
 return [
 
     //LOGIN
+    'name' => 'Name',
     'email' => 'E-mail',
     'password' => 'Password',
     'login' => 'Login',
@@ -29,6 +30,7 @@ return [
     //DASHBOARD
     'monthly_log' => 'Monthly Log',
     'see_details' => 'See Details',
+    'administrators' => 'Administrators',
 
     //EXAMPLE MODULES
     'add' => 'Add',
@@ -61,5 +63,9 @@ return [
     //MEDIA MANAGER
     'media_default' => 'Drag your files here or click and choose',
     'media_error' => 'Error uploading file!',
+
+    //VALIDATION
+    'success_create_admin' => 'Administrator created successfully',
+    'success_update_admin' => 'Administrator updated successfully'
 
 ];

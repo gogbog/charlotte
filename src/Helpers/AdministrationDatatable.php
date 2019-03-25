@@ -13,7 +13,7 @@ class AdministrationDatatable {
     private $rawColumns = [];
     private $filter;
     private $filteredColumns = [];
-    private $smart = false;
+    private $smart = true;
     private $order;
 
     public function __construct($datatable) {
