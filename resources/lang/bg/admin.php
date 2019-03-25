@@ -47,6 +47,9 @@ return [
     'meta_description' => 'Мета Описание',
     'meta_keywords' => 'Мета Ключови думи',
     'slug' => 'Слъг',
+    'select_file' => 'Изберете Файл',
+    'change' => 'Смяна',
+    'remove' => 'Отмяна',
     'submit' => 'Запази',
 
     //DATATABLE
