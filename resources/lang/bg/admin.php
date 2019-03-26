@@ -26,6 +26,7 @@ return [
     'logout' => 'Изход',
     'schedule' => 'График',
     'error' => 'Грешка',
+    'success' => 'Успех',
 
     //DASHBOARD
     'monthly_log' => 'Месечен Лог',

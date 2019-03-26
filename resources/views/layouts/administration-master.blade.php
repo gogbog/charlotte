@@ -272,7 +272,7 @@
             </div>
         </footer>
     </div>
-    <!-- /#page-wrapper -->
+<!-- /#page-wrapper -->
 </div>
 <!-- /#wrapper -->
 <script src="{{ asset(config('administration.file_prefix') . 'js/jquery.min.js') }}"></script>
@@ -284,27 +284,27 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/drop.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/charlotte.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/datatable_reorder.js') }}"></script>
-@if (!empty($errors) && count($errors) > 0)
+{{--@if (!empty(session('errors')))--}}
+    {{--<script>--}}
+        {{--@foreach(session('errors')->get('name') as $name_error)--}}
+        {{--$.toast({--}}
+            {{--heading: '{{ trans('administration::admin.error') }}',--}}
+            {{--text: '{{ $name_error }}',--}}
+            {{--position: 'top-right',--}}
+            {{--loaderBg: 'rgba(255,255,255,0.5)',--}}
+            {{--icon: 'error',--}}
+            {{--hideAfter: 5000,--}}
+            {{--stack: 6--}}
+        {{--});--}}
+        {{--@endforeach--}}
+    {{--</script>--}}
+{{--@endif--}}
+@if (!empty(session('success')))
     <script>
-        @foreach ($errors as $error)
-        $.toast({
-            heading: '{{ trans('administration::admin.error') }}',
-            text: '{{ $error }}',
-            position: 'top-right',
-            loaderBg: 'rgba(255,255,255,0.5)',
-            icon: 'error',
-            hideAfter: 5000,
-            stack: 6
-        });
-        @endforeach
-    </script>
-@endif
-@if (!empty($success) && count($success) > 0)
-    <script>
-        @foreach ($success as $ok)
+        @foreach (session('success') as $success)
         $.toast({
             heading: '{{ trans('administration::admin.success') }}',
-            text: '{{ $ok }}',
+            text: '{{ $success }}',
             position: 'top-right',
             loaderBg: 'rgba(255,255,255,0.5)',
             icon: 'success',

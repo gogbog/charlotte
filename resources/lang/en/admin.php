@@ -26,6 +26,7 @@ return [
     'logout' => 'Logout',
     'schedule' => 'Schedule',
     'error' => 'Error',
+    'success' => 'Success',
 
     //DASHBOARD
     'monthly_log' => 'Monthly Log',
