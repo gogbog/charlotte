@@ -57,7 +57,6 @@
 <div class="preloader">
     <div class="cssload-speeding-wheel"></div>
 </div>
-
 <div id="wrapper">
     <!-- Top Navigation -->
     <nav class="navbar navbar-default navbar-static-top m-b-0">
@@ -220,10 +219,10 @@
                             <li>
                                 <h5 class="m-b-20 font-normal text-muted">{{ trans('administration::admin.change_theme') }}</h5>
                                 <div class="row p-b-10">
-                                    <div class="col-sm-3 text-center p-t-10">
+                                    <div class="col-xs-3 text-center p-t-10">
                                         {{ trans('administration::admin.light') }}
                                     </div>
-                                    <div class="col-sm-6 text-left">
+                                    <div class="col-xs-6 text-left">
                                         <center>
                                             <div class="onoffswitch">
                                                 <input type="checkbox" name="onoffswitch"
@@ -237,7 +236,7 @@
                                             </div>
                                         </center>
                                     </div>
-                                    <div class="col-sm-3 text-center p-t-10">
+                                    <div class="col-xs-3 text-center p-t-10">
                                         {{ trans('administration::admin.dark') }}
                                     </div>
                                 </div>
@@ -273,7 +272,7 @@
             </div>
         </footer>
     </div>
-    <!-- /#page-wrapper -->
+<!-- /#page-wrapper -->
 </div>
 <!-- /#wrapper -->
 <script src="{{ asset(config('administration.file_prefix') . 'js/jquery.min.js') }}"></script>
@@ -308,7 +307,7 @@
         @foreach (Session::get('success') as $success)
         $.toast({
             heading: '{{ trans('administration::admin.success') }}',
-            text: '{{ $success }}',
+            text: '{{ $ok }}',
             position: 'top-right',
             loaderBg: 'rgba(255,255,255,0.5)',
             icon: 'success',

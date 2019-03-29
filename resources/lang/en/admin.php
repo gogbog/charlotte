@@ -26,6 +26,7 @@ return [
     'logout' => 'Logout',
     'schedule' => 'Schedule',
     'error' => 'Error',
+    'success' => 'Success',
 
     //DASHBOARD
     'monthly_log' => 'Monthly Log',
@@ -47,6 +48,9 @@ return [
     'meta_description' => 'Meta Description',
     'meta_keywords' => 'Meta Keywords',
     'slug' => 'Slug',
+    'select_file' => 'Select File',
+    'change' => 'Change',
+    'remove' => 'Remove',
     'submit' => 'Save',
 
     //DATATABLE

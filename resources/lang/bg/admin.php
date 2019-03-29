@@ -26,6 +26,7 @@ return [
     'logout' => 'Изход',
     'schedule' => 'График',
     'error' => 'Грешка',
+    'success' => 'Успех',
 
     //DASHBOARD
     'monthly_log' => 'Месечен Лог',
@@ -47,6 +48,9 @@ return [
     'meta_description' => 'Мета Описание',
     'meta_keywords' => 'Мета Ключови думи',
     'slug' => 'Слъг',
+    'select_file' => 'Изберете Файл',
+    'change' => 'Смяна',
+    'remove' => 'Отмяна',
     'submit' => 'Запази',
 
     //DATATABLE
