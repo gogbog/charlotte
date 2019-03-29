@@ -4,6 +4,7 @@ namespace Charlotte\Administration\Helpers;
 
 
 use Charlotte\Administration\Forms\AdminForm;
+use Illuminate\Support\Facades\View;
 
 
 class AdministrationForm {
@@ -58,7 +59,9 @@ class AdministrationForm {
 
         $form = $formbuilder->create($this->form, $url_method, $this->fields);
 
+        View::share('form', $form);
 
-        return view('administration::pages.empty-page', compact('form'));
+
+        return view('administration::pages.empty-page');
     }
 }

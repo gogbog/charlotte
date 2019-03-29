@@ -7,6 +7,7 @@ class Dashboard {
 
     private $route;
     private $boxes = [];
+    private $rendered_view;
 
     public function __construct() {
         $this->route = config('administration.views_prefix') . '::components.dashboard.';
@@ -21,7 +22,11 @@ class Dashboard {
     }
 
     public function generate() {
-        return $this->boxes;
+        foreach ($this->boxes as $box) {
+            $this->rendered_view .= $box->render();
+        }
+
+        return $this->rendered_view;
     }
 
 }

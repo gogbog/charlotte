@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     {{--<link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">--}}
-    <title>Pixel Admin - Responsive Admin Dashboard Template build with Twitter Bootstrap</title>
+    <title>Admin panel</title>
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}">
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

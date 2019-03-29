@@ -3,6 +3,8 @@
 namespace Charlotte\Administration\Helpers;
 
 
+use Illuminate\Support\Facades\View;
+
 class AdministrationDatatable {
 
     private $datatable;
@@ -68,7 +70,11 @@ class AdministrationDatatable {
         $table = $this->datatable->getHtmlBuilder()->columns($this->columns)->parameters($this->parameters);
         $model = get_class($this->query->getModel());
 
-        return view('administration::pages.empty-page', compact('table', 'model'))->render();
+        View::share('table', $table);
+        View::share('model', $model);
+
+
+        return view('administration::pages.empty-page')->render();
     }
 
     public function columns($columns) {
