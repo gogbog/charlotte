@@ -57,6 +57,7 @@
 <div class="preloader">
     <div class="cssload-speeding-wheel"></div>
 </div>
+
 <div id="wrapper">
     <!-- Top Navigation -->
     <nav class="navbar navbar-default navbar-static-top m-b-0">
@@ -284,9 +285,12 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/drop.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/charlotte.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/datatable_reorder.js') }}"></script>
-@if (!empty($errors) && count($errors) > 0)
+
+
+
+@if (!empty($errors))
     <script>
-        @foreach ($errors as $error)
+        @foreach ($errors->all() as $error)
         $.toast({
             heading: '{{ trans('administration::admin.error') }}',
             text: '{{ $error }}',
@@ -299,12 +303,12 @@
         @endforeach
     </script>
 @endif
-@if (!empty($success) && count($success) > 0)
+@if (Session::has('success'))
     <script>
-        @foreach ($success as $ok)
+        @foreach (Session::get('success') as $success)
         $.toast({
             heading: '{{ trans('administration::admin.success') }}',
-            text: '{{ $ok }}',
+            text: '{{ $success }}',
             position: 'top-right',
             loaderBg: 'rgba(255,255,255,0.5)',
             icon: 'success',
