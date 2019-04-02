@@ -7,6 +7,7 @@ return [
     'email' => 'И-мейл',
     'password' => 'Парола',
     'login' => 'Вход',
+    'auth_failed' => 'Грешка при заверка! Моля опитайте пак.',
 
     //LAYOUT
     'ap' => 'АП',
@@ -70,6 +71,11 @@ return [
 
     //VALIDATION
     'success_create_admin' => 'Успешно създадохте администратор',
-    'success_update_admin' => 'Успешно променихте администратор'
+    'success_update_admin' => 'Успешно променихте администратор',
+
+    //LANGUAGES
+    'en' => 'Английски',
+    'bg' => 'Български',
+    'fr' => 'Френски',
 
 ];

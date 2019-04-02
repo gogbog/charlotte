@@ -1,7 +1,7 @@
 
 
 <div class="{{ $class }}">
-    <div class="white-box text-center {{$color}}">
+    <div class="white-box text-center {{$color}}" style="height: 164px">
         <h1 class="text-white counter">{{$value}}</h1>
         <p class="text-white">{{$title}}</p>
     </div>

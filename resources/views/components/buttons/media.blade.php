@@ -6,7 +6,7 @@ $id = uniqid();
     <i class="ti-image text-success"></i>
 </a>
 
-<div class="modal fade centered-modal" id="modal_{{$id}}" role="dialog">
+<div class="modal centered-modal" id="modal_{{$id}}" role="dialog">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -76,6 +76,26 @@ $id = uniqid();
 
                 this.on("success", function (file, response) {
                     file.previewElement.setAttribute('data-id', JSON.stringify(response.id));
+                });
+            },
+            removedfile: function(file) {
+
+                let id = $(file.previewElement).data('id');
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: '', // ADD REMOVE URL
+                    data: {
+                        id: id
+                    },
+                    sucess: function(result){
+                       // console.log(result)
+                    }
                 });
             }
         });

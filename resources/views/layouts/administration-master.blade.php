@@ -203,13 +203,13 @@
                                         <li>
                                             <a href="{{ LaravelLocalization::getLocalizedURL('en') }}">
                                                 <span class="flag-icon flag-icon-en"></span>
-                                                {{ trans('administration::lang.en') }}
+                                                {{ trans('administration::admin.en') }}
                                             </a>
                                         </li>
                                         <li>
                                             <a href="{{ LaravelLocalization::getLocalizedURL('bg') }}">
                                                 <span class="flag-icon flag-icon-bg"></span>
-                                                {{ trans('administration::lang.bg') }}
+                                                {{ trans('administration::admin.bg') }}
                                             </a>
                                         </li>
                                     </ul>
@@ -307,7 +307,7 @@
         @foreach (Session::get('success') as $success)
         $.toast({
             heading: '{{ trans('administration::admin.success') }}',
-            text: '{{ $ok }}',
+            text: '{{ $success }}',
             position: 'top-right',
             loaderBg: 'rgba(255,255,255,0.5)',
             icon: 'success',

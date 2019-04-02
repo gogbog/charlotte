@@ -1,5 +1,5 @@
 <div class="{{$class}}">
-    <div class="white-box">
+    <div class="white-box" style="height: 164px">
         <h3 class="box-title">{{ $title }}</h3>
         <ul class="list-inline two-part">
             <li><i class="{{ $icon }} {{$color}}"></i></li>

@@ -7,6 +7,7 @@ return [
     'email' => 'E-mail',
     'password' => 'Password',
     'login' => 'Login',
+    'auth_failed' => 'Authentication Failed! Please try again.',
 
     //LAYOUT
     'ap' => 'AP',
@@ -70,6 +71,11 @@ return [
 
     //VALIDATION
     'success_create_admin' => 'Administrator created successfully',
-    'success_update_admin' => 'Administrator updated successfully'
+    'success_update_admin' => 'Administrator updated successfully',
+
+    //LANGUAGES
+    'en' => 'English',
+    'bg' => 'Bulgarian',
+    'fr' => 'French',
 
 ];
