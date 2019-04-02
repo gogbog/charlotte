@@ -1,14 +1,16 @@
-<ul class="lang-separator m-b-10">
-    @foreach(LaravelLocalization::getLocalesOrder() as $locale => $data)
-        <li class="lang-button" data-filter="language-{{$locale}}">
-            <span class="flag-icon flag-icon-{{$locale}}"></span>
-            {{$locale}}
-        </li>
-    @endforeach
-</ul>
-<div class="white-box">
-    <div class="row">
-        {!! form($form) !!}
+<div class="col-sm-12 m-t-20">
+    <ul class="lang-separator m-b-10">
+        @foreach(LaravelLocalization::getLocalesOrder() as $locale => $data)
+            <li class="lang-button" data-filter="language-{{$locale}}">
+                <span class="flag-icon flag-icon-{{$locale}}"></span>
+                {{$locale}}
+            </li>
+        @endforeach
+    </ul>
+    <div class="white-box">
+        <div class="row">
+            {!! form($form) !!}
+        </div>
     </div>
 </div>
 

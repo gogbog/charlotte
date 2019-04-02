@@ -1,25 +1,18 @@
-<div class="col-sm-6">
-    {{--class can be changed ^--}}
+<div class="{{ $class }}">
     <div class="white-box">
         <div class="link-box-cont">
-            <a href="">
-                {{--link for dashboard-box ^--}}
+            <a href="{{$link}}">
                 <div class="link-box-t">
-                    <h3 class="box-title">Link Box</h3>
-                    {{--box-title ^--}}
+                    <h3 class="box-title">{{ $title }}</h3>
                     <ul class="list-inline two-part">
-                        <li><i class="fa fa-bug text-danger"></i></li>
-                        {{--icon change ^ text-color ^--}}
-                        <li class="text-right text-muted"><span class="counter">200</span></li>
-                        {{--value ^--}}
+                        <li><i class="fa {{ $icon }} {{ $color }}"></i></li>
+                        <li class="text-right text-muted"><span class="counter">{{ $value }}</span></li>
 
                     </ul>
                 </div>
 
                 <div class="link-box-link">
                     <h1 class="text-muted"><i class="fa fa-external-link"></i></h1>
-                    {{--secondary-icon ^--}}
-                    {{--no need to change/ maybe just optional--}}
                 </div>
 
             </a>

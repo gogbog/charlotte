@@ -1,19 +1,21 @@
 @extends('administration::layouts.administration-master')
 @section('content')
 
-    <div class="row">
-        @if (!empty($boxes))
+    @if (!empty($boxes))
+        <div class="row">
             {!! $boxes !!}
-        @endif
-
-        @if (!empty($form))
+        </div>
+    @endif
+    @if (!empty($form))
+        <div class="row">
             @include('administration::boxes.form_fields')
-        @endif
-
-        @if (!empty($table))
+        </div>
+    @endif
+    @if (!empty($table))
+        <div class="row">
             @include('administration::boxes.data_table')
-        @endif
-    </div>
+        </div>
+    @endif
 
 @endsection
 

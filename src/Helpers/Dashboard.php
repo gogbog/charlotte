@@ -3,6 +3,8 @@
 namespace Charlotte\Administration\Helpers;
 
 
+use Illuminate\Support\Facades\View;
+
 class Dashboard {
 
     private $route;
@@ -21,11 +23,19 @@ class Dashboard {
         $this->boxes[] = view($this->route . 'simple-box', compact('title','value','color', 'icon', 'class'));
     }
 
+    public function linkBox($title, $value, $link,  $icon = 'fa-bug', $color = 'text-danger', $class = 'col-lg-3 col-md-6 col-sm-12') {
+        $this->boxes[] = view($this->route . 'link-box', compact('title','value', 'link', 'color', 'icon', 'class'));
+    }
+
     public function generate() {
         foreach ($this->boxes as $box) {
             $this->rendered_view .= $box->render();
         }
 
+        //Share if its called from controller
+        View::share('boxes', $this->rendered_view);
+
+        //return when generating all dashboards from modules
         return $this->rendered_view;
     }
 
