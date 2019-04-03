@@ -23,7 +23,14 @@ return [
      */
     'guard' => 'administrator',
 
-    'file_prefix' => 'charlotte/administration/'
+    'file_prefix' => 'charlotte/administration/',
 
+    /*
+     * Supported Languages
+     */
+    'admin_supported_locales' => [
+        'en',
+        'bg'
+    ]
 
 ];

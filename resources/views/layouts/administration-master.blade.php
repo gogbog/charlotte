@@ -203,18 +203,16 @@
                                         <span class="caret pull-right vertical-middle"></span>
                                     </button>
                                     <ul class="dropdown-menu dropdown-lang">
-                                        <li>
-                                            <a href="{{ LaravelLocalization::getLocalizedURL('en') }}">
-                                                <span class="flag-icon flag-icon-en"></span>
-                                                {{ trans('administration::admin.en') }}
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ LaravelLocalization::getLocalizedURL('bg') }}">
-                                                <span class="flag-icon flag-icon-bg"></span>
-                                                {{ trans('administration::admin.bg') }}
-                                            </a>
-                                        </li>
+                                        @foreach(\Mcamara\LaravelLocalization\Facades\LaravelLocalization::getSupportedLocales() as $locale => $data)
+                                            @if (in_array($locale, config('administration.admin_supported_locales')))
+                                                <li>
+                                                    <a href="{{ LaravelLocalization::getLocalizedURL($locale) }}">
+                                                        <span class="flag-icon flag-icon-{{ $locale }}"></span>
+                                                        {{ trans('administration::admin.'.$locale) }}
+                                                    </a>
+                                                </li>
+                                            @endif
+                                        @endforeach
                                     </ul>
                                 </div>
 
