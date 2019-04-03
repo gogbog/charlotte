@@ -113,6 +113,9 @@
             {{--<!-- /.dropdown-tasks -->--}}
             {{--</li>--}}
             <!-- /.dropdown -->
+                <li>
+                    <a href="{{ url('/') }}" target="_blank"><i class="fa fa-external-link"></i></a>
+                </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
                         <img src="{{ asset(config('administration.file_prefix') . 'images/user.png') }}" alt="user-img"

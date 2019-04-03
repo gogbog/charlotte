@@ -11,6 +11,7 @@ use Charlotte\Administration\Helpers\AdministrationForm;
 use Charlotte\Administration\Http\Models\Admin;
 use Charlotte\Administration\Http\Requests\StoreAdministratorRequest;
 use Charlotte\Administration\Http\Requests\UpdateAdministratorRequest;
+use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\DataTables;
 
@@ -34,6 +35,14 @@ class AdministratorsController extends BaseAdministrationController {
             return $fields;
         });
 
+        Administration::setTitle(trans('administration::admin.administrators'));
+
+        Breadcrumbs::register('administration', function ($breadcrumbs) {
+            $breadcrumbs->parent('base');
+            $breadcrumbs->push(trans('administration::admin.administrators'), Administration::route('admins.index'));
+            $breadcrumbs->push(trans('administration::admin.view_all'));
+        });
+
         return $table->generate();
     }
 
@@ -42,6 +51,14 @@ class AdministratorsController extends BaseAdministrationController {
         $form = new AdministrationForm();
         $form->route(Administration::route('admins.store'));
         $form->form(AdministratorsForm::class);
+
+        Administration::setTitle(trans('administration::admin.administrators'));
+
+        Breadcrumbs::register('administration', function ($breadcrumbs) {
+            $breadcrumbs->parent('base');
+            $breadcrumbs->push(trans('administration::admin.administrators'), Administration::route('admins.index'));
+            $breadcrumbs->push(trans('administration::admin.create'));
+        });
 
         return $form->generate();
     }
@@ -64,6 +81,14 @@ class AdministratorsController extends BaseAdministrationController {
         $form->form(AdministratorsForm::class);
         $form->method('PUT');
         $form->model($admin);
+
+        Administration::setTitle(trans('administration::admin.administrators'));
+
+        Breadcrumbs::register('administration', function ($breadcrumbs) {
+            $breadcrumbs->parent('base');
+            $breadcrumbs->push(trans('administration::admin.administrators'), Administration::route('admins.index'));
+            $breadcrumbs->push(trans('administration::admin.edit'));
+        });
 
         return $form->generate();
     }
