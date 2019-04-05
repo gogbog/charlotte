@@ -54,6 +54,11 @@ Route::group([
                     'uses' => 'AjaxController@quickUploadFile',
                 ]);
 
+                Route::post('/quick_delete_file', [
+                    'as' => 'quick_delete_file',
+                    'uses' => 'AjaxController@quickDeleteFile',
+                ]);
+
                 Route::post('/quick_reorder', [
                     'as' => 'quick_reorder',
                     'uses' => 'AjaxController@quickReorder',

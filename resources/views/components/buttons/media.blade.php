@@ -89,12 +89,12 @@ $id = uniqid();
                 });
                 $.ajax({
                     type: 'POST',
-                    url: '', // ADD REMOVE URL
+                    url: "{{ \Charlotte\Administration\Helpers\Administration::route('quick_delete_file') }}",
                     data: {
                         id: id
                     },
-                    sucess: function(result){
-                       // console.log(result)
+                    success: function(result){
+                       console.log(result)
                     }
                 });
             }

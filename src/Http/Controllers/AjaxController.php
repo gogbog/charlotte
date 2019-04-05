@@ -4,6 +4,7 @@ namespace Charlotte\Administration\Http\Controllers;
 
 
 use Charlotte\Administration\Helpers\Administration;
+use Charlotte\Administration\Http\Requests\AjaxQuickDeleteFileRequest;
 use Charlotte\Administration\Http\Requests\AjaxQuickMediaSort;
 use Charlotte\Administration\Http\Requests\AjaxQuickReorder;
 use Charlotte\Administration\Http\Requests\AjaxQuickSwitchRequest;
@@ -49,6 +50,17 @@ class AjaxController {
         $media = $object->addMedia($request->file)->toMediaCollection($request->collection);
 
         return response()->json(['id' => $media->id]);
+    }
+
+    public function quickDeleteFile(AjaxQuickDeleteFileRequest $request) {
+        $media = Media::where('id', $request->id)->first();
+
+        if (!empty($media)) {
+            $media->delete();
+        }
+
+        return response()->json(['id' => $request->id]);
+
     }
 
     public function quickReorder(AjaxQuickReorder $request) {
