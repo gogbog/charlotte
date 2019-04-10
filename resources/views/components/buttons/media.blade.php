@@ -94,7 +94,7 @@ $id = uniqid();
                         id: id
                     },
                     success: function(result){
-                       console.log(result)
+                        file.previewElement.remove();
                     }
                 });
             }
