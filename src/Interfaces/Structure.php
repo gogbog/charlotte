@@ -12,4 +12,6 @@ interface Structure {
 
     public function menu($menu);
 
+    public function settings($model, $form, $form_model);
+
 }

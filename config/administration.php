@@ -5,7 +5,7 @@ return [
     /*
      * Package version
      */
-    'package_version' => '0.9.0',
+    'package_version' => '1.0.0',
     /*
      * URL Prefix
      */

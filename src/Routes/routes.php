@@ -37,6 +37,15 @@ Route::group([
 
                 Route::resource('admins', 'AdministratorsController');
 
+                Route::get('/settings', [
+                    'as' => 'settings',
+                    'uses' => 'SettingsController@index',
+                ]);
+
+                Route::post('/settings/store', [
+                    'as' => 'settings.store',
+                    'uses' => 'SettingsController@store',
+                ]);
 
                 //ajax
                 Route::post('/settings/change-color', [

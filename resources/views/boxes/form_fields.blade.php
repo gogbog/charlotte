@@ -1,15 +1,30 @@
+@php
+    $translate = false;
+    $boxes = false;
+    $fields = $form->getFields();
+    foreach ($fields as $field) {
+        $field_options = $field->getOptions();
+        if (!empty($field_options['translate']) && $field_options['translate']) {
+            $translate = true;
+        }
+    }
+@endphp
+
+
 <div class="col-sm-12 m-t-20">
-    <ul class="lang-separator m-b-10">
-        @foreach(LaravelLocalization::getLocalesOrder() as $locale => $data)
-            <li class="lang-button" data-filter="language-{{$locale}}">
-                <span class="flag-icon flag-icon-{{$locale}}"></span>
-                {{$locale}}
-            </li>
-        @endforeach
-    </ul>
+    @if ($translate)
+        <ul class="lang-separator m-b-10">
+            @foreach(LaravelLocalization::getLocalesOrder() as $locale => $data)
+                <li class="lang-button" data-filter="language-{{$locale}}">
+                    <span class="flag-icon flag-icon-{{$locale}}"></span>
+                    {{$locale}}
+                </li>
+            @endforeach
+        </ul>
+    @endif
     <div class="white-box">
         <div class="row">
-            {!! form($form) !!}
+          {!! form($form) !!}
         </div>
     </div>
 </div>

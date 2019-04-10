@@ -29,8 +29,9 @@ class BaseAdministrationController extends BaseController
             AdministrationModuleHelper::moduleMenu($menu);
             $menu->add(trans('administration::admin.settings'), ['class' => 'nav-small-cap m-t-10', 'global' => true]);
             $menu->add(trans('administration::admin.administrators'), ['icon' => 'ti-headphone-alt'])->nickname('administrators');
-            $menu->get('administrators')->add(trans('administration::admin.add'), ['icon' => 'ti-plus','url' => Administration::route('admins.create')]);
-            $menu->get('administrators')->add(trans('administration::admin.view_all'), ['icon' => 'ti-list','url' => Administration::route('admins.index')]);
+            $menu->get('administrators')->add(trans('administration::admin.add'), ['url' => Administration::route('admins.create')]);
+            $menu->get('administrators')->add(trans('administration::admin.view_all'), ['url' => Administration::route('admins.index')]);
+            $menu->add(trans('administration::admin.settings_menu'), ['icon' => 'ti-settings', 'url' => Administration::route('settings')])->nickname('settings');
             $menu->add(trans('administration::admin.logs'), ['url' => Administration::route('logs'), 'icon' => 'fa-bug fa-fw']);
 
 
