@@ -27,9 +27,9 @@
         <div class="form-group language-{{$locale}} {{ @$options['class'] }}">
             <label class="col-sm-12"><span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}
             </label>
-            <div class="col-sm-12 m-b-20">
+            <div class="col-sm-12 m-b-20 multiple-input-fields-container_{{$id}}">
                 {!! Form::select($locale . '[' .$name . ']', $choices, $value, $options['attr']) !!}
-                <input name="{{ $locale . '[' .$name . ']' }}" type="hidden" class="multiple-choices_{{$id}}" value="">
+                {{--                <input name="{{ $locale . '[' .$name . ']' }}" type="hidden" class="multiple-choices_{{$id}}" value="">--}}
                 <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
@@ -48,9 +48,9 @@
     @endphp
     <div class="form-group without-language {{ @$options['class'] }}">
         <label class="col-sm-12">{{ $options['title'] }}</label>
-        <div class="col-sm-12 m-b-20">
+        <div class="col-sm-12 m-b-20 multiple-input-fields-container_{{$id}}">
             {!! Form::select($name, $choices, $value, $options['attr']) !!}
-            <input name="{{ $name }}" type="hidden" class="multiple-choices_{{$id}}" value="">
+            {{--            <input name="{{ $name }}" type="hidden" class="multiple-choices_{{$id}}" value="">--}}
             <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
@@ -66,13 +66,24 @@
 
 @section('js')
     @foreach($ids as $id)
-    <script>
-        document.getElementById('{{$id}}').addEventListener("change", getChoices);
+        <script>
+            document.getElementById('{{$id}}').addEventListener("change", getChoices);
 
-        function getChoices() {
-            let choices = $('#{{$id}}').val();
-            $('.multiple-choices_{{$id}}').attr('value', choices);
-        }
-    </script>
+            function getChoices() {
+                let choices = $('#{{$id}}').val();
+                //trqbva da vzimame ot toq element #id name-a i da go slagame v inputa dolu vmesto $locale $name
+                let exploded = choices.split(",");
+
+                $.each(exploded, function(index, item) {
+
+                    let input = '<input name="' + {{ $locale . '[' .$name . ']' }} + '" type="hidden" class="multiple-choices_{{$id}}" value="' + item + '">';
+
+                    $(".multiple-input-fields-container_{{$id}}").append(input);
+
+                });
+
+                {{--$('.multiple-choices_{{$id}}').attr('value', choices);--}}
+            }
+        </script>
     @endforeach
 @append
