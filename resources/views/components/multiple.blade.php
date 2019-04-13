@@ -29,7 +29,9 @@
             </label>
             <div class="col-sm-12 m-b-20 multiple-input-fields-container_{{$id}}">
                 {!! Form::select($locale . '[' .$name . ']', $choices, $value, $options['attr']) !!}
-                {{--                <input name="{{ $locale . '[' .$name . ']' }}" type="hidden" class="multiple-choices_{{$id}}" value="">--}}
+                <div class="choices-wrapper">
+
+                </div>
                 <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
@@ -50,7 +52,9 @@
         <label class="col-sm-12">{{ $options['title'] }}</label>
         <div class="col-sm-12 m-b-20 multiple-input-fields-container_{{$id}}">
             {!! Form::select($name, $choices, $value, $options['attr']) !!}
-            {{--            <input name="{{ $name }}" type="hidden" class="multiple-choices_{{$id}}" value="">--}}
+            <div class="choices-wrapper">
+
+            </div>
             <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
@@ -71,18 +75,16 @@
 
             function getChoices() {
                 let choices = $('#{{$id}}').val();
-                //trqbva da vzimame ot toq element #id name-a i da go slagame v inputa dolu vmesto $locale $name
-                let exploded = choices.split(",");
+                let selectName = $('#{{$id}}').attr('name');
 
-                $.each(exploded, function(index, item) {
+                $(".multiple-input-fields-container_{{$id}} .choices-wrapper").empty();
 
-                    let input = '<input name="' + {{ $locale . '[' .$name . ']' }} + '" type="hidden" class="multiple-choices_{{$id}}" value="' + item + '">';
+                $.each(choices, function(index, item) {
 
-                    $(".multiple-input-fields-container_{{$id}}").append(input);
+                    let input = '<input name="' + selectName + '[]" type="hidden" class="multiple-choices_{{$id}}" value="' + item + '">';
+                    $(".multiple-input-fields-container_{{$id}} .choices-wrapper").append(input);
 
                 });
-
-                {{--$('.multiple-choices_{{$id}}').attr('value', choices);--}}
             }
         </script>
     @endforeach
