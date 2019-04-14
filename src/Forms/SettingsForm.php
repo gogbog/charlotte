@@ -29,7 +29,7 @@ class SettingsForm extends Form {
 
             $class = new $administration_class();
 
-            $this->add('text', 'box', [
+            $this->add('box_' . $module_slug, 'box', [
                 'title' => trans($module_slug . "::admin.module_name")
             ]);
             $class->settings($module_slug, $this, $this->model);
