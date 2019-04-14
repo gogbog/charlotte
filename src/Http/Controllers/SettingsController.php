@@ -25,7 +25,7 @@ class SettingsController extends BaseAdministrationController {
 
         Breadcrumbs::register('administration', function ($breadcrumbs) {
             $breadcrumbs->parent('base');
-            $breadcrumbs->push(trans('administration::admin.settings_menu'), Administration::route('blog.index'));
+            $breadcrumbs->push(trans('administration::admin.settings_menu'));
         });
 
 
