@@ -1,7 +1,7 @@
 @php
 $id = uniqid();
 @endphp
-<div class="form-group col-sm-12">
+<div class="form-group col-sm-12 without-language">
     <div class="m-b-20" id="{{$id}}" style="width: 100%; height: 350px;"></div>
 </div>
 
