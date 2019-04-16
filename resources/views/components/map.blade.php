@@ -1,19 +1,22 @@
 @php
 $id = uniqid();
+$lat = (empty($options['default_values']['lat'])) ? 42.698334 : $options['default_values']['lat'];
+$lng = (empty($options['default_values']['lng'])) ? 23.319941 : $options['default_values']['lng'];
+$zoom = (empty($options['default_values']['zoom'])) ? 13 : $options['default_values']['zoom'];
 @endphp
 <div class="form-group col-sm-12 without-language">
     <div class="m-b-20" id="{{$id}}" style="width: 100%; height: 350px;"></div>
 </div>
 
-<input id="lat_{{$id}}" name="lat" type="hidden" value="{{ $options['default_values']['lat'] }}">
-<input id="lng_{{$id}}" name="lng" type="hidden" value="{{$options['default_values']['lng']}}">
+<input id="lat_{{$id}}" name="lat" type="hidden" value="{{ $lat }}">
+<input id="lng_{{$id}}" name="lng" type="hidden" value="{{ $lng }}">
 
 @section('js')
     <script>
         let id = '{{$id}}';
-        let default_lat = parseFloat('{{$options['default_values']['lat']}}');
-        let default_lng = parseFloat('{{$options['default_values']['lng']}}');
-        let zoom = parseInt('{{$options['default_values']['zoom']}}');
+        let default_lat = parseFloat('{{$lat}}');
+        let default_lng = parseFloat('{{ $lng }}');
+        let zoom = parseInt('{{ $zoom }}');
 
         function initMap() {
             let options = {
