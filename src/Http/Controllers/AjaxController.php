@@ -64,15 +64,15 @@ class AjaxController {
     }
 
     public function quickReorder(AjaxQuickReorder $request) {
-        $object = new $request->class;
+        $object = new $request->class();
         $ids = $request->position_ids;
         $ids_collection = collect($request->position_ids)->filter();
 
         if (in_array(SoftDeletes::class, class_uses($object))) {
-            $object = $object->withTrashed();
+            $query = $object->withTrashed();
         }
 
-        $models = $object->whereIn('id', array_keys(array_filter($ids)))->get();
+        $models = $query->whereIn('id', array_keys(array_filter($ids)))->get();
         $positions_static = [];
 
         foreach ($models as $model) {
@@ -100,7 +100,6 @@ class AjaxController {
             $current_model->save();
 
         }
-
         $object::fixTree();
     }
 
