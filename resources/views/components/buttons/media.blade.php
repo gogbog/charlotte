@@ -62,7 +62,7 @@ $id = uniqid();
                         @foreach ($model->getMedia($collection) as $media)
                             var mockFile = {name: "{{$media->file_name}}", size: "{{$media->size}}", type: '{{$media->mime_type}}'};
                             this.options.addedfile.call(this, mockFile);
-                            this.options.thumbnail.call(this, mockFile, "{{ $media->getFullUrl('thumb') }}");
+                            this.options.thumbnail.call(this, mockFile, "{{ $media->getFullUrl() }}");
                             // mockFile.previewElement.classList.add('dz-success');
                             mockFile.previewElement.setAttribute('data-id', '{{ $media->id }}');
                             mockFile.previewElement.classList.add('dz-complete');
