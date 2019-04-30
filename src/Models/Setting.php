@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\Models\Media;
 
 class Setting extends Model implements HasMedia {
 
@@ -56,4 +57,16 @@ class Setting extends Model implements HasMedia {
         return $eloquent;
     }
 
+
+    public function registerMediaConversions(Media $media = null)
+    {
+
+        foreach (config('administration.settings_images') as $key => $sizes) {
+            $this->addMediaConversion($key)
+                ->width($sizes['width'])
+                ->height($sizes['height'])
+                ->sharpen(10)
+                ->nonOptimized();
+        }
+    }
 }

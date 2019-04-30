@@ -1,12 +1,12 @@
 @php
-
-        @endphp
-
-@php
     $value = null;
     $collection = (!empty($options['collection'])) ? $options['collection'] : 'default';
     if (!empty($options['model']) && $options['model']->getMedia($collection)->isNotEmpty()) {
         $value = $options['model']->getFirstMedia($collection)->file_name;
+    }
+
+    if (!empty($options['value'])) {
+        $value = $options['value'];
     }
 
 @endphp

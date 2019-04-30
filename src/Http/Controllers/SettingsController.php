@@ -68,6 +68,14 @@ class SettingsController extends BaseAdministrationController {
             $setting->save();
 
             if ($is_media) {
+                //delete all previous media
+                $old_media = $setting->getMedia();
+                foreach ($old_media as $image) {
+                    $image->delete();
+                }
+
+                $setting->value = $value->getClientOriginalName();
+                $setting->save();
                 $setting->addMedia($value)->toMediaCollection();
             }
         }

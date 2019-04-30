@@ -31,6 +31,16 @@ return [
     'admin_supported_locales' => [
         'en',
         'bg'
+    ],
+
+    /*
+   * Settings Images Conversions
+   */
+    'settings_images' => [
+        'thumb' => [
+            'width' => 100,
+            'height' => 100,
+        ],
     ]
 
 ];
