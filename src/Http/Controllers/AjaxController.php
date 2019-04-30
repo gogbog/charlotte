@@ -69,10 +69,10 @@ class AjaxController {
         $ids_collection = collect($request->position_ids)->filter();
 
         if (in_array(SoftDeletes::class, class_uses($object))) {
-            $query = $object->withTrashed();
+            $object = $object->withTrashed();
         }
 
-        $models = $query->whereIn('id', array_keys(array_filter($ids)))->get();
+        $models = $object->whereIn('id', array_keys(array_filter($ids)))->get();
         $positions_static = [];
 
         foreach ($models as $model) {
