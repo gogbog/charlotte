@@ -41,6 +41,14 @@ return [
             'width' => 100,
             'height' => 100,
         ],
+    ],
+
+    //Default fields for settings
+    'settings_default_fields' => [
+        'website_title' => [
+            'title' => 'administration::admin.website_name',  //this will be converted to trans
+            'type' => 'text'
+        ]
     ]
 
 ];

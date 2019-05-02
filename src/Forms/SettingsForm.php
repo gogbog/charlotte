@@ -5,8 +5,10 @@ namespace Charlotte\Administration\Forms;
 use Caffeinated\Modules\Facades\Module;
 use Kris\LaravelFormBuilder\Form;
 
-class SettingsForm extends Form {
-    public function buildForm() {
+class SettingsForm extends Form
+{
+    public function buildForm()
+    {
 
         $modules = Module::enabled();
         $module_slugs = [];
@@ -16,9 +18,17 @@ class SettingsForm extends Form {
             $module_slugs[] = $module['slug'];
         }
 
-        $this->add('website_title', 'text', [
-            'title' => trans('administration::admin.website_name')
-        ]);
+
+        if (!empty(config('administration.settings_default_fields'))) {
+            foreach (config('administration.settings_default_fields') as $key => $value) {
+                $this->add($key, $value['type'], [
+                    'title' => trans($value['title']),
+                    'translate' => (!empty($value['translate'])) ? (bool) $value['translate'] : false,
+                    'value' => (!empty($value['value'])) ? $value['value'] : null,
+                    'choices' => (!empty($value['choices'])) ? $value['choices'] : null,
+                ]);
+            }
+        }
 
         foreach ($module_slugs as $module_slug) {
             $administration_class = module_class($module_slug, 'Administration');
