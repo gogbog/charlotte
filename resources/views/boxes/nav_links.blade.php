@@ -26,7 +26,13 @@
             {!! $item->title !!}
         @endif
         @if($item->hasChildren())
-            <ul class="nav nav-second-level" style="padding-left: 20px;">
+            @php
+                $class = 'nav-second-level';
+                if ($item->hasParent()) {
+                $class = 'nav-third-level';
+                }
+            @endphp
+            <ul class="nav {{ $class }}" style="padding-left: 20px;">
                 @include('administration::boxes.nav_links', ['items' => $item->children()])
             </ul>
         @endif
