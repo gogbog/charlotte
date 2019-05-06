@@ -15928,3 +15928,21 @@ body.dt-rowReorder-noOverflow {
 .dropdown-menu > .active > a:hover {
   background: rgba(0, 0, 0, 0.25) !important;
 }
+.content-wrapper .sidebar #side-menu > li:hover {
+  background: #f7fafc !important;
+}
+.content-wrapper .sidebar #side-menu ul > li > a {
+  background: none !important;
+}
+.nav > li > a:focus,
+.nav > li > a:hover {
+  background: none !important;
+}
+#side-menu li.active > a {
+  background: none !important;
+}
+@media (min-width: 768px) {
+  .p-l-lg-20 {
+    padding-left: 20px !important;
+  }
+}

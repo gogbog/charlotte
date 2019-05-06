@@ -4,7 +4,8 @@ $elId = uniqid();
 
 <a class="m-l-10 m-r-10 action-btn"
    data-href="{{$link}}"
-   id="{{ $elId }}">
+   id="{{ $elId }}"
+   title="Tova ti e title">
     <i class="fa {{$icon}} {{ $color }}"></i>
 </a>
 

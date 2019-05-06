@@ -16293,3 +16293,10 @@ body.dt-rowReorder-noOverflow {
 .dropdown-menu > .active > a:hover {
   background: rgba(0, 0, 0, 0.15) !important;
 }
+.nav > li > a:focus,
+.nav > li > a:hover {
+  background: none !important;
+}
+#side-menu li.active > a {
+  background: none !important;
+}

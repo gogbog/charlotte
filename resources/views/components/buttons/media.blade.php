@@ -2,7 +2,7 @@
 $id = uniqid();
 ?>
 
-<a class="m-l-10 m-r-10 action-btn media-btn" data-toggle="modal" data-target="#modal_{{$id}}">
+<a class="m-l-10 m-r-10 action-btn media-btn" data-toggle="modal" data-target="#modal_{{$id}}" title="Tova ti e title">
     <i class="ti-image text-success"></i>
 </a>
 

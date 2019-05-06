@@ -17,10 +17,11 @@
             <a href="@if (!empty($item->url())){!! $item->url() !!}@else javascript:void(0)  @endif"
                class="@if ($active) active @endif"> <!-- waves-effect -->
                 <i class="fa fa-fw linea-icon linea-basic m-r-10 @if (!empty($item->attr()['icon'])) {{ $item->attr()['icon'] }} @endif"></i>
+
                 <span class="hide-menu">
                 {!! $item->title !!}
                     @if($item->hasChildren()) <span class="fa arrow"></span> @endif
-            </span>
+                </span>
             </a>
         @else
             {!! $item->title !!}
@@ -32,7 +33,7 @@
                 $class = 'nav-third-level';
                 }
             @endphp
-            <ul class="nav {{ $class }}" style="padding-left: 20px;">
+            <ul class="nav {{ $class }} p-l-20">
                 @include('administration::boxes.nav_links', ['items' => $item->children()])
             </ul>
         @endif
