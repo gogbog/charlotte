@@ -1,6 +1,6 @@
 @extends('administration::layouts.administration-master')
 @section('content')
-
+    @include('administration::components.dashboard.line-chart')
     @if (!empty($boxes))
         <div class="row">
             {!! $boxes !!}

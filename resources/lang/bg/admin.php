@@ -65,6 +65,7 @@ return [
     'restore' => 'Възстановяване?',
     'yes_restore' => 'Възстанови',
     'restored' => 'Възстановено!',
+    'media-manager' => 'Снимки',
 
     //MEDIA MANAGER
     'media_default' => 'Пренесете файловете си тук или кликнете и изберете',
@@ -82,6 +83,6 @@ return [
 
 
     //GENERAL
-    'website_name' => 'Име на сайта'
+    'website_name' => 'Име на сайта',
 
 ];

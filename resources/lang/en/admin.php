@@ -65,6 +65,7 @@ return [
     'restore' => 'Restore?',
     'yes_restore' => 'Restore',
     'restored' => 'Restored!',
+    'media-manager' => 'Images',
 
     //MEDIA MANAGER
     'media_default' => 'Drag your files here or click and choose',

@@ -3,36 +3,66 @@
 namespace Charlotte\Administration\Helpers;
 
 
-class AdministrationField {
+class AdministrationField
+{
 
-    public static function link($link, $icon = 'fa-external-link', $color = '') {
-        return view('administration::components.buttons.link', compact('link', 'icon', 'color'))->render();
+    public static function link($link, $attr = array())
+    {
+        if (empty($attr['icon'])) {
+            $attr['icon'] = 'fa-external-link';
+        }
+        return view('administration::components.buttons.link', compact('link', 'attr'))->render();
     }
 
-    public static function edit($link, $icon = 'ti-pencil', $color = 'text-info') {
-        return view('administration::components.buttons.link', compact('link', 'icon', 'color'))->render();
+    public static function edit($link, $attr = array())
+    {
+        if (empty($attr['icon'])) {
+            $attr['icon'] = 'ti-pencil';
+        }
+
+        if (empty($attr['color'])) {
+            $attr['color'] = 'text-info';
+        }
+
+        return view('administration::components.buttons.link', compact('link', 'attr'))->render();
     }
 
-    public static function delete($link, $icon = 'ti-trash', $color = 'text-danger') {
-        return view('administration::components.buttons.delete', compact('link', 'icon', 'color'))->render();
+    public static function delete($link, $attr = array())
+    {
+        if (empty($attr['icon'])) {
+            $attr['icon'] = 'ti-trash';
+        }
+
+        if (empty($attr['color'])) {
+            $attr['color'] = 'text-danger';
+        }
+
+        return view('administration::components.buttons.delete', compact('link', 'attr'))->render();
 
     }
 
-    public static function restore($link, $icon = 'fa-undo', $color = 'text-warning') {
-        return view('administration::components.buttons.restore', compact('link', 'icon', 'color'))->render();
+    public static function restore($link, $attr = array())
+    {
+        if (empty($attr['icon'])) {
+            $attr['icon'] = 'fa-undo';
+        }
+
+        if (empty($attr['color'])) {
+            $attr['color'] = 'text-warning';
+        }
+
+        return view('administration::components.buttons.restore', compact('link', 'attr'))->render();
     }
 
 
-    public static function nest() {
-
-    }
-
-    public static function media($model, $collections = ['default']) {
+    public static function media($model, $collections = ['default'])
+    {
         return view('administration::components.buttons.media', compact('model', 'collections'))->render();
     }
 
-    public static function switch($field, $model) {
-        return view('administration::components.buttons.switch', compact('field','model'))->render();
+    public static function switch($field, $model)
+    {
+        return view('administration::components.buttons.switch', compact('field', 'model'))->render();
 
     }
 
