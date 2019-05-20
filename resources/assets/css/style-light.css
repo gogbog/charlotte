@@ -15865,6 +15865,10 @@ body.stop-scrolling {
   justify-content: flex-start;
   padding: 10px;
 }
+.dropzone .dz-message {
+  margin: 10% auto;
+  white-space: normal;
+}
 .dropzone .dz-preview {
   margin: 10px;
 }
