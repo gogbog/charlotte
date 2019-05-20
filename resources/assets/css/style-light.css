@@ -15895,9 +15895,6 @@ body.stop-scrolling {
 .dropzone .dz-preview .dz-remove:hover {
   text-decoration: none;
 }
-.dropzone .dz-message {
-  display: none;
-}
 .dt-rowReorder-float {
   display: none !important;
 }

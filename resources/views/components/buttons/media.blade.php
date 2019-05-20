@@ -51,7 +51,7 @@ $id = uniqid();
             addRemoveLinks: true,
             dictRemoveFile: "&#10005;",
             dictCancelUpload: "&#10005;",
-            dictDefaultMessage: "",
+            dictDefaultMessage: "{{ trans('administration::admin.media_default') }}",
             maxFilesize: 99999,
             dictResponseError: "{{ trans('administration::admin.media_error') }}",
             headers: {
