@@ -903,9 +903,6 @@ pre {
   line-height: 60px;
   text-align: center;
 }
-.logo i {
-  color: #ffffff;
-}
 .top-left-part {
   width: 220px;
   float: left;
@@ -15529,6 +15526,15 @@ body.stop-scrolling {
   text-transform: capitalize;
   font-size: 17px;
 }
+.top-left-part .logo i {
+  height: 60px;
+  width: 60px;
+  display: inline-block !important;
+  text-align: left !important;
+  padding: 20px;
+  font-size: 20px;
+  margin: auto;
+}
 .top-left-part .logo b {
   font-size: 18px;
   text-transform: uppercase;
@@ -15586,6 +15592,7 @@ body.stop-scrolling {
 }
 .table-responsive {
   border: none !important;
+  overflow-x: auto !important;
 }
 .table {
   min-width: 100% !important;
@@ -15911,7 +15918,7 @@ body.dt-rowReorder-noOverflow {
 }
 @media only screen and (min-width: 992px) {
   .table-responsive {
-    overflow-x: hidden;
+    overflow-x: auto !important;
   }
 }
 @media only screen {

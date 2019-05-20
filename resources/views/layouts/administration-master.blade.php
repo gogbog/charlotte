@@ -67,9 +67,7 @@
             </a>
             <div class="top-left-part">
                 <a class="logo" href="{{ \Charlotte\Administration\Helpers\Administration::route('index') }}">
-                    <b>
-                        {{ trans('administration::admin.ap') }}
-                    </b>
+                    <i class="ti-panel text-muted"></i>
                     <span class="hidden-xs">
                         @if(config('app.name') == '')
                             {{ trans('administration::admin.admin_panel') }}
