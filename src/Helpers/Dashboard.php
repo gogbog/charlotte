@@ -27,6 +27,10 @@ class Dashboard {
         $this->boxes[] = view($this->route . 'link-box', compact('title','value', 'link', 'color', 'icon', 'class'));
     }
 
+    public function custom($html) {
+        $this->boxes[] = view($this->route . 'custom', compact('html'));
+    }
+
     public function generate() {
         foreach ($this->boxes as $box) {
             $this->rendered_view .= $box->render();
