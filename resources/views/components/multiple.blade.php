@@ -83,6 +83,24 @@
         <script>
             document.getElementById('{{$id}}').addEventListener("change", getChoices);
 
+            $(document).ready(function () {
+                let choices = $('#{{$id}}').val();
+                let selectName = $('#{{$id}}').attr('name');
+
+                $(".multiple-input-fields-container_{{$id}} .choices-wrapper").empty();
+
+                if (choices !== null) {
+                    $.each(choices, function (index, item) {
+                        if (item === "") {
+                            return true;
+                        }
+                        let input = '<input name="' + selectName + '[]" type="hidden" class="multiple-choices_{{$id}}" value="' + item + '">';
+                        $(".multiple-input-fields-container_{{$id}} .choices-wrapper").append(input);
+
+                    });
+                }
+            });
+
             function getChoices() {
                 let choices = $('#{{$id}}').val();
                 let selectName = $('#{{$id}}').attr('name');
