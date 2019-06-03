@@ -22,7 +22,7 @@ return [
     'change_theme' => 'Switch Theme',
     'light' => 'Light',
     'dark' => 'Dark',
-    'edit_profile' => 'Profile Settings',
+    'edit_profile' => 'Edit Profile',
     'logout' => 'Logout',
     'schedule' => 'Schedule',
     'error' => 'Error',

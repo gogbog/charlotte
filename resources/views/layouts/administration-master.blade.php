@@ -124,7 +124,7 @@
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="#" class="p-10">
+                            <a href="{{ \Charlotte\Administration\Helpers\Administration::route('admins.edit', \Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->id) }}" class="p-10">
                                 <i class="ti-settings m-r-10"></i>
                                 {{ trans('administration::admin.edit_profile') }}
                             </a>

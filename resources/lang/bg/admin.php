@@ -22,7 +22,7 @@ return [
     'change_theme' => 'Смяна на тема',
     'light' => 'Светла',
     'dark' => 'Тъмна',
-    'edit_profile' => 'Настройки на профила',
+    'edit_profile' => 'Редактиране на профил',
     'logout' => 'Изход',
     'schedule' => 'График',
     'error' => 'Грешка',
