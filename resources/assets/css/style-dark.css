@@ -16010,6 +16010,9 @@ table.dataTable thead .sorting:after {
   margin: 0 !important;
   background: none !important;
 }
+.table > tbody > tr > td:first-child {
+  cursor: move;
+}
 .action-btn:hover {
   cursor: pointer !important;
 }
