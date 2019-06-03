@@ -54,6 +54,7 @@ return [
         'map' => \Charlotte\Administration\Forms\Fields\MapType::class,
         'button' => \Charlotte\Administration\Forms\Fields\CustomButtonType::class,
         'box' => \Charlotte\Administration\Forms\Fields\BoxType::class,
+        'multiplier' => \Charlotte\Administration\Forms\Fields\MultiplierType::class,
 
     ]
 ];
