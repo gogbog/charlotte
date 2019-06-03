@@ -27,6 +27,15 @@ class Dashboard {
         $this->boxes[] = view($this->route . 'link-box', compact('title','value', 'link', 'color', 'icon', 'class'));
     }
 
+    public function chartBox($title, $type, $labels, $dataset, $class = 'col-xl-12 col-lg-12 col-md-12 col-sm-12') {
+        $this->boxes[] = view($this->route . 'line-chart', compact('title','type', 'labels', 'dataset', 'class'));
+    }
+
+
+    public function custom($html) {
+        $this->boxes[] = view($this->route . 'custom', compact('html'));
+    }
+
     public function generate() {
         foreach ($this->boxes as $box) {
             $this->rendered_view .= $box->render();

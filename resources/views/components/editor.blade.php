@@ -64,6 +64,18 @@
                     $('.' + id).summernote({
                         minHeight: 100,
                         height: 250,
+                        @if(!empty($options['simple']) && $options['simple'] == true)
+                        toolbar: [
+                            ['style', ['style']],
+                            ['font', ['bold', 'underline', 'clear']],
+                            // ['fontname', ['fontname']],
+                            // ['color', ['color']],
+                            ['para', ['ul', 'ol', 'paragraph']],
+                            ['table', ['table']],
+                            ['insert', ['link', 'picture', 'video']],
+                            ['view', ['fullscreen', 'codeview', 'help']],
+                        ]
+                        @endif
                     });
 
                     $('.' + id).on('summernote.change', function (we, contents, $editable) {

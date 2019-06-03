@@ -16,7 +16,7 @@
     <label class="col-sm-12">{{ $options['title'] }}</label>
     <div class="col-sm-12 m-b-20">
         <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-            <div class="form-control" data-trigger="fileinput">
+            <div class="form-control" data-trigger="fileinput" style="overflow: auto">
                 <span class="fileinput-filename"></span>
             </div>
             <span class="input-group-addon btn btn-default btn-file">
@@ -35,15 +35,21 @@
                 {{ trans('administration::admin.remove') }}
             </a>
         </div>
-        @if (!empty($value))
-            {{$value}}
-        @endif
         <span class="help-block">
-    <small>
-        @if (!empty($options['helper_box']))
-            {{ $options['helper_box'] }}
-        @endif
-    </small>
-</span>
+            <small>
+                @if (!empty($options['helper_box']))
+                    {{ $options['helper_box'] }}
+                @endif
+            </small>
+        </span>
+        <span class="help-block">
+            <small>
+                @if (!empty($value))
+                    <a href="{{ $value }}" target="_blank">
+                        {{ $value }}
+                    </a>
+                @endif
+            </small>
+        </span>
     </div>
 </div>

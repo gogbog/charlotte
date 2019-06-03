@@ -73,10 +73,12 @@ class SettingsController extends BaseAdministrationController {
                 foreach ($old_media as $image) {
                     $image->delete();
                 }
-
-                $setting->value = $value->getClientOriginalName();
+                $file_name = uniqid() . '.' . $value->getClientOriginalExtension();
+                $media = $setting->addMedia($value)->usingFileName($file_name)->usingName($file_name)->toMediaCollection();
+                $setting->value = $media->getFullUrl();
                 $setting->save();
-                $setting->addMedia($value)->toMediaCollection();
+
+
             }
         }
 

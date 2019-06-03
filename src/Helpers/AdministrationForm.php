@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\View;
 
 class AdministrationForm {
 
-    private $fields;
     private $model;
     private $route;
     private $form;
@@ -18,17 +17,9 @@ class AdministrationForm {
 
     public function __construct() {
         $this->method = 'POST';
-        $this->form = AdminForm::class;
-        $this->fields = [];
+        $this->form = null;
     }
 
-    public function additionalData($additionalData) {
-        $this->additionalData = $additionalData;
-    }
-
-    public function fields($fields) {
-        $this->fields = $fields;
-    }
 
     public function form($form) {
         $this->form = $form;
@@ -55,9 +46,8 @@ class AdministrationForm {
             'model' => $this->model
         ];
 
-        $this->fields['administration_additional_data'] = $this->additionalData;
 
-        $form = $formbuilder->create($this->form, $url_method, $this->fields);
+        $form = $formbuilder->create($this->form, $url_method);
 
         View::share('form', $form);
 

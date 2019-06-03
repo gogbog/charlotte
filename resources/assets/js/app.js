@@ -11542,6 +11542,8 @@ if ("undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requir
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 $(document).ready(function () {
   $(function () {
     $(".preloader").fadeOut();
@@ -11753,6 +11755,193 @@ $(".navbar-toggle").click(function () {
   $(".navbar-toggle i").toggleClass("ti-menu");
   $(".navbar-toggle i").addClass("ti-close");
 }); // Update 1.6
+
+window.slugify = function (s, opt) {
+  var _char_map;
+
+  s = String(s);
+  opt = Object(opt);
+  var defaults = {
+    'delimiter': '-',
+    'limit': undefined,
+    'lowercase': true,
+    'replacements': {},
+    'transliterate': typeof XRegExp === 'undefined' ? true : false
+  }; // Merge options
+
+  for (var k in defaults) {
+    if (!opt.hasOwnProperty(k)) {
+      opt[k] = defaults[k];
+    }
+  }
+
+  var char_map = (_char_map = {
+    // Latin
+    'À': 'A',
+    'Á': 'A',
+    'Â': 'A',
+    'Ã': 'A',
+    'Ä': 'A',
+    'Å': 'A',
+    'Æ': 'AE',
+    'Ç': 'C',
+    'È': 'E',
+    'É': 'E',
+    'Ê': 'E',
+    'Ë': 'E',
+    'Ì': 'I',
+    'Í': 'I',
+    'Î': 'I',
+    'Ï': 'I',
+    'Ð': 'D',
+    'Ñ': 'N',
+    'Ò': 'O',
+    'Ó': 'O',
+    'Ô': 'O',
+    'Õ': 'O',
+    'Ö': 'O',
+    'Ő': 'O',
+    'Ø': 'O',
+    'Ù': 'U',
+    'Ú': 'U',
+    'Û': 'U',
+    'Ü': 'U',
+    'Ű': 'U',
+    'Ý': 'Y',
+    'Þ': 'TH',
+    'ß': 'ss',
+    'à': 'a',
+    'á': 'a',
+    'â': 'a',
+    'ã': 'a',
+    'ä': 'a',
+    'å': 'a',
+    'æ': 'ae',
+    'ç': 'c',
+    'è': 'e',
+    'é': 'e',
+    'ê': 'e',
+    'ë': 'e',
+    'ì': 'i',
+    'í': 'i',
+    'î': 'i',
+    'ï': 'i',
+    'ð': 'd',
+    'ñ': 'n',
+    'ò': 'o',
+    'ó': 'o',
+    'ô': 'o',
+    'õ': 'o',
+    'ö': 'o',
+    'ő': 'o',
+    'ø': 'o',
+    'ù': 'u',
+    'ú': 'u',
+    'û': 'u',
+    'ü': 'u',
+    'ű': 'u',
+    'ý': 'y',
+    'þ': 'th',
+    'ÿ': 'y',
+    // Latin symbols
+    '©': '(c)',
+    // Greek
+    'Α': 'A',
+    'Β': 'B',
+    'Γ': 'G',
+    'Δ': 'D',
+    'Ε': 'E',
+    'Ζ': 'Z',
+    'Η': 'H',
+    'Θ': '8',
+    'Ι': 'I',
+    'Κ': 'K',
+    'Λ': 'L',
+    'Μ': 'M',
+    'Ν': 'N',
+    'Ξ': '3',
+    'Ο': 'O',
+    'Π': 'P',
+    'Ρ': 'R',
+    'Σ': 'S',
+    'Τ': 'T',
+    'Υ': 'Y',
+    'Φ': 'F',
+    'Χ': 'X',
+    'Ψ': 'PS',
+    'Ω': 'W',
+    'Ά': 'A',
+    'Έ': 'E',
+    'Ί': 'I',
+    'Ό': 'O',
+    'Ύ': 'Y',
+    'Ή': 'H',
+    'Ώ': 'W',
+    'Ϊ': 'I',
+    'Ϋ': 'Y',
+    'α': 'a',
+    'β': 'b',
+    'γ': 'g',
+    'δ': 'd',
+    'ε': 'e',
+    'ζ': 'z',
+    'η': 'h',
+    'θ': '8',
+    'ι': 'i',
+    'κ': 'k',
+    'λ': 'l',
+    'μ': 'm',
+    'ν': 'n',
+    'ξ': '3',
+    'ο': 'o',
+    'π': 'p',
+    'ρ': 'r',
+    'σ': 's',
+    'τ': 't',
+    'υ': 'y',
+    'φ': 'f',
+    'χ': 'x',
+    'ψ': 'ps',
+    'ω': 'w',
+    'ά': 'a',
+    'έ': 'e',
+    'ί': 'i',
+    'ό': 'o',
+    'ύ': 'y',
+    'ή': 'h',
+    'ώ': 'w',
+    'ς': 's',
+    'ϊ': 'i',
+    'ΰ': 'y',
+    'ϋ': 'y',
+    'ΐ': 'i',
+    // Turkish
+    'Ş': 'S',
+    'İ': 'I'
+  }, _defineProperty(_char_map, "\xC7", 'C'), _defineProperty(_char_map, "\xDC", 'U'), _defineProperty(_char_map, "\xD6", 'O'), _defineProperty(_char_map, 'Ğ', 'G'), _defineProperty(_char_map, 'ş', 's'), _defineProperty(_char_map, 'ı', 'i'), _defineProperty(_char_map, "\xE7", 'c'), _defineProperty(_char_map, "\xFC", 'u'), _defineProperty(_char_map, "\xF6", 'o'), _defineProperty(_char_map, 'ğ', 'g'), _defineProperty(_char_map, 'А', 'A'), _defineProperty(_char_map, 'Б', 'B'), _defineProperty(_char_map, 'В', 'V'), _defineProperty(_char_map, 'Г', 'G'), _defineProperty(_char_map, 'Д', 'D'), _defineProperty(_char_map, 'Е', 'E'), _defineProperty(_char_map, 'Ё', 'Yo'), _defineProperty(_char_map, 'Ж', 'Zh'), _defineProperty(_char_map, 'З', 'Z'), _defineProperty(_char_map, 'И', 'I'), _defineProperty(_char_map, 'Й', 'J'), _defineProperty(_char_map, 'К', 'K'), _defineProperty(_char_map, 'Л', 'L'), _defineProperty(_char_map, 'М', 'M'), _defineProperty(_char_map, 'Н', 'N'), _defineProperty(_char_map, 'О', 'O'), _defineProperty(_char_map, 'П', 'P'), _defineProperty(_char_map, 'Р', 'R'), _defineProperty(_char_map, 'С', 'S'), _defineProperty(_char_map, 'Т', 'T'), _defineProperty(_char_map, 'У', 'U'), _defineProperty(_char_map, 'Ф', 'F'), _defineProperty(_char_map, 'Х', 'H'), _defineProperty(_char_map, 'Ц', 'C'), _defineProperty(_char_map, 'Ч', 'Ch'), _defineProperty(_char_map, 'Ш', 'Sh'), _defineProperty(_char_map, 'Щ', 'Sh'), _defineProperty(_char_map, 'Ъ', ''), _defineProperty(_char_map, 'Ы', 'Y'), _defineProperty(_char_map, 'Ь', ''), _defineProperty(_char_map, 'Э', 'E'), _defineProperty(_char_map, 'Ю', 'Yu'), _defineProperty(_char_map, 'Я', 'Ya'), _defineProperty(_char_map, 'а', 'a'), _defineProperty(_char_map, 'б', 'b'), _defineProperty(_char_map, 'в', 'v'), _defineProperty(_char_map, 'г', 'g'), _defineProperty(_char_map, 'д', 'd'), _defineProperty(_char_map, 'е', 'e'), _defineProperty(_char_map, 'ё', 'yo'), _defineProperty(_char_map, 'ж', 'zh'), _defineProperty(_char_map, 'з', 'z'), _defineProperty(_char_map, 'и', 'i'), _defineProperty(_char_map, 'й', 'j'), _defineProperty(_char_map, 'к', 'k'), _defineProperty(_char_map, 'л', 'l'), _defineProperty(_char_map, 'м', 'm'), _defineProperty(_char_map, 'н', 'n'), _defineProperty(_char_map, 'о', 'o'), _defineProperty(_char_map, 'п', 'p'), _defineProperty(_char_map, 'р', 'r'), _defineProperty(_char_map, 'с', 's'), _defineProperty(_char_map, 'т', 't'), _defineProperty(_char_map, 'у', 'u'), _defineProperty(_char_map, 'ф', 'f'), _defineProperty(_char_map, 'х', 'h'), _defineProperty(_char_map, 'ц', 'c'), _defineProperty(_char_map, 'ч', 'ch'), _defineProperty(_char_map, 'ш', 'sh'), _defineProperty(_char_map, 'щ', 'sh'), _defineProperty(_char_map, 'ъ', ''), _defineProperty(_char_map, 'ы', 'y'), _defineProperty(_char_map, 'ь', ''), _defineProperty(_char_map, 'э', 'e'), _defineProperty(_char_map, 'ю', 'yu'), _defineProperty(_char_map, 'я', 'ya'), _defineProperty(_char_map, 'Є', 'Ye'), _defineProperty(_char_map, 'І', 'I'), _defineProperty(_char_map, 'Ї', 'Yi'), _defineProperty(_char_map, 'Ґ', 'G'), _defineProperty(_char_map, 'є', 'ye'), _defineProperty(_char_map, 'і', 'i'), _defineProperty(_char_map, 'ї', 'yi'), _defineProperty(_char_map, 'ґ', 'g'), _defineProperty(_char_map, 'Č', 'C'), _defineProperty(_char_map, 'Ď', 'D'), _defineProperty(_char_map, 'Ě', 'E'), _defineProperty(_char_map, 'Ň', 'N'), _defineProperty(_char_map, 'Ř', 'R'), _defineProperty(_char_map, 'Š', 'S'), _defineProperty(_char_map, 'Ť', 'T'), _defineProperty(_char_map, 'Ů', 'U'), _defineProperty(_char_map, 'Ž', 'Z'), _defineProperty(_char_map, 'č', 'c'), _defineProperty(_char_map, 'ď', 'd'), _defineProperty(_char_map, 'ě', 'e'), _defineProperty(_char_map, 'ň', 'n'), _defineProperty(_char_map, 'ř', 'r'), _defineProperty(_char_map, 'š', 's'), _defineProperty(_char_map, 'ť', 't'), _defineProperty(_char_map, 'ů', 'u'), _defineProperty(_char_map, 'ž', 'z'), _defineProperty(_char_map, 'Ą', 'A'), _defineProperty(_char_map, 'Ć', 'C'), _defineProperty(_char_map, 'Ę', 'e'), _defineProperty(_char_map, 'Ł', 'L'), _defineProperty(_char_map, 'Ń', 'N'), _defineProperty(_char_map, "\xD3", 'o'), _defineProperty(_char_map, 'Ś', 'S'), _defineProperty(_char_map, 'Ź', 'Z'), _defineProperty(_char_map, 'Ż', 'Z'), _defineProperty(_char_map, 'ą', 'a'), _defineProperty(_char_map, 'ć', 'c'), _defineProperty(_char_map, 'ę', 'e'), _defineProperty(_char_map, 'ł', 'l'), _defineProperty(_char_map, 'ń', 'n'), _defineProperty(_char_map, "\xF3", 'o'), _defineProperty(_char_map, 'ś', 's'), _defineProperty(_char_map, 'ź', 'z'), _defineProperty(_char_map, 'ż', 'z'), _defineProperty(_char_map, 'Ā', 'A'), _defineProperty(_char_map, "\u010C", 'C'), _defineProperty(_char_map, 'Ē', 'E'), _defineProperty(_char_map, 'Ģ', 'G'), _defineProperty(_char_map, 'Ī', 'i'), _defineProperty(_char_map, 'Ķ', 'k'), _defineProperty(_char_map, 'Ļ', 'L'), _defineProperty(_char_map, 'Ņ', 'N'), _defineProperty(_char_map, "\u0160", 'S'), _defineProperty(_char_map, 'Ū', 'u'), _defineProperty(_char_map, "\u017D", 'Z'), _defineProperty(_char_map, 'ā', 'a'), _defineProperty(_char_map, "\u010D", 'c'), _defineProperty(_char_map, 'ē', 'e'), _defineProperty(_char_map, 'ģ', 'g'), _defineProperty(_char_map, 'ī', 'i'), _defineProperty(_char_map, 'ķ', 'k'), _defineProperty(_char_map, 'ļ', 'l'), _defineProperty(_char_map, 'ņ', 'n'), _defineProperty(_char_map, "\u0161", 's'), _defineProperty(_char_map, 'ū', 'u'), _defineProperty(_char_map, "\u017E", 'z'), _char_map); // Make custom replacements
+
+  for (var k in opt.replacements) {
+    s = s.replace(RegExp(k, 'g'), opt.replacements[k]);
+  } // Transliterate characters to ASCII
+
+
+  if (opt.transliterate) {
+    for (var k in char_map) {
+      s = s.replace(RegExp(k, 'g'), char_map[k]);
+    }
+  } // Replace non-alphanumeric characters with our delimiter
+
+
+  var alnum = typeof XRegExp === 'undefined' ? RegExp('[^a-z0-9]+', 'ig') : XRegExp('[^\\p{L}\\p{N}]+', 'ig');
+  s = s.replace(alnum, opt.delimiter); // Remove duplicate delimiters
+
+  s = s.replace(RegExp('[' + opt.delimiter + ']{2,}', 'g'), opt.delimiter); // Truncate slug to max. characters
+
+  s = s.substring(0, opt.limit); // Remove delimiter from ends
+
+  s = s.replace(RegExp('(^' + opt.delimiter + '|' + opt.delimiter + '$)', 'g'), '');
+  return opt.lowercase ? s.toLowerCase() : s;
+};
 
 /***/ }),
 

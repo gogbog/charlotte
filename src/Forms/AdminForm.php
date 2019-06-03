@@ -6,41 +6,27 @@ use Kris\LaravelFormBuilder\Form;
 
 class AdminForm extends Form
 {
-    public function buildForm()
+    /**
+     * Create a new field and add it to the form.
+     *
+     * @param string $name
+     * @param string $type
+     * @param array  $options
+     * @param bool   $modify
+     * @return $this
+     */
+    public function add($name, $type = 'text', array $options = [], $modify = false)
     {
-        $additional_data = null;
-        $fields = $this->data;
-        $fields['submit'] = [
-            'title' => 'Submit',
-            'field' => 'button'
-        ];
+        $this->formHelper->checkFieldName($name, get_class($this));
 
-        if (!empty($fields['administration_additional_data'])) {
-            $additional_data = $fields['administration_additional_data'];
-
-        }
-        unset($fields['administration_additional_data']);
-
-        foreach ($fields as $key => $data) {
-            $attributes = [
-                'class' => 'form-control'
-            ];
-
-            if (!empty($data['attr'])) {
-                array_merge($attributes, $data['attr']);
-            }
-
-            $this->add(@$key, $data['field'], [
-                'title' => (!empty($data['title'])) ? $data['title'] : trans('administration::admin.' . $key),
-                'value' => @$data['value'],
-                'helper_box' => @$data['helper_box'],
-                'class' => @$data['class'],
-                'name' => $key,
-                'attr' => $attributes,
-                'selected' => @$data['selected'],
-                'checked' => @$data['checked'],
-            ]);
+        if ($this->rebuilding && !$this->has($name)) {
+            return $this;
         }
 
+        $options['model'] = $this->getModel();
+
+        $this->addField($this->makeField($name, $type, $options), $modify);
+
+        return $this;
     }
 }

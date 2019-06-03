@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}"
           id="default-light"
           @if(\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
+    <script src="{{ asset(config('administration.file_prefix') . 'js/chart.js') }}"></script>
+
     <script>
         let defaultLight = document.getElementById('default-light');
         let styleLight = document.getElementById('style-light');
@@ -277,7 +279,6 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/jquery.min.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/jquery-ui.min.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/app.js') }}"></script>
-<script src="{{ asset(config('administration.file_prefix') . 'js/charts.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/editor.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/data-table.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/drop.js') }}"></script>

@@ -3,9 +3,8 @@
 namespace Charlotte\Administration\Forms;
 
 use Caffeinated\Modules\Facades\Module;
-use Kris\LaravelFormBuilder\Form;
 
-class SettingsForm extends Form
+class SettingsForm extends AdminForm
 {
     public function buildForm()
     {
