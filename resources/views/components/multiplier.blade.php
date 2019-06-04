@@ -40,7 +40,7 @@
                             @endif
                             @if(!$loop->first)
                             <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" onclick="removeInput('` + new_id + `')"><i class="fa fa-minus"></i></button>
+                                        <button class="btn btn-default" type="button" onclick="removeInput('{{$id}}')"><i class="fa fa-minus"></i></button>
                                     </span>
                                 @endif
                         </div>
@@ -75,7 +75,7 @@
                         @endif
                         @if(!$loop->first)
                             <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" onclick="removeInput('` + new_id + `')"><i class="fa fa-minus"></i></button>
+                                        <button class="btn btn-default" type="button" onclick="removeInput('{{$id}}')"><i class="fa fa-minus"></i></button>
                                     </span>
                         @endif
                     </div>
@@ -111,7 +111,7 @@
                         @endif
                         @if(!$loop->first)
                             <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" onclick="removeInput('` + new_id + `')"><i class="fa fa-minus"></i></button>
+                                        <button class="btn btn-default" type="button" onclick="removeInput('{{$id}}')"><i class="fa fa-minus"></i></button>
                                     </span>
                         @endif
                     </div>
@@ -146,7 +146,7 @@
                     @endif
                     @if(!$loop->first)
                         <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" onclick="removeInput('` + new_id + `')"><i class="fa fa-minus"></i></button>
+                                        <button class="btn btn-default" type="button" onclick="removeInput('{{$id}}')"><i class="fa fa-minus"></i></button>
                                     </span>
                     @endif
                 </div>
