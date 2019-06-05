@@ -1,23 +1,27 @@
 @php
-    $value = (!empty($options['value'])) ? $options['value'] : null;
+    if (!empty($options['value'])) {
+        $value = $options['value'];
+    } else {
+        $value[] = null;
+    }
     $ids = [];
 @endphp
 @if(!empty($options['translate']) && $options['translate'])
     @foreach(LaravelLocalization::getSupportedLocales() as $locale => $data)
         @php
-                $value = $options['value'];
+            $value = array();
 
-               if (!empty($options['model'])) {
-                   $translation = $options['model']->translate($locale);
-               }
-               if (!empty($translation)) {
-                   $value = $translation->$name;
-               } else {
-                   $value = null;
-               }
+           if (!empty($options['model'])) {
+               $translation = $options['model']->translate($locale);
+           }
+           if (!empty($translation)) {
+               $value = $translation->$name;
+           } else {
+               $value[] = null;
+           }
         @endphp
         @if (!empty($value))
-            @foreach ($value as $data)
+            @foreach (array_values($value) as $key => $data)
                 @php
                     $id = uniqid();
                     $options['attr']['id'] = $id;
@@ -33,16 +37,16 @@
                         <div class="input-group multiplier_mini_parent_{{$id}}">
                             {!!  Form::text($locale . '[' .$name . '][]', $data, $options['attr']) !!}
                             @if($loop->first)
-                            <span class="input-group-btn">
+                                <span class="input-group-btn">
                                 <button class="btn btn-default" type="button" onclick="addInput('{{$id}}')"><i
-                                    class="fa fa-plus"></i></button>
+                                            class="fa fa-plus"></i></button>
                              </span>
                             @endif
                             @if(!$loop->first)
-                            <span class="input-group-btn">
+                                <span class="input-group-btn">
                                         <button class="btn btn-default" type="button" onclick="removeInput('{{$id}}')"><i class="fa fa-minus"></i></button>
                                     </span>
-                                @endif
+                            @endif
                         </div>
                         <span class="help-block">
                         <small>
@@ -54,80 +58,10 @@
                     </div>
                 </div>
             @endforeach
-        @else
-            @php
-                $id = uniqid();
-                $options['attr']['id'] = $id;
-                $ids[] = $id;
-            @endphp
-            <div class="form-group language-{{$locale}} {{ @$options['class'] }}">
-                <label class="col-sm-12 multiplier_title_{{$id}}"><span
-                            class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}
-                </label>
-                <div class="col-sm-12 m-b-20">
-                    <div class="input-group multiplier_mini_parent_{{$id}}">
-                        {!!  Form::text($locale . '[' .$name . '][]', $options['value'], $options['attr']) !!}
-                        @if($loop->first)
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button" onclick="addInput('{{$id}}')"><i
-                                            class="fa fa-plus"></i></button>
-                             </span>
-                        @endif
-                        @if(!$loop->first)
-                            <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" onclick="removeInput('{{$id}}')"><i class="fa fa-minus"></i></button>
-                                    </span>
-                        @endif
-                    </div>
-                    <span class="help-block">
-                        <small>
-                            @if (!empty($options['helper_box']))
-                                {{ $options['helper_box'] }}
-                            @endif
-                        </small>
-                    </span>
-                </div>
-            </div>
         @endif
     @endforeach
 @else
-    @if (!empty($value))
-        @foreach ($value as $data)
-            @php
-                $id = uniqid();
-                $options['attr']['id'] = $id;
-                $ids[] = $id;
-            @endphp
-            <div class="form-group without-language {{ @$options['class'] }}">
-                <label class="col-sm-12 multiplier_title_{{$id}}">{{ $options['title'] }}</label>
-                <div class="col-sm-12 m-b-20">
-                    <div class="input-group multiplier_mini_parent_{{$id}}">
-                        {!!  Form::text($name .'[]', $data, $options['attr']) !!}
-                        @if($loop->first)
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="button" onclick="addInput('{{$id}}')"><i
-                                            class="fa fa-plus"></i></button>
-                             </span>
-                        @endif
-                        @if(!$loop->first)
-                            <span class="input-group-btn">
-                                        <button class="btn btn-default" type="button" onclick="removeInput('{{$id}}')"><i class="fa fa-minus"></i></button>
-                                    </span>
-                        @endif
-                    </div>
-
-                    <span class="help-block">
-            <small>
-                @if (!empty($options['helper_box']))
-                    {{ $options['helper_box'] }}
-                @endif
-            </small>
-        </span>
-
-                </div>
-            </div>
-        @endforeach
-        @else
+    @foreach ($value as $data)
         @php
             $id = uniqid();
             $options['attr']['id'] = $id;
@@ -137,7 +71,7 @@
             <label class="col-sm-12 multiplier_title_{{$id}}">{{ $options['title'] }}</label>
             <div class="col-sm-12 m-b-20">
                 <div class="input-group multiplier_mini_parent_{{$id}}">
-                    {!!  Form::text($name .'[]', $options['value'], $options['attr']) !!}
+                    {!!  Form::text($name .'[]', $data, $options['attr']) !!}
                     @if($loop->first)
                         <span class="input-group-btn">
                                 <button class="btn btn-default" type="button" onclick="addInput('{{$id}}')"><i
@@ -161,7 +95,7 @@
 
             </div>
         </div>
-    @endif
+    @endforeach
 @endif
 
 @section('js')
