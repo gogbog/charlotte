@@ -32,7 +32,7 @@
                     <div class="col-sm-12 m-b-20">
                         <div class="input-group multiplier_mini_parent_{{$id}}">
                             {!!  Form::text($locale . '[' .$name . '][]', $data, $options['attr']) !!}
-                            @if($loop->last || $loop->first)
+                            @if($loop->first)
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button" onclick="addInput('{{$id}}')"><i
                                     class="fa fa-plus"></i></button>
@@ -67,7 +67,7 @@
                 <div class="col-sm-12 m-b-20">
                     <div class="input-group multiplier_mini_parent_{{$id}}">
                         {!!  Form::text($locale . '[' .$name . '][]', $options['value'], $options['attr']) !!}
-                        @if($loop->last || $loop->first)
+                        @if($loop->first)
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button" onclick="addInput('{{$id}}')"><i
                                             class="fa fa-plus"></i></button>
@@ -103,7 +103,7 @@
                 <div class="col-sm-12 m-b-20">
                     <div class="input-group multiplier_mini_parent_{{$id}}">
                         {!!  Form::text($name .'[]', $data, $options['attr']) !!}
-                        @if($loop->last || $loop->first)
+                        @if($loop->first)
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button" onclick="addInput('{{$id}}')"><i
                                             class="fa fa-plus"></i></button>
@@ -138,7 +138,7 @@
             <div class="col-sm-12 m-b-20">
                 <div class="input-group multiplier_mini_parent_{{$id}}">
                     {!!  Form::text($name .'[]', $options['value'], $options['attr']) !!}
-                    @if($loop->last || $loop->first)
+                    @if($loop->first)
                         <span class="input-group-btn">
                                 <button class="btn btn-default" type="button" onclick="addInput('{{$id}}')"><i
                                             class="fa fa-plus"></i></button>
@@ -192,9 +192,7 @@
                                 <div class="input-group multiplier_mini_parent_` + new_id + `">
 
                                     <input class="form-control" id="` + new_id + `" name="` + multiplier_input.attr('name') + `" type="text">
-                                    <span class="input-group-btn btn_` + new_id + `">
-                                        <button class="btn btn-default" type="button" onclick="addInput('` + new_id + `')"><i class="fa fa-plus"></i></button>
-                                    </span>
+
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" type="button" onclick="removeInput('` + new_id + `')"><i class="fa fa-minus"></i></button>
                                     </span>
