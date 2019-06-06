@@ -43,7 +43,7 @@
                 $(this).addClass('active');
                 if (category === '') {
                     $('.form-group:hidden').show().removeClass('hidden');
-                    $('.form-group.note-group-select-from-files').show().removeClass('hidden');
+                    $('.modal-body .form-group').show().removeClass('hidden');
                 }
                 else {
                     $('.form-group').each(function () {
@@ -53,7 +53,7 @@
                             $(this).show().removeClass('hidden');
                         }
                     });
-                    $('.form-group.note-group-select-from-files').show().removeClass('hidden');
+                    $('.modal-body .form-group').show().removeClass('hidden');
                 }
                 return false
             });
