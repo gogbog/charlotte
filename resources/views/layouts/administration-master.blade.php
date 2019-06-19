@@ -114,7 +114,11 @@
             {{--</li>--}}
             <!-- /.dropdown -->
                 <li>
-                    <a href="{{ url('/') }}" target="_blank"><span class="hidden-xs p-r-20">{{ trans('administration::admin.go_to_website') }}</span><i class="fa fa-external-link"></i></a>
+                    <a href="{{ url('/') }}" target="_blank">
+                        <span class="hidden-xs p-r-20" style="font-weight: 500">
+                            {{ trans('administration::admin.go_to_website') }}</span>
+                        <i class="fa fa-external-link" style="font-size: 17px; transform: translateY(2px);"></i>
+                    </a>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
