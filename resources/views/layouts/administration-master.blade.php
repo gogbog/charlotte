@@ -114,7 +114,7 @@
             {{--</li>--}}
             <!-- /.dropdown -->
                 <li>
-                    <a href="{{ url('/') }}" target="_blank"><i class="fa fa-external-link"></i></a>
+                    <a href="{{ url('/') }}" target="_blank"><span class="hidden-xs p-r-20">{{ trans('administration::admin.go_to_website') }}</span><i class="fa fa-external-link"></i></a>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#">
@@ -284,8 +284,6 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/drop.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/charlotte.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/datatable_reorder.js') }}"></script>
-
-
 
 @if (!empty($errors))
     <script>
