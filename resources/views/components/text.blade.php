@@ -110,23 +110,28 @@
 
             // maxlength="200" <- TOVA SE DOBAVQ V HTMLA na inputa kato attribute inache ne baca
 
-            $('#{{$id}}').keyup(function () {
+            $(document).ready(function () {
 
-                let len;
                 let max_char = 200; //kolkoto charachtera iskash
 
-                len = this.value.length;
-                if (len > max_char) {
-                    $("#remainingC").addClass('text-danger');
-                    return false;
-                } else if (len > 0) {
-                    $("#remainingC").html("( "+ len + " / " + max_char + " )");
-                    $("#remainingC").removeClass('text-danger');
-                } else {
-                    $("#remainingC").html("( " + max_char + " )");
-                    $("#remainingC").removeClass('text-danger');
-                }
-            })
+                $("#remainingC").html("( 0 / " + max_char + " )");
+
+                $('#{{$id}}').keyup(function () {
+                    let len;
+
+                    len = this.value.length;
+                    if (len > max_char) {
+                        $("#remainingC").addClass('text-danger');
+                        return false;
+                    } else if (len > 0) {
+                        $("#remainingC").html("( " + len + " / " + max_char + " )");
+                        $("#remainingC").removeClass('text-danger');
+                    } else {
+                        $("#remainingC").html("( 0 / " + max_char + " )");
+                        $("#remainingC").removeClass('text-danger');
+                    }
+                })
+            });
 
 
         </script>
