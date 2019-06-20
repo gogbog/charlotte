@@ -16311,7 +16311,7 @@ body.dt-rowReorder-noOverflow {
 #side-menu li.active > a {
   background: none !important;
 }
-#remainingC {
+.max_char {
   font-weight: 400;
   font-size: 13px;
 }

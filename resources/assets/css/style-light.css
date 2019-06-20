@@ -15957,7 +15957,7 @@ body.dt-rowReorder-noOverflow {
     padding-left: 20px !important;
   }
 }
-#remainingC {
+.max_char {
   font-weight: 400;
   font-size: 13px;
 }
