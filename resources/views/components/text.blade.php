@@ -36,13 +36,12 @@
           }
         @endphp
         <div class="form-group language-{{$locale}} {{ @$options['class'] }}">
-            <label class="col-sm-12"><span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}
-            </label>
+            <label class="col-sm-12">
+                <span class="flag-icon flag-icon-{{$locale}}"></span>
+                {{ $options['title'] }} <span id='remainingC' class="m-l-5"></span></label>
             <div class="col-sm-12 m-b-20">
                 {!!  Form::text($locale . '[' .$name . ']', $value, $options['attr']) !!}
-                {{--            remaining Charachters--}}
-                <span id='remainingC'></span>
-                {{--            remaining Charachters--}}
+
                 <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
@@ -77,13 +76,9 @@
         $ids[] = $id;
     @endphp
     <div class="form-group without-language {{ @$options['class'] }}">
-        <label class="col-sm-12">{{ $options['title'] }}</label>
+        <label class="col-sm-12">{{ $options['title'] }} <span id='remainingC' class="m-l-5"></span></label>
         <div class="col-sm-12 m-b-20">
             {!!  Form::text($name, $options['value'], $options['attr']) !!}
-
-{{--            remaining Charachters--}}
-            <span id='remainingC'></span>
-            {{--            remaining Charachters--}}
             <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
@@ -113,21 +108,23 @@
                 });
             }
 
-
-            let len = 0;
-            let maxchar = 200; //kolkoto charachtera iskash
-
             // maxlength="200" <- TOVA SE DOBAVQ V HTMLA na inputa kato attribute inache ne baca
 
             $('#{{$id}}').keyup(function () {
+
+                let len;
+                let max_char = 200; //kolkoto charachtera iskash
+
                 len = this.value.length;
-                if (len > maxchar) {
+                if (len > max_char) {
                     $("#remainingC").addClass('text-danger');
                     return false;
                 } else if (len > 0) {
-                    $("#remainingC").html("{{ trans('administration::admin.remaining_chars') }}: " + (maxchar - len));
+                    $("#remainingC").html("( "+ len + " / " + max_char + " )");
+                    $("#remainingC").removeClass('text-danger');
                 } else {
-                    $("#remainingC").html("{{ trans('administration::admin.remaining_chars') }}: " + (maxchar));
+                    $("#remainingC").html("( " + max_char + " )");
+                    $("#remainingC").removeClass('text-danger');
                 }
             })
 
