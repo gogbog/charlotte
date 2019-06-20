@@ -40,7 +40,9 @@
             </label>
             <div class="col-sm-12 m-b-20">
                 {!!  Form::text($locale . '[' .$name . ']', $value, $options['attr']) !!}
-
+                {{--            remaining Charachters--}}
+                <span id='remainingC'></span>
+                {{--            remaining Charachters--}}
                 <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
@@ -79,6 +81,9 @@
         <div class="col-sm-12 m-b-20">
             {!!  Form::text($name, $options['value'], $options['attr']) !!}
 
+{{--            remaining Charachters--}}
+            <span id='remainingC'></span>
+            {{--            remaining Charachters--}}
             <span class="help-block">
             <small>
                 @if (!empty($options['helper_box']))
@@ -107,6 +112,25 @@
                     });
                 });
             }
+
+
+            let len = 0;
+            let maxchar = 200; //kolkoto charachtera iskash
+
+            // maxlength="200" <- TOVA SE DOBAVQ V HTMLA na inputa kato attribute inache ne baca
+
+            $('#{{$id}}').keyup(function () {
+                len = this.value.length;
+                if (len > maxchar) {
+                    $("#remainingC").addClass('text-danger');
+                    return false;
+                } else if (len > 0) {
+                    $("#remainingC").html("{{ trans('administration::admin.remaining_chars') }}: " + (maxchar - len));
+                } else {
+                    $("#remainingC").html("{{ trans('administration::admin.remaining_chars') }}: " + (maxchar));
+                }
+            })
+
 
         </script>
     @endforeach
