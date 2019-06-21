@@ -14459,17 +14459,18 @@ table.dataTable.order-column.stripe tbody tr.even > .sorting_1 {
 }
 /*Summernote*/
 .note-editor {
-  border: 1px solid rgba(120, 130, 140, 0.28);
+  border: 1px solid rgba(120, 130, 140, 0.28) !important;
 }
 .note-editor .panel-heading {
   padding: 6px 10px 10px;
 }
 .note-editor .note-editing-area .note-editable {
-  background: #3c4452;
-  color: #96a2b4;
+  background: #3c4452 !important;
+  color: #96a2b4 !important;
 }
 .note-editor .note-statusbar {
-  background: #3c4452;
+  border-top: #3c4452 !important;
+  background: #3c4452 !important;
 }
 /*--------------------------------------------------------------
   Update 1.6
