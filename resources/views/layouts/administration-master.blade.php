@@ -8,16 +8,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@if(!empty($title)) {{ $title }} @endif</title>
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}?<?php echo date('l jS \of F Y h:i:s A'); ?>">
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}"
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}?<?php echo date('l jS \of F Y h:i:s A'); ?>"
           id="style-dark"
           @if(!\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}"
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-dark.css') }}?<?php echo date('l jS \of F Y h:i:s A'); ?>"
           id="default-dark"
           @if(!\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}"
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-light.css') }}?<?php echo date('l jS \of F Y h:i:s A'); ?>"
           id="style-light"
           @if(\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}"
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/default-light.css') }}?<?php echo date('l jS \of F Y h:i:s A'); ?>"
           id="default-light"
           @if(\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
     <script src="{{ asset(config('administration.file_prefix') . 'js/chart.js') }}"></script>
