@@ -6530,7 +6530,7 @@
         '</div>',
         !this.options.disableLinkTarget
             ? $$1('<div/>').append(this.ui.checkbox({
-              className: 'link-check',
+              className: 'checkbox sn-checkbox-open-in-new-window',
               text: this.lang.link.openInNewWindow,
               checked: true
             }).render()).html()
