@@ -14,7 +14,8 @@
             <label class="col-sm-12"><span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}</label>
             <div class="col-sm-12 m-b-20">
                 {!!  Form::password($locale . '[' .$name . ']', $options['attr']) !!}
-                <span class="help-block">
+                <span class="help-block with-errors"></span>
+                <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
@@ -29,7 +30,8 @@
         <label class="col-sm-12">{{ $options['title'] }}</label>
         <div class="col-sm-12 m-b-20">
             {!!  Form::password($name, $options['attr']) !!}
-            <span class="help-block">
+            <span class="help-block with-errors"></span>
+            <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}

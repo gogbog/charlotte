@@ -38,11 +38,11 @@
         <div class="form-group language-{{$locale}} {{ @$options['class'] }}">
             <label class="col-sm-12">
                 <span class="flag-icon flag-icon-{{$locale}}"></span>
-                {{ $options['title'] }} <span id='remainingC' class="m-l-5"></span></label>
+                {{ $options['title'] }} </label>
             <div class="col-sm-12 m-b-20">
                 {!!  Form::text($locale . '[' .$name . ']', $value, $options['attr']) !!}
-
-                <span class="help-block">
+                <span class="help-block with-errors"></span>
+                <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
@@ -76,10 +76,11 @@
         $ids[] = $id;
     @endphp
     <div class="form-group without-language {{ @$options['class'] }}">
-        <label class="col-sm-12">{{ $options['title'] }} <span id='remainingC' class="m-l-5"></span></label>
+        <label class="col-sm-12">{{ $options['title'] }}</label>
         <div class="col-sm-12 m-b-20">
             {!!  Form::text($name, $options['value'], $options['attr']) !!}
-            <span class="help-block">
+            <span class="help-block with-errors"></span>
+            <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
@@ -107,33 +108,6 @@
                     });
                 });
             }
-
-            // maxlength="200" <- TOVA SE DOBAVQ V HTMLA na inputa kato attribute inache ne baca
-
-            $(document).ready(function () {
-
-                let max_char = 200; //kolkoto charachtera iskash
-
-                $("#remainingC").html("( 0 / " + max_char + " )");
-
-                $('#{{$id}}').keyup(function () {
-                    let len;
-
-                    len = this.value.length;
-                    if (len > max_char) {
-                        $("#remainingC").addClass('text-danger');
-                        return false;
-                    } else if (len > 0) {
-                        $("#remainingC").html("( " + len + " / " + max_char + " )");
-                        $("#remainingC").removeClass('text-danger');
-                    } else {
-                        $("#remainingC").html("( 0 / " + max_char + " )");
-                        $("#remainingC").removeClass('text-danger');
-                    }
-                })
-            });
-
-
         </script>
     @endforeach
 @append

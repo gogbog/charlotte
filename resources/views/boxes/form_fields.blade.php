@@ -24,7 +24,7 @@
     @endif
     <div class="white-box">
         <div class="row">
-          {!! form($form) !!}
+          {!! form($form, ['data-toggle' => 'validator']) !!}
         </div>
     </div>
 </div>

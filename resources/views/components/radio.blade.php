@@ -31,7 +31,8 @@
                         {!! Form::radio($locale . '[' .$name . ']', $key , $checked, ['id' => $key . '-' . $locale]); !!}
                         <label for="{{ $key . '-' .$locale }}">{{ $choice }}</label>
                     </div>
-                    <span class="help-block">
+                    <span class="help-block with-errors"></span>
+                    <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
@@ -65,7 +66,8 @@
                     {!! Form::radio($name, $key, $checked, ['id' => $key]); !!}
                     <label for="{{ $key }}">{{ $choice }}</label>
                 </div>
-                <span class="help-block">
+                <span class="help-block with-errors"></span>
+                <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}

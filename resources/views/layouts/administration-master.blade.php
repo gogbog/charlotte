@@ -283,11 +283,18 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/jquery.min.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/jquery-ui.min.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/app.js') }}"></script>
+
 <script src="{{ asset(config('administration.file_prefix') . 'js/editor.js') }}"></script>
+
+
+
 <script src="{{ asset(config('administration.file_prefix') . 'js/data-table.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/drop.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/charlotte.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/datatable_reorder.js') }}"></script>
+
+{{--<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/lang/summernote-bg-BG.min.js"></script>--}}
+{{--<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.0/dist/localization/messages_bg.js"></script>--}}
 
 @if (!empty($errors))
     <script>
@@ -320,5 +327,51 @@
     </script>
 @endif
 @yield('js')
+<script>
+
+    // maxlength="200" <- TOVA SE DOBAVQ V HTMLA na inputa kato attribute inache ne baca
+
+    $(document).ready(function () {
+
+        $('[live-count]').each(function(i, el) {
+            //if type is edior skip
+            if (el.classList.value === 'description') {
+                return true;
+            }
+            let input = $(el);
+            let value_count = el.value.length;
+            let max_chars = input.attr('live-count');
+            let rand_id = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+            let span_box = `<span  id=`+rand_id+` class="m-l-5 max_char">(`+value_count+`/`+max_chars+`)</span></label>`;
+
+
+            let parent_html = $(input).parents()[1];
+            let parent = $(parent_html);
+            let label_html = parent.children()[0];
+            let label = $(label_html);
+            label.html(label.html() + span_box);
+
+
+            input.bind("change keyup input paste",function() {
+                let len;
+                let change_span = $('#' + rand_id);
+
+                len = this.value.length;
+                if (len > max_chars) {
+                    change_span.html("(" + len + "/" + max_chars + ")");
+                    change_span.addClass('text-danger');
+                } else if (len > 0) {
+                    change_span.html("(" + len + "/" + max_chars + ")");
+                    change_span.removeClass('text-danger');
+                } else {
+                    change_span.html("(0/" + max_chars + ")");
+                    change_span.removeClass('text-danger');
+                }
+            })
+        });
+    });
+</script>
+
+
 </body>
 </html>

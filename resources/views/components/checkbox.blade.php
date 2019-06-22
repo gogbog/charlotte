@@ -25,7 +25,8 @@
                     {!!  Form::checkbox($locale . '[' .$name . ']', 1, $checked, $options['attr']) !!}
                     <label for="{{ $id }}-{{$locale}}">{{ $options['title'] }}</label>
                 </div>
-                <span class="help-block">
+                <span class="help-block with-errors"></span>
+                <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
@@ -43,7 +44,8 @@
                 {!!  Form::checkbox($name, 1, $checked, $options['attr']) !!}
                 <label for="{{ $id }}">{{ $options['title'] }}</label>
             </div>
-            <span class="help-block">
+            <span class="help-block with-errors"></span>
+            <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}

@@ -17,8 +17,8 @@
             <div class="col-sm-12 m-b-20">
                 {!!  Form::email($locale . '[' .$name . ']', $value, $options['attr']) !!}
 
-                <div class="help-block with-errors"></div>
-                <span class="help-block">
+                <span class="help-block with-errors"></span>
+                <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
@@ -34,8 +34,8 @@
         <div class="col-sm-12 m-b-20">
             {!!  Form::email($name, $options['value'], $options['attr']) !!}
 
-            <div class="help-block with-errors"></div>
-            <span class="help-block">
+            <span class="help-block with-errors"></span>
+            <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}

@@ -13,10 +13,12 @@
             }
         @endphp
         <div class="form-group language-{{$locale}}  {{ @$options['class'] }}">
-            <label class="col-md-12"><span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}</label>
+            <label class="col-md-12"><span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}
+            </label>
             <div class="col-md-12 m-b-20">
                 {!! Form::textarea($locale . '[' .$name . ']', $value, $options['attr']) !!}
-                <span class="help-block">
+                <span class="help-block with-errors"></span>
+                <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
@@ -31,7 +33,8 @@
         <label class="col-md-12">{{ $options['title'] }}</label>
         <div class="col-md-12 m-b-20">
             {!! Form::textarea($name, @$options['value'], $options['attr']) !!}
-            <span class="help-block">
+            <span class="help-block with-errors"></span>
+            <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}

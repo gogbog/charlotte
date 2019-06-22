@@ -42,7 +42,8 @@
                 @endif
             </small>
         </span>
-        <span class="help-block">
+        <span class="help-block with-errors"></span>
+        <span class="help-block_custom">
             <small>
                 @if (!empty($value))
                     <a href="{{ $value }}" target="_blank">

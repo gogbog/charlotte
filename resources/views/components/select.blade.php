@@ -26,7 +26,8 @@
             </label>
             <div class="col-sm-12 m-b-20">
                 {!! Form::select($locale . '[' .$name . ']', $choices, $value, $options['attr']) !!}
-                <span class="help-block">
+                <span class="help-block with-errors"></span>
+                <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
@@ -41,7 +42,8 @@
         <label class="col-sm-12">{{ $options['title'] }}</label>
         <div class="col-sm-12 m-b-20">
             {!! Form::select($name, $choices, $value, $options['attr']) !!}
-            <span class="help-block">
+            <span class="help-block with-errors"></span>
+            <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
