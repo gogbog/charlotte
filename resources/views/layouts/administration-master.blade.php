@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@if(!empty($title)) {{ $title }} @endif</title>
-    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}">
+    <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/add.css') }}?<?php echo date('l jS \of F Y h:i:s A'); ?>">
     <link rel="stylesheet" href="{{ asset(config('administration.file_prefix') . 'css/style-dark.css') }}"
           id="style-dark"
           @if(!\Charlotte\Administration\Helpers\Administration::getLoggedAdmin()->dark_theme) disabled @endif>
@@ -284,7 +284,7 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/jquery-ui.min.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/app.js') }}"></script>
 
-<script src="{{ asset(config('administration.file_prefix') . 'js/editor.js') }}"></script>
+<script src="{{ asset(config('administration.file_prefix') . 'js/editor.js') }}?<?php echo date('l jS \of F Y h:i:s A'); ?>"></script>
 
 
 
