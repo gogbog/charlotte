@@ -76,7 +76,7 @@
                     let input = $('#' + id);
                     let max_chars = input.attr('live-count');
 
-                    if (max_chars !== 'undefined') {
+                    if (max_chars !== undefined) {
                         let span_box = `<span  id=span_` + id + ` class="m-l-5 max_char">(` + 0 + `/` + max_chars + `)</span></label>`;
                         let parent_html = $(input).parents()[1];
                         let parent = $(parent_html);
@@ -94,7 +94,7 @@
                         let input = $('#' + id);
                         let max_chars = input.attr('live-count');
 
-                        if (max_chars !== 'undefined') {
+                        if (max_chars !== undefined) {
                             let change_span = $('#span_' + id);
                             change_span.html("(" + content.html().length + "/" + max_chars + ")");
                         }
