@@ -71,14 +71,9 @@
         <script>
             $("#{{ $id }}").flatpickr({
                 enableTime: true,
-                dateFormat: "Y-m-d H:i",
+                dateFormat: "Y-m-d H:i:S",
                 time_24hr: true
             });
-
-            $('body').on('keyup mouseup', function () {
-                let selected_date = $("#{{ $id }}").val();
-                $("#{{ $id }}").attr('value', selected_date)
-            })
 
         </script>
     @endforeach
