@@ -18,7 +18,7 @@ class DatetimeType extends FormField
     {
         return [
             'attr' => [
-                'class' => 'dateTimePicker',
+                'class' => 'form-control dateTimePicker',
             ]
         ];
 
