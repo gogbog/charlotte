@@ -55,6 +55,7 @@ return [
         'button' => \Charlotte\Administration\Forms\Fields\CustomButtonType::class,
         'box' => \Charlotte\Administration\Forms\Fields\BoxType::class,
         'multiplier' => \Charlotte\Administration\Forms\Fields\MultiplierType::class,
+        'datetime' => \Charlotte\Administration\Forms\Fields\DatetimeType::class
 
     ]
 ];
