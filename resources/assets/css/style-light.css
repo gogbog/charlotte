@@ -15986,3 +15986,6 @@ body.dt-rowReorder-noOverflow {
   background: #ff6849;
   border-color: #ff6849;
 }
+.flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month {
+  background: #fff;
+}
