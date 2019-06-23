@@ -16403,3 +16403,6 @@ span.flatpickr-weekday {
 .flatpickr-time .flatpickr-am-pm {
   color: #96a2b4;
 }
+.flatpickr-current-month .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month {
+  background: #353c48;
+}
