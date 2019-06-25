@@ -15990,7 +15990,7 @@ body.dt-rowReorder-noOverflow {
   background: #fff;
 }
 .note-editor.note-frame .note-status-output {
-  height: auto;
+  height: 30px;
   border-top: none;
   background: #f4f6f8;
 }
@@ -16001,12 +16001,12 @@ output {
   color: #686868;
 }
 .note-editor.note-frame .note-status-output .alert-success {
-  color: white !important;
-  font-weight: 500;
-  border-radius: 3px;
-  background-color: #00c292 !important;
+  color: #00c292 !important;
+  font-weight: 400;
+  background: none !important;
+  border: none !important;
 }
 .note-editor.note-frame .note-status-output .alert {
-  padding: 10px;
-  margin: 5px;
+  padding: 0 5px;
+  margin: 0px;
 }

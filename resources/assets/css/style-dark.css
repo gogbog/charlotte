@@ -16407,7 +16407,7 @@ span.flatpickr-weekday {
   background: #353c48;
 }
 .note-editor.note-frame .note-status-output {
-  height: auto;
+  height: 30px;
   border-top: none;
 }
 output {
@@ -16417,12 +16417,12 @@ output {
   color: #96a2b4;
 }
 .note-editor.note-frame .note-status-output .alert-success {
-  color: white !important;
-  font-weight: 500;
-  border-radius: 3px;
-  background-color: #00c292 !important;
+  color: #00c292 !important;
+  font-weight: 400;
+  background: none !important;
+  border: none !important;
 }
 .note-editor.note-frame .note-status-output .alert {
-  padding: 10px;
-  margin: 5px;
+  padding: 0 5px;
+  margin: 0px;
 }
