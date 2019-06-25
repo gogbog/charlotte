@@ -107,7 +107,7 @@
                         toolbar: [
                             ['custom',['pageTemplates']], // Custom Buttons
                             ['style', ['style']],
-                            ['font', ['bold', 'underline']],
+                            ['font', ['bold', 'underline', 'clear']],
                             ['cleaner',['cleaner']],
                             // ['fontname', ['fontname']],
                             // ['color', ['color']],
