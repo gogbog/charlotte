@@ -288,6 +288,9 @@
 <script src="{{ asset(config('administration.file_prefix') . 'js/drop.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/charlotte.js') }}"></script>
 <script src="{{ asset(config('administration.file_prefix') . 'js/datatable_reorder.js') }}"></script>
+<script src="{{ asset(config('administration.file_prefix') . 'js/summernote-image-attributes.js') }}"></script>
+<script src="{{ asset(config('administration.file_prefix') . 'js/summernote-cleaner.js') }}"></script>
+<script src="{{ asset(config('administration.file_prefix') . 'js/summernote-templates.js') }}"></script>
 
 @if (!empty($errors))
     <script>

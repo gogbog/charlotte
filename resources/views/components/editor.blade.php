@@ -71,44 +71,44 @@
                 $(document).ready(function () {
                     let id = '{{$id}}-{{$locale}}';
                     let desc = document.getElementById(id);
-                    // desc.innerHTML = null;
-
-                    let input = $('#' + id);
-                    let max_chars = input.attr('live-count');
-
-                    if (max_chars !== undefined) {
-                        let span_box = `<span  id=span_` + id + ` class="m-l-5 max_char">(` + 0 + `/` + max_chars + `)</span></label>`;
-                        let parent_html = $(input).parents()[1];
-                        let parent = $(parent_html);
-                        let label_html = parent.children()[0];
-                        let label = $(label_html);
-                        label.html(label.html() + span_box);
-                    }
-
-
-                    $('.' + id).on('summernote.init', function (we, contents, $editable) {
-                        let content = contents['editable'];
-                        // if (content.html() == '<p><br></p>') {
-                        //     content.html('');
-                        // }
-                        let input = $('#' + id);
-                        let max_chars = input.attr('live-count');
-
-                        if (max_chars !== undefined) {
-                            let change_span = $('#span_' + id);
-                            change_span.html("(" + content.html().length + "/" + max_chars + ")");
-                        }
-
-                    });
 
 
                     $('.' + id).summernote({
                         minHeight: 100,
                         height: 250,
+                        popover: {
+                            image: [
+                                ['custom', ['imageAttributes']],
+                                ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                                ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                                ['remove', ['removeMedia']]
+                            ],
+                        },
+                        imageAttributes:{
+                            icon:'<i class="note-icon-pencil"/>',
+                            removeEmpty:false, // true = remove attributes | false = leave empty if present
+                            disableUpload: true // true = don't display Upload Options | Display Upload Options
+                        },
+                        cleaner:{
+                            action: 'button', // both|button|paste 'button' only cleans via toolbar button, 'paste' only clean when pasting content, both does both options.
+                            newline: '<br>', // Summernote's default is to use '<p><br></p>'
+                            notStyle: 'position:absolute;top:0;left:0;right:0', // Position of Notification
+                            icon: '<i class="note-icon-eraser"></i>',
+                            keepHtml: false, // Remove all Html formats
+                            keepOnlyTags: ['<p>', '<br>', '<ul>', '<li>', '<b>', '<strong>','<i>', '<a>'], // If keepHtml is true, remove all tags except these
+                            keepClasses: false, // Remove Classes
+                            badTags: ['style', 'script', 'applet', 'embed', 'noframes', 'noscript', 'html'], // Remove full tags with contents
+                            badAttributes: ['style', 'start'], // Remove attributes from remaining tags
+                            limitChars: false, // 0/false|# 0/false disables option
+                            limitDisplay: 'both', // text|html|both
+                            limitStop: false // true/false
+                        },
                         @if(!empty($options['simple']) && $options['simple'] == true)
                         toolbar: [
+                            ['custom',['pageTemplates']], // Custom Buttons
                             ['style', ['style']],
-                            ['font', ['bold', 'underline', 'clear']],
+                            ['font', ['bold', 'underline']],
+                            ['cleaner',['cleaner']],
                             // ['fontname', ['fontname']],
                             // ['color', ['color']],
                             ['para', ['ul', 'ol', 'paragraph']],
@@ -119,26 +119,9 @@
                         @endif
                     });
 
-
-
                     $('.' + id).on('summernote.change', function (we, contents, $editable) {
-                        let change_span = $('#span_' + id);
-
-                        len = contents.length;
-                        if (len > max_chars) {
-                            change_span.html("(" + len + "/" + max_chars + ")");
-                            change_span.addClass('text-danger');
-                        } else if (len > 0) {
-                            change_span.html("(" + len + "/" + max_chars + ")");
-                            change_span.removeClass('text-danger');
-                        } else {
-                            change_span.html("(0/" + max_chars + ")");
-                            change_span.removeClass('text-danger');
-                        }
-
                         desc.setAttribute('value', contents);
                     });
-
 
                 })
             </script>
@@ -148,40 +131,26 @@
             $(document).ready(function () {
                 let id = '{{$id}}';
                 let desc = document.getElementById(id);
-                // desc.innerHTML = null;
-
-                let input = $('#' + id);
-                let max_chars = input.attr('live-count');
-
-                if (max_chars !== 'undefined') {
-                    let span_box = `<span  id=span_` + id + ` class="m-l-5 max_char">(` + 0 + `/` + max_chars + `)</span></label>`;
-                    let parent_html = $(input).parents()[1];
-                    let parent = $(parent_html);
-                    let label_html = parent.children()[0];
-                    let label = $(label_html);
-                    label.html(label.html() + span_box);
-                }
 
 
-                $('.' + id).on('summernote.init', function (we, contents, $editable) {
-                    let content = contents['editable'];
-                    // if (content.html() == '<p><br></p>') {
-                    //     content.html('');
-                    // }
-                    let input = $('#' + id);
-                    let max_chars = input.attr('live-count');
-
-                    if (max_chars !== 'undefined') {
-                        let change_span = $('#span_' + id);
-                        change_span.html("(" + content.html().length + "/" + max_chars + ")");
-                    }
-
-                });
 
                 $('.' + id).summernote({
                     minHeight: 100,
                     height: 250,
-                    lang: 'bg-BG', // default: 'en-US'
+                    lang: 'bg-BG', // default: 'en-US',
+                    popover: {
+                        image: [
+                            ['custom', ['imageAttributes']],
+                            ['imagesize', ['imageSize100', 'imageSize50', 'imageSize25']],
+                            ['float', ['floatLeft', 'floatRight', 'floatNone']],
+                            ['remove', ['removeMedia']]
+                        ],
+                    },
+                    imageAttributes:{
+                        icon:'<i class="note-icon-pencil"/>',
+                        removeEmpty:false, // true = remove attributes | false = leave empty if present
+                        disableUpload: false // true = don't display Upload Options | Display Upload Options
+                    },
                     @if(!empty($options['simple']) && $options['simple'] == true)
                     toolbar: [
                         ['style', ['style']],
@@ -199,20 +168,6 @@
 
 
                 $('.' + id).on('summernote.change', function (we, contents, $editable) {
-                    let change_span = $('#span_' + id);
-
-                    len = contents.length;
-                    if (len > max_chars) {
-                        change_span.html("(" + len + "/" + max_chars + ")");
-                        change_span.addClass('text-danger');
-                    } else if (len > 0) {
-                        change_span.html("(" + len + "/" + max_chars + ")");
-                        change_span.removeClass('text-danger');
-                    } else {
-                        change_span.html("(0/" + max_chars + ")");
-                        change_span.removeClass('text-danger');
-                    }
-
                     desc.setAttribute('value', contents);
                 });
 
