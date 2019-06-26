@@ -19,7 +19,7 @@
             }
         @endphp
         <label class="col-sm-12 form-group language-{{$locale}}">
-            <span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}}@if ($required) *@endif
+            <span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}@if ($required) *@endif
         </label>
         @foreach($options['choices'] as $key => $choice)
             @if ($key == $value)
@@ -52,7 +52,7 @@
     @endforeach
 @else
     <label class="col-sm-12 form-group without-language">
-        {{ $options['title'] }}}@if ($required) *@endif
+        {{ $options['title'] }}@if ($required) *@endif
     </label>
     @foreach($options['choices'] as $key => $choice)
         @if ($loop->first || $key == $options['value'])
