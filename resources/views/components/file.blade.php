@@ -11,11 +11,15 @@
     if (!empty($options['attr']['class'])) {
         unset($options['attr']['class']);
     }
+    $required = false;
+    if (!empty($options['attr']['required'])) {
+        $required = true;
+    }
 @endphp
 
 
 <div class="form-group without-language {{ @$options['class'] }}">
-    <label class="col-sm-12">{{ $options['title'] }}</label>
+    <label class="col-sm-12">{{ $options['title'] }}@if ($required) *@endif</label>
     <div class="col-sm-12 m-b-20">
         <div class="fileinput fileinput-new input-group" data-provides="fileinput">
             <div class="form-control" data-trigger="fileinput" style="overflow: auto">

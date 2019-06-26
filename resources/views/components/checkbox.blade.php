@@ -2,7 +2,10 @@
     $id = uniqid();
     $options['attr']['id'] = $id;
     $checked = ($options['checked']) ? 'checked' : null;
-
+    $required = false;
+    if (!empty($options['attr']['required'])) {
+        $required = true;
+    }
 @endphp
 
 @if(!empty($options['translate']) && $options['translate'])
@@ -23,7 +26,7 @@
                 <div class="visible-lg-inline-block visible-md-inline-block visible-sm-inline-block visible-xs-inline-block checkbox checkbox-danger">
                     {{Form::hidden($locale . '[' .$name . ']',0)}}
                     {!!  Form::checkbox($locale . '[' .$name . ']', 1, $checked, $options['attr']) !!}
-                    <label for="{{ $id }}-{{$locale}}">{{ $options['title'] }}</label>
+                    <label for="{{ $id }}-{{$locale}}">{{ $options['title'] }}@if ($required) *@endif</label>
                 </div>
                 <span class="help-block with-errors"></span>
                 <span class="help-block_custom">
@@ -42,7 +45,7 @@
             <div class="checkbox checkbox-danger">
                 {{Form::hidden($name,0)}}
                 {!!  Form::checkbox($name, 1, $checked, $options['attr']) !!}
-                <label for="{{ $id }}">{{ $options['title'] }}</label>
+                <label for="{{ $id }}">{{ $options['title'] }}@if ($required) *@endif</label>
             </div>
             <span class="help-block with-errors"></span>
             <span class="help-block_custom">

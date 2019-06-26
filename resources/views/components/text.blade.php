@@ -1,6 +1,10 @@
 @php
     $value = (!empty($options['value'])) ? $options['value'] : null;
     $ids = [];
+    $required = false;
+    if (!empty($options['attr']['required'])) {
+        $required = true;
+    }
 @endphp
 @if(!empty($options['translate']) && $options['translate'])
     @foreach(LaravelLocalization::getSupportedLocales() as $locale => $data)
@@ -38,7 +42,7 @@
         <div class="form-group language-{{$locale}} {{ @$options['class'] }}">
             <label class="col-sm-12">
                 <span class="flag-icon flag-icon-{{$locale}}"></span>
-                {{ $options['title'] }} </label>
+                {{ $options['title'] }}@if ($required) *@endif</label>
             <div class="col-sm-12 m-b-20">
                 {!!  Form::text($locale . '[' .$name . ']', $value, $options['attr']) !!}
                 <span class="help-block with-errors"></span>
@@ -76,7 +80,7 @@
         $ids[] = $id;
     @endphp
     <div class="form-group without-language {{ @$options['class'] }}">
-        <label class="col-sm-12">{{ $options['title'] }}</label>
+        <label class="col-sm-12">{{ $options['title'] }}@if ($required) *@endif</label>
         <div class="col-sm-12 m-b-20">
             {!!  Form::text($name, $options['value'], $options['attr']) !!}
             <span class="help-block with-errors"></span>

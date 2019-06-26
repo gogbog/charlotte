@@ -1,3 +1,9 @@
+@php
+    $required = false;
+    if (!empty($options['attr']['required'])) {
+        $required = true;
+    }
+@endphp
 @if(!empty($options['translate']) && $options['translate'])
     @foreach(LaravelLocalization::getSupportedLocales() as $locale => $data)
         @php
@@ -13,7 +19,7 @@
             }
         @endphp
         <label class="col-sm-12 form-group language-{{$locale}}">
-            <span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}
+            <span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}}@if ($required) *@endif
         </label>
         @foreach($options['choices'] as $key => $choice)
             @if ($key == $value)
@@ -46,7 +52,7 @@
     @endforeach
 @else
     <label class="col-sm-12 form-group without-language">
-        {{ $options['title'] }}
+        {{ $options['title'] }}}@if ($required) *@endif
     </label>
     @foreach($options['choices'] as $key => $choice)
         @if ($loop->first || $key == $options['value'])

@@ -5,6 +5,10 @@
         $value[] = null;
     }
     $ids = [];
+    $required = false;
+    if (!empty($options['attr']['required'])) {
+        $required = true;
+    }
 @endphp
 @if(!empty($options['translate']) && $options['translate'])
     @foreach(LaravelLocalization::getSupportedLocales() as $locale => $data)
@@ -31,7 +35,7 @@
 
                 <div class="form-group language-{{$locale}} {{ @$options['class'] }}">
                     <label class="col-sm-12 multiplier_title_{{$id}}"><span
-                                class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}
+                                class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}@if ($required) *@endif
                     </label>
                     <div class="col-sm-12 m-b-20">
                         <div class="input-group multiplier_mini_parent_{{$id}}">
@@ -68,7 +72,7 @@
             $ids[] = $id;
         @endphp
         <div class="form-group without-language {{ @$options['class'] }}">
-            <label class="col-sm-12 multiplier_title_{{$id}}">{{ $options['title'] }}</label>
+            <label class="col-sm-12 multiplier_title_{{$id}}">{{ $options['title'] }}@if ($required) *@endif</label>
             <div class="col-sm-12 m-b-20">
                 <div class="input-group multiplier_mini_parent_{{$id}}">
                     {!!  Form::text($name .'[]', $data, $options['attr']) !!}
