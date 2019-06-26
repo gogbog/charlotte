@@ -18,7 +18,7 @@ class AdministrationSeo {
             $form->add($field, 'text', [
                 'title' => trans('administration::admin.' . $field),
                 'translate' => $translate,
-                'attr' => $attr[$field]
+                'attr' => (!empty($attr[$field])) ? $attr[$field] : [],
             ]);
         }
 
