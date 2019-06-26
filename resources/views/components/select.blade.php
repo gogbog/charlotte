@@ -29,7 +29,7 @@
             }
         @endphp
         <div class="form-group language-{{$locale}} {{ @$options['class'] }}">
-            <label class="col-sm-12"><span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}}@if ($required) *@endif
+            <label class="col-sm-12"><span class="flag-icon flag-icon-{{$locale}}"></span>{{ $options['title'] }}@if ($required) *@endif
             </label>
             <div class="col-sm-12 m-b-20">
                 {!! Form::select($locale . '[' .$name . ']', $choices, $value, $options['attr']) !!}
