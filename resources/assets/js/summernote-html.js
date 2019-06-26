@@ -83,6 +83,7 @@
                         $pTBtn.click(function (e) {
                             e.preventDefault();
                             $html = $('.twitter-input').val();
+                            $('.twitter-input').val('');
                             $note.summernote('editor.saveRange');
                             $note.summernote('editor.restoreRange');
                             $note.summernote('editor.focus');

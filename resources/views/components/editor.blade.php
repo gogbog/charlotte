@@ -136,7 +136,6 @@
                 $('.' + id).summernote({
                     minHeight: 100,
                     height: 250,
-                    lang: 'bg-BG', // default: 'en-US',
                     popover: {
                         image: [
                             ['custom', ['imageAttributes']],
@@ -148,18 +147,33 @@
                     imageAttributes:{
                         icon:'<i class="note-icon-pencil"/>',
                         removeEmpty:false, // true = remove attributes | false = leave empty if present
-                        disableUpload: false // true = don't display Upload Options | Display Upload Options
+                        disableUpload: true // true = don't display Upload Options | Display Upload Options
                     },
+                    cleaner:{
+                        action: 'button', // both|button|paste 'button' only cleans via toolbar button, 'paste' only clean when pasting content, both does both options.
+                        newline: '<br>', // Summernote's default is to use '<p><br></p>'
+                        icon: '<i class="fa  fa-file-word-o"></i>',
+                    },
+                    toolbar: [
+                        ['style', ['style']],
+                        ['font', ['bold', 'underline', 'clear', 'cleaner']],
+                        ['fontname', ['fontname']],
+                        ['color', ['color']],
+                        ['para', ['ul', 'ol', 'paragraph']],
+                        ['table', ['table']],
+                        ['insert', ['link', 'picture', 'video', 'htmlPlugin']],
+                        ['view', ['fullscreen', 'help']],
+                    ],
                     @if(!empty($options['simple']) && $options['simple'] == true)
                     toolbar: [
                         ['style', ['style']],
-                        ['font', ['bold', 'underline', 'clear']],
+                        ['font', ['bold', 'underline', 'clear', 'cleaner']],
                         // ['fontname', ['fontname']],
                         // ['color', ['color']],
                         ['para', ['ul', 'ol', 'paragraph']],
                         ['table', ['table']],
-                        ['insert', ['link', 'picture', 'video']],
-                        ['view', ['fullscreen', 'codeview', 'help']],
+                        ['insert', ['link', 'picture', 'video', 'htmlPlugin']],
+                        ['view', ['fullscreen', 'help']],
                     ],
                     @endif
                 });

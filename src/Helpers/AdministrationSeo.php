@@ -6,7 +6,7 @@ namespace Charlotte\Administration\Helpers;
 class AdministrationSeo {
 
 
-    public static function seoFields($form, $model = null, $translate = true, $fields = []) {
+    public static function seoFields($form, $attr = [], $translate = true, $fields = []) {
 
 
         if (empty($fields)) {
@@ -18,7 +18,7 @@ class AdministrationSeo {
             $form->add($field, 'text', [
                 'title' => trans('administration::admin.' . $field),
                 'translate' => $translate,
-                'model' => @$model
+                'attr' => $attr[$field]
             ]);
         }
 
