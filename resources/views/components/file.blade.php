@@ -8,7 +8,9 @@
     if (!empty($options['value'])) {
         $value = $options['value'];
     }
-
+    if (!empty($options['attr']['class'])) {
+        unset($options['attr']['class']);
+    }
 @endphp
 
 
@@ -26,7 +28,7 @@
                     <span class="fileinput-exists">
                         {{ trans('administration::admin.change') }}
                 </span>
-                {!!  Form::file($name, null, $options['attr'])  !!}
+                {!!  Form::file($name, $options['attr'])  !!}
 
             </span>
             <a href="#"

@@ -2,6 +2,9 @@
     $choices = $options['choices'];
     $value = (!empty($options['value'])) ? $options['value'] : null;
     $ids = [];
+   if (array_key_exists('required', $options['attr'])) {
+         $options['attr']['class'] .= ' required';
+     }
 @endphp
 {{--@if (!empty($options['empty_value']))--}}
 {{--    @php--}}
