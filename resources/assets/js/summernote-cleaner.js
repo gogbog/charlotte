@@ -57,6 +57,9 @@
           out = out.replace(styleTagRegex, ' ');
           out = out.replace(styleRegex, ' ');
         }
+        var newLineRegex = /\n/gm;
+        out = out.replace(newLineRegex, ' ');
+
         if (nlO !== undefined) {
           var nL = /(\n)+/g;
           out = out.replace(nL, "");
