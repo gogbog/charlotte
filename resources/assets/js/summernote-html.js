@@ -89,8 +89,8 @@
                             $note.summernote('editor.focus');
                             $note.summernote('editor.pasteHTML', $html);
 
-                            $note.summernote('code', $note.summernote('code'));
-
+                            // $note.summernote('code', $note.summernote('code'));
+                            //
                             ui.hideDialog(self.$dialog);
                             $editable.trigger('focus');
                         });
