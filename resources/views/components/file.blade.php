@@ -15,6 +15,10 @@
     if (!empty($options['attr']['required'])) {
         $required = true;
     }
+
+      if (!empty($value)) {
+        unset($options['attr']['required']);
+    }
 @endphp
 
 
@@ -41,7 +45,7 @@
                 {{ trans('administration::admin.remove') }}
             </a>
         </div>
-        <span class="help-block">
+        <span class="help-block_custom">
             <small>
                 @if (!empty($options['helper_box']))
                     {{ $options['helper_box'] }}
