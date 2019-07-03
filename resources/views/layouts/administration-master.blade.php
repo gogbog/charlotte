@@ -268,8 +268,10 @@
         <footer class="footer">
             <div class="row">
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-9">
-                    <span>{{  date("Y") }} &copy; <a href="https://github.com/gogbog/administration"
-                                                     style="color:#f75b36;">Charlotte Administration</a></span>
+{{--                    <span>{{  date("Y") }} &copy;--}}
+{{--                        <a href="https://github.com/gogbog/administration"--}}
+{{--                                                     style="color:#f75b36;">Charlotte Administration</a>--}}
+{{--                    </span>--}}
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3 text-right">
                     <span>{{ config('administration.package_version') }}</span>
