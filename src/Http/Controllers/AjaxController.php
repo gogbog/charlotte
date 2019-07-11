@@ -100,7 +100,7 @@ class AjaxController {
             $current_model->save();
 
         }
-        $object::fixTree();
+        $request->class::fixTree();
     }
 
     public function quickMediaSort(AjaxQuickMediaSort $request) {
