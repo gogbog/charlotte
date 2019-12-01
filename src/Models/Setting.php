@@ -2,7 +2,8 @@
 
 namespace Charlotte\Administration\Models;
 
-use Dimsav\Translatable\Translatable;
+
+use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
