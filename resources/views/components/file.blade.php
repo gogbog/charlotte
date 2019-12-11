@@ -1,7 +1,8 @@
 @php
     $value = null;
     $collection = (!empty($options['collection'])) ? $options['collection'] : 'default';
-    if (!empty($options['model']) && $options['model']->getMedia($collection)->isNotEmpty()) {
+
+    if (!empty($value) && !empty($options['model']) && $options['model']->getMedia($collection)->isNotEmpty()) {
         $value = $options['model']->getFirstMedia($collection)->file_name;
     }
 
