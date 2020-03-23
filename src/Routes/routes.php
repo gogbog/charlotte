@@ -42,6 +42,8 @@ Route::group([
                     'uses' => 'SettingsController@index',
                 ]);
 
+                Route::resource('static_blocks', \StaticBlocksController::class);
+
                 Route::post('/settings/store', [
                     'as' => 'settings.store',
                     'uses' => 'SettingsController@store',

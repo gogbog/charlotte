@@ -31,8 +31,11 @@ class BaseAdministrationController extends BaseController
             $menu->add(trans('administration::admin.administrators'), ['icon' => 'ti-headphone-alt'])->nickname('administrators');
             $menu->get('administrators')->add(trans('administration::admin.add'), ['url' => Administration::route('admins.create')]);
             $menu->get('administrators')->add(trans('administration::admin.view_all'), ['url' => Administration::route('admins.index')]);
+            $menu->add(trans('administration::admin.static_blocks'), ['icon' => 'ti-pencil-alt'])->nickname('static_blocks');
+            $menu->get('static_blocks')->add(trans('administration::admin.add'), ['url' => Administration::route('static_blocks.create')]);
+            $menu->get('static_blocks')->add(trans('administration::admin.view_all'), ['url' => Administration::route('static_blocks.index')]);
             $menu->add(trans('administration::admin.settings_menu'), ['icon' => 'ti-settings', 'url' => Administration::route('settings')])->nickname('settings');
-            $menu->add(trans('administration::admin.logs'), ['url' => Administration::route('logs'), 'icon' => 'fa-bug fa-fw']);
+           $menu->add(trans('administration::admin.logs'), ['url' => Administration::route('logs'), 'icon' => 'fa-bug fa-fw']);
 
 
         });
