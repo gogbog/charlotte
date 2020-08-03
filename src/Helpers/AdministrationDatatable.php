@@ -17,6 +17,7 @@ class AdministrationDatatable {
     private $filteredColumns = [];
     private $smart = true;
     private $order;
+    private $page;
 
     public function __construct($datatable) {
         $this->datatable = $datatable;
@@ -70,11 +71,19 @@ class AdministrationDatatable {
         $table = $this->datatable->getHtmlBuilder()->columns($this->columns)->parameters($this->parameters);
         $model = get_class($this->query->getModel());
 
+        if (!empty($this->page)) {
+            View::share('page', $this->page);
+        }
+
         View::share('table', $table);
         View::share('model', $model);
 
 
         return view('administration::pages.empty-page')->render();
+    }
+
+    public function setPage($page) {
+        $this->page = $page;
     }
 
     public function columns($columns) {

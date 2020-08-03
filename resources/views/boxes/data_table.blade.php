@@ -9,19 +9,24 @@
     {!! $table->scripts() !!}
 
     <script type="text/javascript">
-        $(document).ready(function(){
+        $(document).ready(function () {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
             var table = $('#dataTableBuilder').DataTable();
-            table.on( 'row-reorder', function ( e, diff, edit ) {
+            table.on('init.dt', function () {
+                @if (!empty($page))
+                    table.page({{$page - 1}}).draw(false);
+                @endif
+            });
+            table.on('row-reorder', function (e, diff, edit) {
                 var positions = [];
-                for ( var i=0, ien=diff.length ; i<ien ; i++ ) {
-                    var rowData = table.row( diff[i].node ).data();
+                for (var i = 0, ien = diff.length; i < ien; i++) {
+                    var rowData = table.row(diff[i].node).data();
                     positions[rowData.id] = {
-                        id:rowData.id,
+                        id: rowData.id,
                         old_position: diff[i].oldPosition,
                         new_position: diff[i].newPosition
 
@@ -34,16 +39,15 @@
                 // });
 
                 $.ajax({
-                    url     : '{{ \Charlotte\Administration\Helpers\Administration::route('quick_reorder') }}',
-                    type    : 'POST',
-                    data    : {
-                        position_ids : positions,
+                    url: '{{ \Charlotte\Administration\Helpers\Administration::route('quick_reorder') }}',
+                    type: 'POST',
+                    data: {
+                        position_ids: positions,
                         class: '{{str_ireplace('\\','\\\\',$model)}}',
 
                     },
                     dataType: 'json',
-                    success : function ( json )
-                    {
+                    success: function (json) {
                         $('#dataTableBuilder').DataTable().ajax.reload(); // now refresh datatable
                         $.each(json, function (key, msg) {
                             // handle json response
