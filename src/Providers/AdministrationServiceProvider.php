@@ -4,7 +4,7 @@ namespace Charlotte\Administration\Providers;
 
 
 use Charlotte\Administration\Commands\MigrateCommand;
-use Charlotte\Administration\Http\Models\Admin;
+use Charlotte\Administration\Models\Admin;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
