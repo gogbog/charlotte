@@ -1,6 +1,6 @@
 <?php
 
-namespace Charlotte\Administration\Http\Models;
+namespace Charlotte\Administration\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
