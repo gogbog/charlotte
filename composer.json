@@ -1,6 +1,7 @@
 {
     "name": "charlotte/administration",
-    "type": "project",
+    "type": "library",
+    "license": "GPL-3.0-only",
     "authors": [
         {
             "name": "gogbog",
